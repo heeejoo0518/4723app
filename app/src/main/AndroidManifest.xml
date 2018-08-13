@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Health_Service"></activity>
+        <activity android:name=".find_hospital"></activity>
+        <activity android:name=".Calendar"></activity>
+        <activity android:name=".Pregnant_Week"></activity>
+
     </application>
+
+
 
 </manifest>
