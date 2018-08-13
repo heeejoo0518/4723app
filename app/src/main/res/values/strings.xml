@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">4723-app</string>
+    <string name="title_activity__calendar">activity_Calendar</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="title_activity_pregnant__week">Pregnant_Week</string>
+    <string name="title_activity_health__service">Health_Service</string>
+    <string name="title_activity_find__hospital">Find_Hospital</string>
 </resources>

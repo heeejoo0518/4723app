@@ -1,4 +1,14 @@
 package com.example.koh.a4723_app;
 
-public class Calendar {
+import android.os.Bundle;
+import android.app.Activity;
+
+public class Calendar extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_calendar);
+    }
+
 }
