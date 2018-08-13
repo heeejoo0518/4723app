@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Calendar">
 
+    <CalendarView
+        android:id="@+id/simpleCalendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:firstDayOfWeek="2" />
 </android.support.constraint.ConstraintLayout>
