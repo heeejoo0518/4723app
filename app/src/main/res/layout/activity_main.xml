@@ -6,13 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Pregnant_Week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pregnant_Week" />
+
+        <Button
+            android:id="@+id/Health_Service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health_Service" />
+
+
+        <Button
+            android:id="@+id/find_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="find_hospital" />
+
+        <Button
+            android:id="@+id/Calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calendar" />
+
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
