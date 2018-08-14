@@ -30,7 +30,7 @@ public class Calendar extends Activity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 // display the selected date by using a toast
-                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), year + "년 "+ month +"월 " + dayOfMonth + "일", Toast.LENGTH_LONG).show();
             }
         });
 
