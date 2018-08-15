@@ -19,17 +19,25 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <Button
+       <!--<Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="mypage" />
+            android:text="mypage" /> -->
+
     </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/my_weeks"
+            android:hint="나의 주수"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"

@@ -5,8 +5,13 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
 
 
-    Button Pregnant_Week = (Button) findViewById(R.id.Pregnant_Week);
-    Button Health_Service = (Button) findViewById(R.id.Health_Service);
-    Button Find_Hospital = (Button) findViewById(R.id.Find_Hospital);
+        Button Pregnant_Week = (Button) findViewById(R.id.Pregnant_Week);
+        Button Health_Service = (Button) findViewById(R.id.Health_Service);
+        Button Find_Hospital = (Button) findViewById(R.id.Find_Hospital);
+        Button Calendar = (Button) findViewById(R.id.Calendar);
 
-    Button Calendar = (Button) findViewById(R.id.Calendar);
-
+        Intent intent = getIntent();
+        String weeks = intent.getStringExtra("weeks");
+        TextView my_weeks = (TextView) findViewById(R.id.my_weeks); // my_page 정보 보여주기
+        my_weeks.setText(weeks);
 
         Pregnant_Week.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -65,4 +73,24 @@ public class MainActivity extends AppCompatActivity {
     });
 
 }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //return super.onCreateOptionsMenu(menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.My_Page:
+                Intent intent = new Intent(MainActivity.this,My_Page.class);
+                startActivity(intent);
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

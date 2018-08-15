@@ -33,7 +33,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Find_Hospital"
-            android:label="@string/title_activity_find__hospital"></activity>
+            android:label="@string/title_activity_find__hospital" />
+        <activity android:name=".My_Page"></activity>
     </application>
 
 </manifest>
