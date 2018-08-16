@@ -16,8 +16,9 @@ import java.util.ArrayList;
 
 public class Calendar extends AppCompatActivity {
     CalendarView simpleCalendarView;
-    SingerAdapter adapter;
+    ScheduleAdapter adapter;
     EditText editText;
+    public int adapterTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,18 @@ public class Calendar extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 // display the selected date by using a toast
-                Toast.makeText(getApplicationContext(), year + "년 "+ month +"월 " + dayOfMonth + "일", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), year + "년 "+ month +"월 " + dayOfMonth + "일", Toast.LENGTH_LONG).show();
+
+                //태그 생성/////////////////////
+                String year_st,month_st,day_st;
+                int year__int = year-2000; //2000년부터 정상작동,,
+                if(year__int<10) year_st='0'+Integer.toString(year__int); else year_st=Integer.toString(year__int);
+                if(month<10) month_st='0'+Integer.toString(month); else month_st=Integer.toString(month);
+                if(dayOfMonth<10) day_st='0'+Integer.toString(dayOfMonth); else day_st=Integer.toString(dayOfMonth);
+                adapterTag=Integer.parseInt(year_st+month_st+day_st);
+
+                Toast.makeText(getApplicationContext(),year_st+month_st+day_st,Toast.LENGTH_SHORT).show(); //tag 확인용 toast
+                ////////////////////////////////////
             }
         });
 
@@ -39,7 +51,7 @@ public class Calendar extends AppCompatActivity {
         //ListView
         ListView listView = (ListView) findViewById(R.id.listview);
         // 어댑터 클래스 구성 끝낸 후, 리스트뷰에 어댑터 객체를 만든 후 설정 필요
-        adapter = new SingerAdapter();
+        adapter = new ScheduleAdapter();
 
         //데이터추가
         adapter.addItem(new SingleSchedule("스케줄1"));
@@ -48,11 +60,12 @@ public class Calendar extends AppCompatActivity {
         adapter.addItem(new SingleSchedule("스케줄4"));
         listView.setAdapter(adapter);
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SingleSchedule item = (SingleSchedule) adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),"선택 :"+item.getSche(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"선택 :"+item.getSche(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -62,6 +75,7 @@ public class Calendar extends AppCompatActivity {
             public void onClick(View v) {
                 String sche = editText.getText().toString();
                 adapter.addItem(new SingleSchedule(sche));
+                editText.setText("");//EditText 내용 삭제
                 adapter.notifyDataSetChanged(); // 이 메소드를 호출하면 어댑터 쪽에서 리스트뷰를 갱신하라 함.
             }
         });
@@ -69,7 +83,7 @@ public class Calendar extends AppCompatActivity {
     }
 
 
-    class SingerAdapter extends BaseAdapter {
+    class ScheduleAdapter extends BaseAdapter {
 
         ArrayList<SingleSchedule> items = new ArrayList<>();
 
