@@ -5,10 +5,11 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical">
+
     <TextView
-        android:id="@+id/schedule"
+        android:id="@+id/schedule_"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"/>
+        android:layout_height="60dp"
+        android:gravity="center" />
 
 </LinearLayout>
