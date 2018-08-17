@@ -22,7 +22,8 @@
         <activity android:name=".find_hospital" />
         <activity
             android:name=".Calendar"
-            android:label="@string/title_activity_calendar" />
+            android:label="@string/title_activity_calendar"
+            android:windowSoftInputMode="adjustPan" /> <!--키패드가 화면을 가리지 않도록 함-->
         <activity
             android:name=".Pregnant_Week"
             android:label="@string/title_activity_pregnant__week" />
@@ -35,6 +36,7 @@
             android:name=".Find_Hospital"
             android:label="@string/title_activity_find__hospital" />
         <activity android:name=".My_Page"></activity>
+
     </application>
 
 </manifest>
