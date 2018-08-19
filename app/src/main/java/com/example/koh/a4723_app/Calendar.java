@@ -2,25 +2,19 @@ package com.example.koh.a4723_app;
 
 import android.database.*;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.*;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 
 public class Calendar extends AppCompatActivity {
@@ -40,6 +34,13 @@ public class Calendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        //툴바 설정=================================
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("WHITE")); //제목의 칼라
+        //toolbar.setTitle("Calendar");
+        setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
+        //==========================================
 
 
         SimpleDateFormat format = new SimpleDateFormat("yyMMdd");

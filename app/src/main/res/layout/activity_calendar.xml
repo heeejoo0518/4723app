@@ -5,11 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Calendar">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <ImageButton
+            android:id="@+id/smile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_smile_states"/>
+        <ImageButton
+            android:id="@+id/plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:layout_toRightOf="@id/smile"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_plus_states"/>
+    </android.support.v7.widget.Toolbar>
     <CalendarView
-         android:id="@+id/simpleCalendarView"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_centerHorizontal="true" />
+        android:id="@+id/simpleCalendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="310dp"
+        android:layout_below="@id/my_toolbar"
+        android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:id="@+id/plusSchedule"

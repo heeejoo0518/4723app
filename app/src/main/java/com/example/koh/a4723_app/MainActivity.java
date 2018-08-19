@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Button Health_Service = (Button) findViewById(R.id.Health_Service);
         Button Find_Hospital = (Button) findViewById(R.id.Find_Hospital);
         Button Calendar = (Button) findViewById(R.id.Calendar);
+        Button TEST = (Button) findViewById(R.id.testbutton);//테스트버튼
 
         String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
 
@@ -109,6 +110,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     });
+        //테스트버튼-===========================
+        TEST.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,TEST.class);
+                startActivity(intent);
+            }
+        });
+        //==========================================
 
 }
     public boolean onCreateOptionsMenu(Menu menu) {
