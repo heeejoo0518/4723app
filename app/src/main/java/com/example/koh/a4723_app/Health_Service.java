@@ -22,6 +22,11 @@ public class Health_Service extends Activity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
+               int city = position;
+               /* switch (city){
+                    case 1:
+                        tv.setText("선택한 지역은 " +parent.getItemAtPosition(position)+" 입니다");
+                }*/
                 tv.setText("선택한 지역은 " +parent.getItemAtPosition(position)+" 입니다");
 
             }

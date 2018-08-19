@@ -26,7 +26,6 @@
                 android:textSize="12pt"
                 android:hint="마지막 생리 일자 입력" />
 
-
         </LinearLayout>
 
         <LinearLayout
@@ -59,5 +58,6 @@
                 android:layout_height="wrap_content"
                 android:text="저장" />
         </LinearLayout>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

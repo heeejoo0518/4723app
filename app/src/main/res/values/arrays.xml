@@ -20,6 +20,7 @@
         <item>12월</item>
     </string-array>
 
+
     <string-array name="day">
         <item>1일</item>
         <item>2일</item>
@@ -52,9 +53,27 @@
         <item>29일</item>
         <item>30일</item>
         <item>31일</item>
-
-
-
     </string-array>
 
+    <string-array name="city">
+        <item>양양군보건소</item>
+        <item>정선군보건소</item>
+        <item>삼척시보건소</item>
+        <item>평창군보건의료원</item>
+        <item>영월군보건소</item>
+        <item>강원도 고성군보건소</item>
+        <item>춘천시남면보건지소</item>
+        <item>주문진보건출장소</item>
+        <item>강릉시보건소</item>
+        <item>인제군보건소</item>
+        <item>태백시보건소</item>
+        <item>양구군보건소</item>
+        <item>원주시보건소</item>
+        <item>춘천시보건소</item>
+        <item>속초시보건소</item>
+        <item>홍천군보건소</item>
+        <item>동해시보건소</item>
+        <item>횡성군보건소</item>
+        <item>철원군보건소</item>
+    </string-array>
 </resources>
