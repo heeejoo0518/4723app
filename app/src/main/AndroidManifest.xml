@@ -44,7 +44,10 @@
         <activity
             android:name=".Find_Hospital"
             android:label="@string/title_activity_find__hospital" />
-        <activity android:name=".My_Page"></activity>
+        <activity android:name=".My_Page">
+        </activity>
+        <activity android:name=".TEST"
+            android:label="TEST"/>
 
     </application>
 

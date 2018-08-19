@@ -26,6 +26,15 @@
             android:text="mypage" /> -->
 
     </android.support.v7.widget.Toolbar>
+
+    <!--테스트버튼-->
+    <Button
+        android:id="@+id/testbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_toolbar"
+        android:text="test"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
