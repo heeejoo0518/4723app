@@ -52,9 +52,17 @@
         <item>29일</item>
         <item>30일</item>
         <item>31일</item>
-
-
-
     </string-array>
+
+    <string-array name="city">
+        <item >서울</item>
+        <item >경기</item>
+        <item >부천</item>
+        <item >수원</item>
+        <item >파주</item>
+        <item >부산</item>
+        <item >대전</item>
+    </string-array>
+    
 
 </resources>
