@@ -10,12 +10,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Logger;
+
 public class My_Page extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my__page);
+
 
         final Spinner spinner1 = (Spinner)findViewById(R.id.mySpinner1);
         ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,R.array.year, android.R.layout.simple_spinner_item);
@@ -32,18 +40,33 @@ public class My_Page extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
 
+        Button btn = (Button) findViewById(R.id.save_data);
 
-        Button btn = (Button) findViewById(R.id.weeks_btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String myDate_year = (String) spinner1.getSelectedItem();
+                String myDate_month = (String) spinner2.getSelectedItem();
+                String myDate_day = (String) spinner3.getSelectedItem();
 
-                 Toast.makeText(My_Page.this,
-                        spinner1.getSelectedItem() + " " + spinner2.getSelectedItem() + " " + spinner3.getSelectedItem() + " 을 선택하셨습니다.",
-                        Toast.LENGTH_SHORT).show();
+                if(myDate_month.length() == 1){ //월,일이 한자리수일때 0을 덧붙임
+                    myDate_month = "0"+myDate_month;
+                }
+                if(myDate_day.length() == 1){
+                    myDate_day = "0"+myDate_day;
+                }
 
+                String myDate = myDate_year + myDate_month + myDate_day;
+
+                Intent intent = new Intent();
+                intent.putExtra("날짜", myDate) ; //MainActivity로 값을 넘김
+                setResult(RESULT_OK, intent) ;
+                Toast.makeText(getApplicationContext() , "저장 완료", Toast.LENGTH_SHORT).show();
+
+                ((MainActivity)(MainActivity.mContext)).onResume(); //MainActivity 새로고침
             }
         });
+
 
     }
 }
