@@ -40,9 +40,11 @@ public class My_Page extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
 
-        Button btn = (Button) findViewById(R.id.save_data);
+        Button save_data = (Button) findViewById(R.id.save_data);
+        Button save_name = (Button) findViewById(R.id.save_name);
+        final EditText name_text = (EditText) findViewById(R.id.baby_name);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        save_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String myDate_year = (String) spinner1.getSelectedItem();
@@ -67,6 +69,17 @@ public class My_Page extends AppCompatActivity {
             }
         });
 
+        save_name.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
+                String baby_name = name_text.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra("아기이름",baby_name);
+                setResult(1,intent);
+
+                Toast.makeText(getApplicationContext() , baby_name+ " 저장 완료", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
