@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class Schedule_View extends LinearLayout{
     TextView schedule;
 
-
     public Schedule_View(Context context) {
         super(context);
         init(context);
@@ -28,7 +27,6 @@ public class Schedule_View extends LinearLayout{
 
         schedule = (TextView)findViewById(R.id.schedule_);
         schedule.setTextColor(Color.BLACK);
-
     }
 
     public void setSchedule(String sche){
