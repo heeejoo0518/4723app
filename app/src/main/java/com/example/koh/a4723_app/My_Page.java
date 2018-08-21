@@ -41,7 +41,6 @@ public class My_Page extends AppCompatActivity {
         spinner3.setAdapter(adapter3);
 
         Button save_data = (Button) findViewById(R.id.save_data);
-        Button save_name = (Button) findViewById(R.id.save_name);
         final EditText name_text = (EditText) findViewById(R.id.baby_name);
 
         save_data.setOnClickListener(new View.OnClickListener() {
@@ -59,23 +58,13 @@ public class My_Page extends AppCompatActivity {
                 }
 
                 String myDate = myDate_year + myDate_month + myDate_day;
+                String baby_name = name_text.getText().toString();
 
                 Intent intent = new Intent();
                 intent.putExtra("날짜", myDate) ; //MainActivity로 값을 넘김
-                setResult(RESULT_OK, intent) ;
-                Toast.makeText(getApplicationContext() , "저장 완료", Toast.LENGTH_SHORT).show();
-
-                ((MainActivity)(MainActivity.mContext)).onResume(); //MainActivity 새로고침
-            }
-        });
-
-        save_name.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                String baby_name = name_text.getText().toString();
-                Intent intent = new Intent();
                 intent.putExtra("아기이름",baby_name);
-                setResult(1,intent);
+                setResult(RESULT_OK, intent) ;
+                ((MainActivity)(MainActivity.mContext)).onResume();
 
                 Toast.makeText(getApplicationContext() , baby_name+ " 저장 완료", Toast.LENGTH_SHORT).show();
 
