@@ -62,11 +62,7 @@ public class Fragment_Status extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = (String) adapter.getItem(position);
-                //db.execSQL("DELETE FROM Table_status WHERE date = " + date + ";"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
-               // Cursor c = db.rawQuery("SELECT * FROM " + tableName, null);
-                //if(c.getString(c.getColumnIndex("date"))==date){
-                    db.execSQL("DELETE FROM Table_status WHERE date = '" + date + "';"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
-                //}
+                db.execSQL("DELETE FROM Table_status WHERE date = '" + date + "';"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
                 db.execSQL("INSERT INTO " + tableName + "(date, status) Values ('" + date + "', '" + item + "');");
                 //update(); //테스트용
             }
@@ -82,10 +78,6 @@ public class Fragment_Status extends Fragment {
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
-                    //if(c.getString(c.getColumnIndex("date"))==date){
-                        //db.execSQL("DELETE FROM Table_status WHERE date = " + date + ";"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
-                      //  f++;
-                    //}
                     String test1 = c.getString(c.getColumnIndex("date"));
                     String test2 = c.getString(c.getColumnIndex("status"));
                     test=test2;testtest = test1;
