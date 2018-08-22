@@ -45,43 +45,10 @@
         android:layout_centerHorizontal="true" />
 
     <!--프래그먼트-->
-    <!--<include layout="@layout/fragment_schedule"/>-->
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/simpleCalendarView"/>
-
-    <!--스케줄관리-->
-    <!--
-    <LinearLayout
-        android:id="@+id/plusSchedule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/simpleCalendarView"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="일정추가"/>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Add"/>
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/plusSchedule">
-    </ListView>
-    -->
 
 </RelativeLayout>

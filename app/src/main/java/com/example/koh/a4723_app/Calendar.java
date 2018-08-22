@@ -30,18 +30,12 @@ public class Calendar extends AppCompatActivity {
         db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
 
         fragment1.setDB(db);
+        fragment2.setDB(db);
 
-        //LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //View inflate = inflater.inflate(R.layout.list_item,null);
-        //fragment1.listView = inflate.findViewById(R.id.listview);
-
-        //getFragmentManager().findFragmentById(R.id.listview);///////
-        //ListView listView = (ListView)getFragmentManager().findFragmentById(R.id.listview);
-        //fragment1.setListView(listView);
         //툴바 설정=================================
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setTitleTextColor(Color.parseColor("WHITE")); //제목의 칼라
-        //toolbar.setTitle("Calendar");
+        toolbar.setTitle("Calendar");
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
         //==========================================
 
@@ -49,7 +43,11 @@ public class Calendar extends AppCompatActivity {
         tableName = format.format(new Date(System.currentTimeMillis()));
         tableName = "a" + tableName;
         fragment1.setTableName(tableName);
+        fragment2.setDate(tableName);
+
         simpleCalendarView = (CalendarView) findViewById(R.id.simpleCalendarView); // get the reference of CalendarView
+
+        getSupportFragmentManager().beginTransaction().add(R.id.container,fragment1).commit(); //fragment_schedule:기본상태
 
         //이미지버튼 클릭--- 프래그먼트 전환
         ImageButton plus = (ImageButton) findViewById(R.id.plus);
@@ -90,6 +88,8 @@ public class Calendar extends AppCompatActivity {
                 tableName = "a" + tableName;
 
                 fragment1.setTableName(tableName);
+                fragment2.setDate(tableName);
+
                 if(fragment1.listView!=null){
                     fragment1.adapter = new ScheduleAdapter();
                     fragment1.db.execSQL("CREATE TABLE IF NOT EXISTS " + fragment1.tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
@@ -100,13 +100,5 @@ public class Calendar extends AppCompatActivity {
             }
         });
 
-
-
-        //Table 생성
-        //db.createTable(tableName);
-        //db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
-        // adapter.DB_add();
-
-        //listView.setAdapter(adapter);
     }
 }

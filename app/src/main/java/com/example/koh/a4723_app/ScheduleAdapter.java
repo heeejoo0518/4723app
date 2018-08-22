@@ -50,8 +50,6 @@ public class ScheduleAdapter extends BaseAdapter {
 
         // convertView : 이전에 썼던 itemview
         if (convertView == null){   // convertView이 null값인 경우에만 view를 새로 만듬
-            //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            //convertView = inflater.inflate(R.layout.list_item, parent, false);
             scheview = new Schedule_View(context); // 어떤 뷰든 안드로이드는 context객체를 받음*
         }else{
             scheview = (Schedule_View)convertView; // 있다면 캐스팅만해서 다시 보여줌
