@@ -9,10 +9,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="71dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
 
+            <TextView
+                android:id="@+id/baby_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 아이의 이름"
+                android:textSize="12pt" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/baby_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/baby_name"
+                android:hint="이름을 입력하세요" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -23,14 +42,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:textSize="12pt"
-                android:hint="마지막 생리 일자 입력" />
+                android:hint="마지막 생리 일자 입력"
+                android:textSize="12pt" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="65dp"
             android:layout_centerInParent="true"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="0dp"
@@ -57,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="저장" />
+
         </LinearLayout>
 
     </LinearLayout>

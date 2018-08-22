@@ -44,40 +44,38 @@ public class MainActivity extends AppCompatActivity {
         Button Calendar = (Button) findViewById(R.id.Calendar);
         Button TEST = (Button) findViewById(R.id.testbutton);//테스트버튼
 
-        final TextView text1 = (TextView) findViewById(R.id.text1);
-
-        String my_date = getPreferences(); // 사용자가 저장한 마지막 생리 날짜 불러오기
+        String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
 
         long now = System.currentTimeMillis();
-        String strFormat = "yyyyMMdd";
-        SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Date date = new Date(now);
         String nowDate = sdf.format(date); // 현재 시간 구하고 yyyyMMdd 형식으로 변환
 
-        if (my_date.length() != 0 ){
-            Date startDate = null;
+        if (my_date.length() != 0 ) {
+            Date startDate = new Date();
             try {
                 startDate = sdf.parse(nowDate);
             } catch (ParseException e) {
                 e.printStackTrace();
-            } //지금 날짜 형식 변환
 
-            Date endDate = null;
+            }
+            Date endDate = new Date();
             try {
                 endDate = sdf.parse(my_date);
             } catch (ParseException e) {
                 e.printStackTrace();
-            } //사용자가 저장한 날짜 불러온거 형식 변환
-
-            //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
-            long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
-            if (diffDay < 0) {
-                diffDay = 0;
             }
+                //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
+                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
+                final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
+                TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
+                my_weeks.setText(tmp);
+        }
+        String baby_name = getPreferences("아기이름");
 
-           final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
-            TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
-            my_weeks.setText(tmp);
+        if(baby_name.length()!=0){
+            TextView text1 = (TextView) findViewById(R.id.text1);
+            text1.setText("오늘 나의 " + baby_name +"는");
 
         }
 
@@ -149,46 +147,48 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQ_ADD_CONTACT) {
             if (resultCode == RESULT_OK) {
                 String data = intent.getStringExtra("날짜"); //마이 페이지로부터 날짜를 받음
+                savePreferences("날짜",data);  //받은 날짜를 앱에 저장
 
-                    savePreferences(data);  //받은 날짜를 앱에 저장
-
+               String baby_name = intent.getStringExtra("아기이름");
+                savePreferences("아기이름",baby_name);
             }
         }
     }
 
-    private void savePreferences(String str){ //데이터 저장 함수
+    private void savePreferences(String code , String str){ //데이터 저장 함수
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putString("날짜", str);
+        editor.putString(code, str);
         editor.commit();
     }
 
-    private String getPreferences(){ //데이터 불러오는 함수
+    private String getPreferences(String code){ //데이터 불러오는 함수
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-        String temp = pref.getString("날짜", "");
+        String temp = pref.getString(code , "");
         return temp;
-    }
+
+}
 
     public void onResume() {
-
         super.onResume();
-        String my_date = getPreferences(); // 사용자가 저장한 마지막 생리 날짜 불러오기
+        String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
         TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
+
         long now = System.currentTimeMillis();
         String strFormat = "yyyyMMdd";
         SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
         Date date = new Date(now);
         String nowDate = sdf.format(date); // 현재 시간 구하고 yyyyMMdd 형식으로 변환
 
-        if (my_date.length() != 0) {
-            Date startDate = null;
+       if (my_date.length() != 0) {
+            Date startDate = new Date();
             try {
                 startDate = sdf.parse(nowDate);
             } catch (ParseException e) {
                 e.printStackTrace();
             } //지금 날짜 형식 변환
 
-            Date endDate = null;
+            Date endDate = new Date();
             try {
                 endDate = sdf.parse(my_date);
             } catch (ParseException e) {
@@ -203,6 +203,18 @@ public class MainActivity extends AppCompatActivity {
 
             String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
             my_weeks.setText(tmp);
+        }
+
+         String baby_name = getPreferences("아기이름");
+
+        TextView text1 = (TextView) findViewById(R.id.text1);
+        if(baby_name.length()!=0){
+
+            text1.setText("오늘 나의 " + baby_name +"는");
+
+        }
+        if(baby_name.length()==0){
+            text1.setText("오늘 나의 아이는");
         }
     }
 }

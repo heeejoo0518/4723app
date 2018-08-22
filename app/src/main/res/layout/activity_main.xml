@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12pt"
-            android:text="현재 나의 아이는"
+            android:text="오늘 나의 아이는"
             android:id="@+id/text1"
             />
         <TextView
