@@ -37,18 +37,28 @@
             android:src="@drawable/ic_plus_states"/>
     </android.support.v7.widget.Toolbar>
 
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_below="@id/my_toolbar"
+        android:layout_centerHorizontal="true"
+        app:mcv_selectionColor="#a9dbf0cb"
+        app:mcv_showOtherDates="defaults"/>
+    <!--
     <CalendarView
         android:id="@+id/simpleCalendarView"
         android:layout_width="wrap_content"
         android:layout_height="310dp"
         android:layout_below="@id/my_toolbar"
         android:layout_centerHorizontal="true" />
-
+    -->
     <!--프래그먼트-->
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/simpleCalendarView"/>
+        android:layout_below="@+id/calendarView"/>
 
 </RelativeLayout>

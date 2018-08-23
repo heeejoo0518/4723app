@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
+import java.util.ArrayList;
 
 
 public class Fragment_Status extends Fragment {
@@ -64,27 +67,26 @@ public class Fragment_Status extends Fragment {
                 String item = (String) adapter.getItem(position);
                 db.execSQL("DELETE FROM Table_status WHERE date = '" + date + "';"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
                 db.execSQL("INSERT INTO " + tableName + "(date, status) Values ('" + date + "', '" + item + "');");
-                //update(); //테스트용
+                ((Calendar)getActivity()).clickStatus();// 상태 클릭 시 activity로 업데이트를 알려줌
             }
         });
 
-        //update(); //테스트용
     }
 
-    /* 테스트용 함수 update()
-    public void update(){
-        String test;String testtest; int f=0;
+    //현재 상태 업뎃용 arraylist 반환
+    public ArrayList<String> update(){
+        ArrayList<String> update = new ArrayList<>(); int i=0;
         Cursor c = db.rawQuery("SELECT * FROM " + tableName, null);
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
                     String test1 = c.getString(c.getColumnIndex("date"));
-                    String test2 = c.getString(c.getColumnIndex("status"));
-                    test=test2;testtest = test1;
+                    update.add(test1);
                 } while (c.moveToNext());
             }
         }
+        return update;
     }
-    */
+
 
 }
