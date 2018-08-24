@@ -56,6 +56,14 @@
             android:id="@+id/my_weeks"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="9pt"
+            android:hint="출산 예정일은"
+            android:id="@+id/delivery_day"
+            />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

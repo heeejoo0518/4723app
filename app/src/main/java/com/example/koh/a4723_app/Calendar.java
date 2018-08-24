@@ -25,6 +25,7 @@ import java.util.concurrent.Executors;
 
 
 public class Calendar extends AppCompatActivity {
+
     MaterialCalendarView materialCalendarView;
     String tableName;
     final String dbName = "Calendar_DB";
