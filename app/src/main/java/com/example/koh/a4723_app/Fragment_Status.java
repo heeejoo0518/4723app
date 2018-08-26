@@ -63,7 +63,7 @@ public class Fragment_Status extends Fragment {
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //아이템 클릭 리스너
                 String item = (String) adapter.getItem(position);
                 db.execSQL("DELETE FROM Table_status WHERE date = '" + date + "';"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
                 db.execSQL("INSERT INTO " + tableName + "(date, status) Values ('" + date + "', '" + item + "');");
@@ -80,8 +80,8 @@ public class Fragment_Status extends Fragment {
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
-                    String test1 = c.getString(c.getColumnIndex("date"));
-                    update.add(test1);
+                    String date = c.getString(c.getColumnIndex("date"));
+                    update.add(date);
                 } while (c.moveToNext());
             }
         }

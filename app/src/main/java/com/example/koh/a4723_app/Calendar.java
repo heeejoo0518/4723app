@@ -134,11 +134,11 @@ public class Calendar extends AppCompatActivity {
 
     private class ApiSimulator extends AsyncTask<Void, Void, List<CalendarDay>> {
 
-        String[] Time_Result;
+        String[] Updates;
 
-        ApiSimulator(ArrayList<String> Time_Result){
-            this.Time_Result = new String[Time_Result.size()];
-            this.Time_Result = Time_Result.toArray(this.Time_Result);
+        ApiSimulator(ArrayList<String> Updates){
+            this.Updates = new String[Updates.size()];
+            this.Updates = Updates.toArray(this.Updates);
             //this.Time_Result = Time_Result;
         }
 
@@ -154,15 +154,16 @@ public class Calendar extends AppCompatActivity {
             ArrayList<CalendarDay> dates = new ArrayList<>();
 
             /*특정날짜 달력에 점표시해주는곳*/
-            for(int i = 0 ; i < Time_Result.length ; i ++){
-                String[] time = Time_Result[i].split("/");
-                int year = Integer.parseInt(time[0]);
-                int month = Integer.parseInt(time[1]);
-                int day = Integer.parseInt(time[2]);
+            for(int i = 0 ; i < Updates.length ; i ++){
+                String[] update = Updates[i].split("/");
+                int year = Integer.parseInt(update[0]);
+                int month = Integer.parseInt(update[1]);
+                int day = Integer.parseInt(update[2]);
 
                 calendar.set(year,month,day); //month = 0 -> 1월
                 CalendarDay c_day = CalendarDay.from(calendar);
                 dates.add(c_day);
+
             }
             return dates;
         }
@@ -173,7 +174,7 @@ public class Calendar extends AppCompatActivity {
             if (isFinishing()) {
                 return;
             }
-            materialCalendarView.addDecorator(new Calendar_EventDecorator(Color.RED, calendarDays,Calendar.this));
+            materialCalendarView.addDecorator(new Calendar_EventDecorator(Color.rgb(255,187,0), calendarDays,Calendar.this));//yellow
         }
     }
 }
