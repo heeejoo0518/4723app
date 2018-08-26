@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.security.Timestamp;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -70,7 +73,20 @@ public class MainActivity extends AppCompatActivity {
                 final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
                 TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
                 my_weeks.setText(tmp);
+
+                long test1 = endDate.getTime()/1000;
+                long test2 = 280 * 24*  60 * 60 ;
+                long test3 = test1 + test2;
+                String test4 = Long.toString(test3);
+
+                Date date3 = new Date(test3);
+                Format format = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
+
+           // Toast.makeText(getApplicationContext() , test3+ " 저장 완료", Toast.LENGTH_SHORT).show();
+
         }
+
+
         String baby_name = getPreferences("아기이름");
 
         if(baby_name.length()!=0){
@@ -78,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
             text1.setText("오늘 나의 " + baby_name +"는");
 
         }
+
+
 
         Pregnant_Week.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -173,12 +191,14 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
         TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
+        TextView delivery_day = (TextView) findViewById(R.id.delivery_day);
 
         long now = System.currentTimeMillis();
         String strFormat = "yyyyMMdd";
         SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
         Date date = new Date(now);
         String nowDate = sdf.format(date); // 현재 시간 구하고 yyyyMMdd 형식으로 변환
+
 
        if (my_date.length() != 0) {
             Date startDate = new Date();
@@ -195,19 +215,47 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             } //사용자가 저장한 날짜 불러온거 형식 변환
 
-            //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
+
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
+
             if (diffDay < 0) {
                 diffDay = 0;
             }
 
             String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
             my_weeks.setText(tmp);
-        }
 
-         String baby_name = getPreferences("아기이름");
+           //Toast.makeText(getApplicationContext() , " 저장 완료", Toast.LENGTH_SHORT).show();
+
+           long test1 = endDate.getTime()/1000;
+           long test2 = 279*24*60*60;
+
+           String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date((test1+test2)*1000L));
+
+           if(timeStamp.length()!=0){
+
+               String year = timeStamp.substring(0,4);
+               String month = null;
+
+               if(timeStamp.substring(4,5).equals("1")){
+                   month = timeStamp.substring(4,6);
+                   //Toast.makeText(getApplicationContext() , " ㅋ", Toast.LENGTH_SHORT).show();
+               }
+               else{
+                   month = timeStamp.substring(5,6);
+               }
+               String day = timeStamp.substring(6,8);
+               delivery_day.setText("출산 예정일은 "+year + "년"+month+"월"+day+"일");
+
+           }
+
+       }
+
+        String baby_name = getPreferences("아기이름");
 
         TextView text1 = (TextView) findViewById(R.id.text1);
+
+
         if(baby_name.length()!=0){
 
             text1.setText("오늘 나의 " + baby_name +"는");
@@ -216,5 +264,15 @@ public class MainActivity extends AppCompatActivity {
         if(baby_name.length()==0){
             text1.setText("오늘 나의 아이는");
         }
+
+
+
+
     }
+
+
+
+
+
+
 }
