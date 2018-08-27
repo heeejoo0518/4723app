@@ -75,7 +75,7 @@ public class Fragment_Status extends Fragment {
 
     //현재 상태 업뎃용 arraylist 반환
     public ArrayList<String> update(){
-        ArrayList<String> update = new ArrayList<>(); int i=0;
+        ArrayList<String> update = new ArrayList<>();
         Cursor c = db.rawQuery("SELECT * FROM " + tableName, null);
         if (c != null) {
             if (c.moveToFirst()) {
