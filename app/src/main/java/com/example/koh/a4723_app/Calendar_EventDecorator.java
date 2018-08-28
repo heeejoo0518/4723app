@@ -30,6 +30,6 @@ public class Calendar_EventDecorator implements DayViewDecorator {
     @Override
     public void decorate(DayViewFacade view) {
         //view.setSelectionDrawable(drawable);
-        view.addSpan(new DotSpan(5, color));
+        view.addSpan(new DotSpan(10, color));
     }
 }
