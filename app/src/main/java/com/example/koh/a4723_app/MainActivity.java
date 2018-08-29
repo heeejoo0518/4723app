@@ -100,8 +100,18 @@ public class MainActivity extends AppCompatActivity {
         Pregnant_Week.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this,Weight_Graph.class);
-            startActivity(intent);
+
+            String test = getPreferences("날짜");
+            //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT).show();
+
+            if(test.length() ==0) {
+                Toast.makeText(getApplicationContext(), "먼저 아이의 정보를 저장 해주세요", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Intent intent = new Intent(MainActivity.this,Weight_Graph.class);
+                startActivity(intent);
+            }
+
 
 
         }

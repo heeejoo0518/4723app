@@ -45,6 +45,8 @@ public class Weight_Graph extends AppCompatActivity {
         setContentView(R.layout.activity_weight__graph);
 
 
+
+
         Weight_db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
         Weight_db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date INTEGER(20) PRIMARY KEY, weight REAL(20) );");
 
@@ -88,9 +90,11 @@ public class Weight_Graph extends AppCompatActivity {
         }*/
 
         final SQLiteDatabase finalWeight_db = Weight_db;
+
         save_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String myDate_year = (String) spinner1.getSelectedItem();
                 String myDate_month = (String) spinner2.getSelectedItem();
                 String myDate_day = (String) spinner3.getSelectedItem();
@@ -104,23 +108,47 @@ public class Weight_Graph extends AppCompatActivity {
 
                 String date = myDate_year+myDate_month+myDate_day;
 
-                String weight_str = get_weight.getText().toString();
+                String diff_str = getPreferences("날짜");
 
-                if(weight_str.length() > 0){
-                    float weight = Float.parseFloat(weight_str);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
-                    Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
-                    Weight_db.execSQL("INSERT INTO " + tableName + "(date, weight) Values ('" + date + "', '" + weight + "');");
-                    Toast.makeText(getApplicationContext() , "완료", Toast.LENGTH_SHORT).show();
+                Date startDate = new Date();
+                try {
+                    startDate = sdf.parse(date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } //지금 날짜 형식 변환
 
+                Date endDate = new Date();
+                try {
+                    endDate = sdf.parse(diff_str);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } //사용자가 저장한 날짜 불러온거 형식 변환
+
+                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
+
+                if(diffDay >= 0){
+
+                    String weight_str = get_weight.getText().toString();
+
+                    if(weight_str.length() > 0){
+                        float weight = Float.parseFloat(weight_str);
+
+                        Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
+                        Weight_db.execSQL("INSERT INTO " + tableName + "(date, weight) Values ('" + date + "', '" + weight + "');");
+                        Toast.makeText(getApplicationContext() , "완료", Toast.LENGTH_SHORT).show();
+                        draw_graph();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext() , "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
+
+                    }
                 }
                 else{
-                    Toast.makeText(getApplicationContext() , "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext() , "마지막 생리 일자보다 이전입니다", Toast.LENGTH_SHORT).show();
                 }
-                get_weight.setText("");
-                draw_graph();
-
-
             }
         });
 
