@@ -100,8 +100,10 @@ public class MainActivity extends AppCompatActivity {
         Pregnant_Week.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this,Pregnant_Week.class);
+            Intent intent = new Intent(MainActivity.this,Weight_Graph.class);
             startActivity(intent);
+
+
         }
     });
 
