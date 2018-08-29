@@ -4,13 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TEST" >
 
     <fragment
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
         class="com.google.android.gms.maps.MapFragment" />
+
+  <ListView
+        android:id="@+id/distance_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3" />
+
 
 </LinearLayout>
 

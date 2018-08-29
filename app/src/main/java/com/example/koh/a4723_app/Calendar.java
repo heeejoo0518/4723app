@@ -32,6 +32,7 @@ public class Calendar extends AppCompatActivity {
     SQLiteDatabase db=null;
     private final Calendar_OnedayDecorator oneDayDecorator = new Calendar_OnedayDecorator();
 
+    Fragment_Oneday fragment0 = new Fragment_Oneday();
     Fragment_Schedule fragment1 = new Fragment_Schedule(); //tableName = "a"+날짜
     Fragment_Status fragment2 = new Fragment_Status(); //tableName = "Table_status"로 고정
 
@@ -41,6 +42,7 @@ public class Calendar extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
         db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
 
+        fragment0.setDB(db);
         fragment1.setDB(db);
         fragment2.setDB(db);
 
@@ -54,9 +56,11 @@ public class Calendar extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("yyMMdd");
         tableName = format.format(new Date(System.currentTimeMillis()));
         tableName = "a" + tableName;
+        fragment0.setTableName(tableName);
         fragment1.setTableName(tableName);
         fragment2.setDate(new SimpleDateFormat("yyyy/MM/dd").format(new Date(System.currentTimeMillis())));
 
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
 
         materialCalendarView = (MaterialCalendarView) findViewById(R.id.calendarView);
         materialCalendarView.state().edit()
@@ -73,7 +77,7 @@ public class Calendar extends AppCompatActivity {
            new ApiSimulator(fragment2.update()).executeOnExecutor(Executors.newSingleThreadExecutor());//저장된 상태 달력에 표시
        }
 
-        getSupportFragmentManager().beginTransaction().add(R.id.container,fragment1).commit(); //fragment_schedule:기본상태
+        getSupportFragmentManager().beginTransaction().add(R.id.container,fragment0).commit(); //fragment_oneday:기본상태
 
         //이미지버튼 클릭--- 프래그먼트 전환
         ImageButton plus = (ImageButton) findViewById(R.id.plus);
@@ -98,14 +102,13 @@ public class Calendar extends AppCompatActivity {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
 
-                int year = date.getYear() - 2000; //2000년부터 정상작동,,
+                int year = date.getYear();
                 int month = date.getMonth();
                 int day = date.getDay();
 
                 //////테이블이름 생성/////////////////////
                 String year_st, month_st, day_st;
-                if (year < 10) year_st = '0' + Integer.toString(year);
-                else year_st = Integer.toString(year);
+                year_st = Integer.toString(year);
                 if (month < 10) month_st = '0' + Integer.toString(month);
                 else month_st = Integer.toString(month);
                 if (day < 10) day_st = '0' + Integer.toString(day);
@@ -113,16 +116,23 @@ public class Calendar extends AppCompatActivity {
                 tableName = year_st + month_st + day_st;
                 tableName = "a" + tableName;
 
-                //프래그먼트에 tableName 넘김
+                //프래그먼트들에 tableName 넘김
+                fragment0.setTableName(tableName);
                 fragment1.setTableName(tableName);
                 fragment2.setDate(Integer.toString(date.getYear())+"/"+month_st+"/"+day_st); //date 칼럼 값
 
-                if (fragment1.listView != null) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
+                fragment0.set(tableName);
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment0).commit(); //날짜 새로 선택할 때마다 fragment_oneday로 교체
+
+                /*
+                if (fragment1.listView != null) { //Fragment_Schedule 한번 생성 된 후 실행
                     fragment1.adapter = new ScheduleAdapter();
                     fragment1.db.execSQL("CREATE TABLE IF NOT EXISTS " + fragment1.tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
                     fragment1.DB_add();
                     fragment1.listView.setAdapter(fragment1.adapter);
                 }
+                */
             }
         });
 
@@ -134,11 +144,11 @@ public class Calendar extends AppCompatActivity {
 
     private class ApiSimulator extends AsyncTask<Void, Void, List<CalendarDay>> {
 
-        String[] Time_Result;
+        String[] Updates;
 
-        ApiSimulator(ArrayList<String> Time_Result){
-            this.Time_Result = new String[Time_Result.size()];
-            this.Time_Result = Time_Result.toArray(this.Time_Result);
+        ApiSimulator(ArrayList<String> Updates){
+            this.Updates = new String[Updates.size()];
+            this.Updates = Updates.toArray(this.Updates);
             //this.Time_Result = Time_Result;
         }
 
@@ -154,15 +164,16 @@ public class Calendar extends AppCompatActivity {
             ArrayList<CalendarDay> dates = new ArrayList<>();
 
             /*특정날짜 달력에 점표시해주는곳*/
-            for(int i = 0 ; i < Time_Result.length ; i ++){
-                String[] time = Time_Result[i].split("/");
-                int year = Integer.parseInt(time[0]);
-                int month = Integer.parseInt(time[1]);
-                int day = Integer.parseInt(time[2]);
+            for(int i = 0 ; i < Updates.length ; i ++){
+                String[] update = Updates[i].split("/");
+                int year = Integer.parseInt(update[0]);
+                int month = Integer.parseInt(update[1]);
+                int day = Integer.parseInt(update[2]);
 
                 calendar.set(year,month,day); //month = 0 -> 1월
                 CalendarDay c_day = CalendarDay.from(calendar);
                 dates.add(c_day);
+
             }
             return dates;
         }
@@ -173,7 +184,7 @@ public class Calendar extends AppCompatActivity {
             if (isFinishing()) {
                 return;
             }
-            materialCalendarView.addDecorator(new Calendar_EventDecorator(Color.RED, calendarDays,Calendar.this));
+            materialCalendarView.addDecorator(new Calendar_EventDecorator(Color.rgb(255,187,0), calendarDays,Calendar.this));//yellow
         }
     }
 }

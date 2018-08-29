@@ -24,6 +24,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -45,6 +48,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 
     public class TEST extends FragmentActivity
             implements OnMapReadyCallback,
@@ -53,6 +60,9 @@ import java.util.Locale;
             LocationListener {
 
 
+
+
+        static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3","LIST4","LIST5" ,"LIST6"} ;
         private GoogleApiClient mGoogleApiClient = null;
         private GoogleMap mGoogleMap = null;
         private Marker currentMarker = null;
@@ -67,7 +77,7 @@ import java.util.Locale;
         private Activity mActivity;
         boolean askPermissionOnceAgain = false;
         boolean mRequestingLocationUpdates = false;
-        Location mCurrentLocatiion;
+        Location mCurrentLocation;
         boolean mMoveMapByUser = true;
         boolean mMoveMapByAPI = true;
         LatLng currentPosition;
@@ -102,6 +112,11 @@ import java.util.Locale;
             MapFragment mapFragment = (MapFragment) getFragmentManager()
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
+
+            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
+            ListView listview = (ListView) findViewById(R.id.distance_listview) ;
+            listview.setAdapter(adapter) ;
+
         }
 
 
@@ -177,6 +192,7 @@ import java.util.Locale;
             marker .position(new LatLng(37.555744, 126.970431))
                     .title("서울역")
                     .snippet("Seoul Station");
+            marker.getPosition();
             googleMap.addMarker(marker).showInfoWindow(); // 마커추가,화면에출력
 
             MarkerOptions marker1 = new MarkerOptions();
@@ -256,7 +272,7 @@ import java.util.Locale;
             //현재 위치에 마커 생성하고 이동
             setCurrentLocation(location, markerTitle, markerSnippet);
 
-            mCurrentLocatiion = location;
+            mCurrentLocation = location;
         }
 
 
@@ -615,4 +631,35 @@ import java.util.Locale;
             }
         }
 
+
+        public double getDistance(double lat1 , double lng1 , double lat2 , double lng2 ){
+            double distance;
+
+            Location locationA = new Location("point A");
+            locationA.setLatitude(lat1);
+            locationA.setLongitude(lng1);
+
+            Location locationB = new Location("point B");
+            locationB.setLatitude(lat2);
+            locationB.setLongitude(lng2);
+
+            distance = locationA.distanceTo(locationB);
+
+            return distance;
+        }
+
+
     }
+
+    /* googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                // 마커 클릭시 호출되는 콜백 메서드
+                Toast.makeText(getApplicationContext(),
+                        marker.getTitle() + " 클릭했음"
+                        , Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+    }
+*/
