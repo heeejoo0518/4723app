@@ -48,6 +48,10 @@
         </activity>
         <activity android:name=".TEST"
             android:label="TEST"/>
+        <activity
+            android:name=".Weight_Graph"
+            android:label="@string/title_activity_weight_graph"
+            android:theme="@style/AppTheme" />
 
     </application>
 
