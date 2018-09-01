@@ -24,19 +24,22 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+
 
 public class Weight_Graph extends AppCompatActivity {
     private LineChart lineChart;
     final String tableName = "Weight";
     private final String dbName = "Weight_DB";
-    SQLiteDatabase Weight_db=null;
+    SQLiteDatabase Weight_db = null;
 
 
     @Override
@@ -44,11 +47,9 @@ public class Weight_Graph extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight__graph);
 
-
-
-
         Weight_db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
         Weight_db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date INTEGER(20) PRIMARY KEY, weight REAL(20) );");
+        final SQLiteDatabase finalWeight_db = Weight_db;
 
         final Spinner spinner1 = (Spinner)findViewById(R.id.mySpinner1);
         ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,R.array.year, android.R.layout.simple_spinner_item);
@@ -70,43 +71,25 @@ public class Weight_Graph extends AppCompatActivity {
         Button delete_data = (Button)findViewById(R.id.delete_data);
 
 
-       /* String get_spinner1_position = getPreferences("년");
-        String get_spinner2_position = getPreferences("월");
-        String get_spinner3_position = getPreferences("일");
-
-        if(get_spinner1_position.length() != 0){                            //마지막으로 저장된 날짜로 셋팅
-            int position =  Integer.parseInt(get_spinner1_position);
-            spinner1.setSelection(position);
-        }
-
-        if(get_spinner2_position.length() != 0){
-            int position =   Integer.parseInt(get_spinner2_position);
-            spinner2.setSelection(position);
-        }
-
-        if(get_spinner3_position.length() != 0){
-            int position =   Integer.parseInt(get_spinner3_position);
-            spinner3.setSelection(position);
-        }*/
-
-        final SQLiteDatabase finalWeight_db = Weight_db;
+        draw_graph();
 
         save_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
                 String myDate_year = (String) spinner1.getSelectedItem();
                 String myDate_month = (String) spinner2.getSelectedItem();
                 String myDate_day = (String) spinner3.getSelectedItem();
 
-                if(myDate_month.length() == 1){ //월,일이 한자리수일때 0을 덧붙임
-                    myDate_month = "0"+myDate_month;
+                if (myDate_month.length() == 1) { //월,일이 한자리수일때 0을 덧붙임
+                    myDate_month = "0" + myDate_month;
                 }
-                if(myDate_day.length() == 1){
-                    myDate_day = "0"+myDate_day;
+                if (myDate_day.length() == 1) {
+                    myDate_day = "0" + myDate_day;
                 }
 
-                String date = myDate_year+myDate_month+myDate_day;
+                String date = myDate_year + myDate_month + myDate_day;
 
                 String diff_str = getPreferences("날짜");
 
@@ -126,65 +109,29 @@ public class Weight_Graph extends AppCompatActivity {
                     e.printStackTrace();
                 } //사용자가 저장한 날짜 불러온거 형식 변환
 
-                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
+                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1; // 저장할 날짜가 임신 며칠차 인지
 
-                if(diffDay >= 0){
-
+                if(diffDay >= 0) {
                     String weight_str = get_weight.getText().toString();
 
-                    if(weight_str.length() > 0){
+                    Toast.makeText(getApplicationContext(), weight_str + "완료", Toast.LENGTH_SHORT).show();
+
+                    if(weight_str.length() > 0){ //사용자가 체중 입력을 했을 경우 DB에 저장
                         float weight = Float.parseFloat(weight_str);
 
                         Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
                         Weight_db.execSQL("INSERT INTO " + tableName + "(date, weight) Values ('" + date + "', '" + weight + "');");
-                        Toast.makeText(getApplicationContext() , "완료", Toast.LENGTH_SHORT).show();
+
                         draw_graph();
+                        Toast.makeText(getApplicationContext() , "완료", Toast.LENGTH_SHORT).show();
+
                     }
-                    else{
+                    else{ //사용자가 체중 입력을 하지 않았을 경우
                         Toast.makeText(getApplicationContext() , "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
-
                     }
                 }
-                else{
-
-                    Toast.makeText(getApplicationContext() , "마지막 생리 일자보다 이전입니다", Toast.LENGTH_SHORT).show();
-                }
             }
         });
-
-       delete_data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String myDate_year = (String) spinner1.getSelectedItem();
-                String myDate_month = (String) spinner2.getSelectedItem();
-                String myDate_day = (String) spinner3.getSelectedItem();
-
-                if(myDate_month.length() == 1){ //월,일이 한자리수일때 0을 덧붙임
-                    myDate_month = "0"+myDate_month;
-                }
-                if(myDate_day.length() == 1){
-                    myDate_day = "0"+myDate_day;
-                }
-
-                String date_str = myDate_year+myDate_month+myDate_day;
-                int date = Integer.parseInt(date_str);
-               // Weight_db.execSQL("DELETE FROM " + tableName  );
-               // Weight_db.execSQL("DELETE FROM tableName WHERE date = '" + date_str+ "';");
-                Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
-
-                Toast.makeText(getApplicationContext() , date +"삭제완료", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        draw_graph();
-        Intent intent = getIntent();
-        String data = intent.getStringExtra("날짜");
-        //Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
-        String test = getPreferences("월");
-        //Toast.makeText(getApplicationContext() , test, Toast.LENGTH_SHORT).show();
-
-
     }
 
     private void savePreferences(String code , String str){ //데이터 저장 함수
@@ -201,68 +148,28 @@ public class Weight_Graph extends AppCompatActivity {
 
     }
 
-
-
-    protected void showList(){
-
-            SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
-
-            Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
-
-            if (c != null) {
-
-                if (c.moveToFirst()) {
-                    do {
-
-                        String date = c.getString(c.getColumnIndex("date"));
-                        String weight = c.getString(c.getColumnIndex("weight"));
-                        //Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
-
-                    } while (c.moveToNext());
-                }
-            }
-
-            ReadDB.close();
-    }
-
     public void draw_graph(){
+
         lineChart = (LineChart)findViewById(R.id.chart);
 
-        List<Entry> entries = new ArrayList<>();
-
-        final ArrayList<String> xAxes = new ArrayList<>();
-        for (int i=0; i < 280; i++) {
-            xAxes.add(i, String.valueOf(i)+"일 차"); //Dynamic x-axis labels
+        List<Entry> hide_entries = new ArrayList<>();// 투명 dataset
+        for(int i=0;i<=280;i++){
+            hide_entries.add(new Entry(i,0));
         }
 
-        lineChart.getXAxis().setValueFormatter(new IAxisValueFormatter() {
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                int index = (int) value;
-                return xAxes.get(index);
-            }
-        });
+        List<Entry> entries = new ArrayList<>(); // 나타낼 dataset
+        entries.add(new Entry(1,0));
 
-        showList();
-
-
-
+        String diff_str = getPreferences("날짜");
         SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
-
         Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
-
-        int data_cnt = 0;
-
 
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
 
-                    String diff_str = getPreferences("날짜");
-
                     String date = c.getString(c.getColumnIndex("date"));
                     String weight = c.getString(c.getColumnIndex("weight"));
-                    // Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
                     Date startDate = new Date();
@@ -280,70 +187,114 @@ public class Weight_Graph extends AppCompatActivity {
                     } //사용자가 저장한 날짜 불러온거 형식 변환
 
                     long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
-
                     if (diffDay < 0) {
                         diffDay = 0 ; //Toast.makeText(getApplicationContext() , "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
                     }
                     float weight_float = Float.parseFloat(weight);
                     entries.add(new Entry(diffDay,weight_float));
 
-                    data_cnt++;
 
-                   // Toast.makeText(getApplicationContext() , diffDay +"테스트", Toast.LENGTH_SHORT).show();
                 } while (c.moveToNext());
             }
-        }
-        if(data_cnt == 0){
-            entries.add(new Entry(1,0)); //기본값 (안넣으면 오류남)
         }
 
         ReadDB.close();
 
 
-        LineDataSet lineDataSet = new LineDataSet(entries, "속성명1");
-        lineDataSet.setLineWidth(2);
-        lineDataSet.setCircleRadius(6);
-        lineDataSet.setCircleColor(Color.parseColor("#FFA1B4DC"));
-        lineDataSet.setCircleColorHole(Color.BLUE);
-        lineDataSet.setColor(Color.parseColor("#FFA1B4DC"));
-        lineDataSet.setDrawCircleHole(true);
-        lineDataSet.setDrawCircles(true);
+
+
+
+
+
+
+
+
+
+        final ArrayList<String> xAxes = new ArrayList<>(); //x축 라벨 만들기
+        for (int i=0; i <= 280; i++) {
+            xAxes.add(i, String.valueOf(i)+"일 차"); //Dynamic x-axis labels
+        }
+
+        lineChart.getXAxis().setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                int index = (int) value;
+                return xAxes.get(index);
+            }
+        });
+
+
+        LineDataSet hide_lineDataSet = new LineDataSet(hide_entries, "");
+        hide_lineDataSet.setVisible(false);
+
+
+        LineDataSet lineDataSet = new LineDataSet(entries, "");
         lineDataSet.setDrawHorizontalHighlightIndicator(false);
         lineDataSet.setDrawHighlightIndicators(false);
-        lineDataSet.setDrawValues(false);
+        lineDataSet.setDrawValues(true);
+        lineDataSet.setLineWidth(2);
+        lineDataSet.setCircleRadius(4);
+        lineDataSet.setCircleColor(Color.parseColor("#FFA1B4DC"));
+        lineDataSet.setColor(Color.parseColor("#FFA1B4DC"));
 
-        LineData lineData = new LineData(lineDataSet);
+        ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+        dataSets.add(hide_lineDataSet); // add the datasets
+        dataSets.add(lineDataSet);
+
+        LineData lineData = new LineData(dataSets);
         lineChart.setData(lineData);
+
 
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setTextColor(Color.BLACK);
-        xAxis.enableGridDashedLine(8, 24, 1);
-
-
-
+        xAxis.enableGridDashedLine(8, 24, 0);
+        xAxis.setGranularity(1f);
+        //------------------------------------------
         YAxis yLAxis = lineChart.getAxisLeft();
         yLAxis.setTextColor(Color.BLACK);
 
-        YAxis yRAxis = lineChart.getAxisRight();
+        YAxis yRAxis = lineChart.getAxisRight(); // y축 오른쪽 값 안보이게
         yRAxis.setDrawLabels(false);
         yRAxis.setDrawAxisLine(false);
         yRAxis.setDrawGridLines(false);
-        xAxis.setGranularity(1f);
-        yRAxis.setGranularity(1f);
+        yRAxis.setGranularity(10f);
 
-        Description description = new Description();
+
+        //------------------------------------------
+
+        Description description = new Description(); // 라벨 지우기
         description.setText("");
-
+        lineChart.setDescription(description);
+        //------------------------------------------
+        lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(false);
         lineChart.setDrawGridBackground(false);
-        lineChart.setDescription(description);
-        lineChart.animateY(2000, Easing.EasingOption.EaseInCubic);
         lineChart.invalidate();
-        lineChart.setVisibleXRangeMaximum(5);
-        lineChart.moveViewToX(data_cnt);
-        lineChart.setVisibleYRangeMaximum(300,null);
 
     }
 
+
+    protected void showList(){
+
+        SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+
+        Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
+
+        if (c != null) {
+
+            if (c.moveToFirst()) {
+                do {
+
+                    String date = c.getString(c.getColumnIndex("date"));
+                    String weight = c.getString(c.getColumnIndex("weight"));
+                    Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
+
+                } while (c.moveToNext());
+            }
+        }
+
+        ReadDB.close();
+    }
 }
+
