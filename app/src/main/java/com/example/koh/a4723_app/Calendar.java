@@ -31,6 +31,7 @@ public class Calendar extends AppCompatActivity {
     final String dbName = "Calendar_DB";
     SQLiteDatabase db=null;
     private final Calendar_OnedayDecorator oneDayDecorator = new Calendar_OnedayDecorator();
+    Calendar_EventDecorator eventDecorator;
 
     Fragment_Oneday fragment0 = new Fragment_Oneday();
     Fragment_Schedule fragment1 = new Fragment_Schedule(); //tableName = "a"+날짜
@@ -127,7 +128,9 @@ public class Calendar extends AppCompatActivity {
                 fragment2.setDate(str);
 
                 db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
-                fragment0.setT(tableName);fragment0.setS(str);//fragment0에 tableName, date 전달
+                //fragment0에 tableName, date 전달
+                fragment0.setT(tableName);fragment0.setTableName(tableName);
+                fragment0.setS(str); fragment0.setDate(str);
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment0).commit(); //날짜 새로 선택할 때마다 fragment_oneday로 교체
 
             }
@@ -135,13 +138,16 @@ public class Calendar extends AppCompatActivity {
 
     }
 
+    public void setFragment2(){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment2).commit();
+    }
     public void clickStatus(){ // 상태 업데이트할 때마다 실행됨
         new ApiSimulator(fragment2.update()).executeOnExecutor(Executors.newSingleThreadExecutor());//저장된 상태 달력에 표시
     }
 
     private class ApiSimulator extends AsyncTask<Void, Void, List<CalendarDay>> {
 
-        String[] Updates;
+        String[] Updates = null;
 
         ApiSimulator(ArrayList<String> Updates){
             this.Updates = new String[Updates.size()];
@@ -180,7 +186,9 @@ public class Calendar extends AppCompatActivity {
             if (isFinishing()) {
                 return;
             }
-            materialCalendarView.addDecorator(new Calendar_EventDecorator(Color.rgb(255,187,0), calendarDays,Calendar.this));//yellow
+            if(eventDecorator!=null) materialCalendarView.removeDecorator(eventDecorator);
+            eventDecorator = new Calendar_EventDecorator(Color.rgb(255,187,0), calendarDays,Calendar.this);
+            materialCalendarView.addDecorator(eventDecorator);//yellow
         }
     }
 }

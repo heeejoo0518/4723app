@@ -72,7 +72,6 @@ public class Fragment_Schedule extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         adapter = new ScheduleAdapter();
-        //db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
         DB_add();
         listView.setAdapter(adapter);
 
