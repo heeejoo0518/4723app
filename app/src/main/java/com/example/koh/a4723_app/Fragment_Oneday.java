@@ -160,6 +160,7 @@ public class Fragment_Oneday extends Fragment {
 
     public void showMessage_modify(final String item){
         builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("수정할 문구를 입력해주세요");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
 
         final EditText input = new EditText(getActivity());
