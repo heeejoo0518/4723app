@@ -35,8 +35,7 @@ public class Fragment_Status extends Fragment {
     public void setDB(SQLiteDatabase db){
         this.db = db;
         //date,status 칼럼 두개 있는 테이블 생성
-        //date = PRIMARY KEY
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date VARCHAR PRIMARY KEY, status VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date VARCHAR, status VARCHAR);");
     }
 
     public void setDate(String date){
@@ -47,8 +46,6 @@ public class Fragment_Status extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_status, container, false);
-        //GridView gridView = (GridView) rootView.findViewById(R.id.gridview);
-
         return rootView;
     }
     @Override
@@ -65,6 +62,7 @@ public class Fragment_Status extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //아이템 클릭 리스너
                 String item = (String) adapter.getItem(position);
+                String da = date;
                 db.execSQL("DELETE FROM Table_status WHERE date = '" + date + "';"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
                 db.execSQL("INSERT INTO " + tableName + "(date, status) Values ('" + date + "', '" + item + "');");
                 ((Calendar)getActivity()).clickStatus();// 상태 클릭 시 activity로 업데이트를 알려줌

@@ -19,11 +19,17 @@ public class Fragment_Oneday extends Fragment {
     SQLiteDatabase db;
     Cursor c;
     String tableName;
+    String date;//date 칼럼 값 저장
 
     public void setDB(SQLiteDatabase db){
         this.db = db;
     }
-    public void setTableName(String tableName){ this.tableName = tableName; }
+    public void setTableName(String tableName){
+        this.tableName = tableName;
+    }
+    public void setDate(String date){
+        this.date = date;
+    }
 
     //onAttach -> onCreate -> onCreateView
     @Override
@@ -40,13 +46,22 @@ public class Fragment_Oneday extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //c = db.rawQuery()
-        textView.setText("안뇽안뇽");
-        set(tableName);
+
+        /*if(c.getCount()<=0) {
+            textView.setText("기분을 추가해주세요");
+        }
+        else {
+//            String Status = c.getString(1);
+            textView.setText("");
+            //textView.setText(Status);
+        }*/
+
+        setS(date);
+        setT(tableName);
 
     }
 
-    public void set(String tableName){
+    public void setT(String tableName){//tableName 받고 adapter와 새로 연결
         c = db.rawQuery("SELECT schedule FROM " + tableName, null);
         adapter = new OnedayAdapter();
         if(c.moveToFirst()){
@@ -56,5 +71,22 @@ public class Fragment_Oneday extends Fragment {
 
         }
         listView.setAdapter(adapter);
+    }
+
+    public void setS(String date){//새로 date로 status 설정
+        c = db.rawQuery("SELECT * FROM Table_status",null);
+        if(c.moveToFirst()){
+            while(true){
+                if(date.equals(c.getString(c.getColumnIndex("date")))) {
+                    String Status = c.getString(c.getColumnIndex("status"));
+                    textView.setText(Status);
+                    break;
+                }
+                if(!c.moveToNext()) {
+                    textView.setText("기분을 추가해주세요");
+                    break;
+                }
+            }
+        }
     }
 }

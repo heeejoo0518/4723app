@@ -53,12 +53,14 @@ public class Calendar extends AppCompatActivity {
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
         //==========================================
 
-        SimpleDateFormat format = new SimpleDateFormat("yyMMdd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         tableName = format.format(new Date(System.currentTimeMillis()));
         tableName = "a" + tableName;
         fragment0.setTableName(tableName);
         fragment1.setTableName(tableName);
-        fragment2.setDate(new SimpleDateFormat("yyyy/MM/dd").format(new Date(System.currentTimeMillis())));
+
+        String str = new SimpleDateFormat("yyyy/MM/dd").format(new Date(System.currentTimeMillis()));
+        fragment2.setDate(str);fragment0.setDate(str);
 
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
 
@@ -109,8 +111,8 @@ public class Calendar extends AppCompatActivity {
                 //////테이블이름 생성/////////////////////
                 String year_st, month_st, day_st;
                 year_st = Integer.toString(year);
-                if (month < 10) month_st = '0' + Integer.toString(month);
-                else month_st = Integer.toString(month);
+                if (month < 9) month_st = '0' + Integer.toString(month+1);//month+1해야 오늘 날짜로 선택했던 거랑 맞음
+                else month_st = Integer.toString(month+1);
                 if (day < 10) day_st = '0' + Integer.toString(day);
                 else day_st = Integer.toString(day);
                 tableName = year_st + month_st + day_st;
@@ -119,20 +121,15 @@ public class Calendar extends AppCompatActivity {
                 //프래그먼트들에 tableName 넘김
                 fragment0.setTableName(tableName);
                 fragment1.setTableName(tableName);
-                fragment2.setDate(Integer.toString(date.getYear())+"/"+month_st+"/"+day_st); //date 칼럼 값
+
+
+                String str = Integer.toString(date.getYear())+"/"+month_st+"/"+day_st;
+                fragment2.setDate(str);
 
                 db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
-                fragment0.set(tableName);
+                fragment0.setT(tableName);fragment0.setS(str);//fragment0에 tableName, date 전달
                 getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment0).commit(); //날짜 새로 선택할 때마다 fragment_oneday로 교체
 
-                /*
-                if (fragment1.listView != null) { //Fragment_Schedule 한번 생성 된 후 실행
-                    fragment1.adapter = new ScheduleAdapter();
-                    fragment1.db.execSQL("CREATE TABLE IF NOT EXISTS " + fragment1.tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
-                    fragment1.DB_add();
-                    fragment1.listView.setAdapter(fragment1.adapter);
-                }
-                */
             }
         });
 
@@ -149,7 +146,6 @@ public class Calendar extends AppCompatActivity {
         ApiSimulator(ArrayList<String> Updates){
             this.Updates = new String[Updates.size()];
             this.Updates = Updates.toArray(this.Updates);
-            //this.Time_Result = Time_Result;
         }
 
         @Override
@@ -167,7 +163,7 @@ public class Calendar extends AppCompatActivity {
             for(int i = 0 ; i < Updates.length ; i ++){
                 String[] update = Updates[i].split("/");
                 int year = Integer.parseInt(update[0]);
-                int month = Integer.parseInt(update[1]);
+                int month = Integer.parseInt(update[1]) - 1;
                 int day = Integer.parseInt(update[2]);
 
                 calendar.set(year,month,day); //month = 0 -> 1월
