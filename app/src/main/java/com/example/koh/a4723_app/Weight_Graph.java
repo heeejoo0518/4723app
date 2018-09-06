@@ -30,6 +30,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -158,12 +159,12 @@ public class Weight_Graph extends AppCompatActivity {
         }
 
         List<Entry> entries = new ArrayList<>(); // 나타낼 dataset
-        entries.add(new Entry(1,0));
+
 
         String diff_str = getPreferences("날짜");
         SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
         Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
-
+        int data_num = 0;
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
@@ -188,27 +189,20 @@ public class Weight_Graph extends AppCompatActivity {
 
                     long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
                     if (diffDay < 0) {
-                        diffDay = 0 ; //Toast.makeText(getApplicationContext() , "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
+                        diffDay = 0;
+                        Toast.makeText(getApplicationContext() , "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
                     }
                     float weight_float = Float.parseFloat(weight);
+                    data_num++;
                     entries.add(new Entry(diffDay,weight_float));
-
 
                 } while (c.moveToNext());
             }
+            Toast.makeText(getApplicationContext() , data_num + "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
         }
 
         ReadDB.close();
-
-
-
-
-
-
-
-
-
-
+        //
 
         final ArrayList<String> xAxes = new ArrayList<>(); //x축 라벨 만들기
         for (int i=0; i <= 280; i++) {
@@ -223,12 +217,21 @@ public class Weight_Graph extends AppCompatActivity {
             }
         });
 
+        Collections.sort(entries, new Comparator<Entry>() {
+            @Override
+            public int compare(Entry o1, Entry o2) {
+                return (o1.getX() < o2.getX() ? -1 : (o1.getX() > o2.getX() ? 1 : 0 ));
 
+            }
+        });
+        if(data_num == 0){
+            entries.add(new Entry(0,0));
+        }
         LineDataSet hide_lineDataSet = new LineDataSet(hide_entries, "");
         hide_lineDataSet.setVisible(false);
 
-
         LineDataSet lineDataSet = new LineDataSet(entries, "");
+
         lineDataSet.setDrawHorizontalHighlightIndicator(false);
         lineDataSet.setDrawHighlightIndicators(false);
         lineDataSet.setDrawValues(true);
@@ -242,7 +245,10 @@ public class Weight_Graph extends AppCompatActivity {
         dataSets.add(lineDataSet);
 
         LineData lineData = new LineData(dataSets);
+
+
         lineChart.setData(lineData);
+
 
 
         XAxis xAxis = lineChart.getXAxis();
@@ -258,22 +264,23 @@ public class Weight_Graph extends AppCompatActivity {
         yRAxis.setDrawLabels(false);
         yRAxis.setDrawAxisLine(false);
         yRAxis.setDrawGridLines(false);
-        yRAxis.setGranularity(10f);
-
-
+        yRAxis.setGranularity(1f);
+        yRAxis.setGranularityEnabled(true);      
         //------------------------------------------
 
         Description description = new Description(); // 라벨 지우기
         description.setText("");
         lineChart.setDescription(description);
         //------------------------------------------
+       
+        lineChart.moveViewToX(data_num-5);
         lineChart.setVisibleXRangeMaximum(5);
-        lineChart.setDoubleTapToZoomEnabled(false);
+        lineChart.setDoubleTapToZoomEnabled(true);
         lineChart.setDrawGridBackground(false);
         lineChart.invalidate();
 
-    }
 
+    }
 
     protected void showList(){
 
