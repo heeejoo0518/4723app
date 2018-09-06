@@ -35,8 +35,7 @@ public class Fragment_Status extends Fragment {
     public void setDB(SQLiteDatabase db){
         this.db = db;
         //date,status 칼럼 두개 있는 테이블 생성
-        //date = PRIMARY KEY
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date VARCHAR PRIMARY KEY, status VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date VARCHAR, status VARCHAR);");
     }
 
     public void setDate(String date){
@@ -47,8 +46,6 @@ public class Fragment_Status extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_status, container, false);
-        //GridView gridView = (GridView) rootView.findViewById(R.id.gridview);
-
         return rootView;
     }
     @Override
