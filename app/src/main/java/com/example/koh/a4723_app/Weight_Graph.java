@@ -1,6 +1,5 @@
 package com.example.koh.a4723_app;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -25,7 +23,6 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,8 +38,8 @@ public class Weight_Graph extends AppCompatActivity {
     final String tableName = "Weight";
     private final String dbName = "Weight_DB";
     SQLiteDatabase Weight_db = null;
-
-
+    static String diff_str;
+    int data_num = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +89,7 @@ public class Weight_Graph extends AppCompatActivity {
 
                 String date = myDate_year + myDate_month + myDate_day;
 
-                String diff_str = getPreferences("날짜");
+                diff_str = getPreferences("날짜");
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
@@ -112,10 +109,9 @@ public class Weight_Graph extends AppCompatActivity {
 
                 long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1; // 저장할 날짜가 임신 며칠차 인지
 
-                if(diffDay >= 0) {
+                if(diffDay > 0) {
                     String weight_str = get_weight.getText().toString();
 
-                    Toast.makeText(getApplicationContext(), weight_str + "완료", Toast.LENGTH_SHORT).show();
 
                     if(weight_str.length() > 0){ //사용자가 체중 입력을 했을 경우 DB에 저장
                         float weight = Float.parseFloat(weight_str);
@@ -131,8 +127,33 @@ public class Weight_Graph extends AppCompatActivity {
                         Toast.makeText(getApplicationContext() , "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
                     }
                 }
+                else if(diffDay <= 0) {
+                    Toast.makeText(getApplicationContext(), "마지막 생리 이후 날짜를 선택해주세요", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+        delete_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String myDate_year = (String) spinner1.getSelectedItem();
+                String myDate_month = (String) spinner2.getSelectedItem();
+                String myDate_day = (String) spinner3.getSelectedItem();
+
+                if (myDate_month.length() == 1) { //월,일이 한자리수일때 0을 덧붙임
+                    myDate_month = "0" + myDate_month;
+                }
+                if (myDate_day.length() == 1) {
+                    myDate_day = "0" + myDate_day;
+                }
+                String date = myDate_year + myDate_month + myDate_day;
+                Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
+                draw_graph();
+
+            }
+        });
+
     }
 
     private void savePreferences(String code , String str){ //데이터 저장 함수
@@ -150,11 +171,10 @@ public class Weight_Graph extends AppCompatActivity {
     }
 
     public void draw_graph(){
-
         lineChart = (LineChart)findViewById(R.id.chart);
 
         List<Entry> hide_entries = new ArrayList<>();// 투명 dataset
-        for(int i=0;i<=280;i++){
+        for(int i=1;i<=280;i++){
             hide_entries.add(new Entry(i,0));
         }
 
@@ -164,7 +184,7 @@ public class Weight_Graph extends AppCompatActivity {
         String diff_str = getPreferences("날짜");
         SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
         Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
-        int data_num = 0;
+
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
@@ -189,12 +209,14 @@ public class Weight_Graph extends AppCompatActivity {
 
                     long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
                     if (diffDay < 0) {
-                        diffDay = 0;
                         Toast.makeText(getApplicationContext() , "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
                     }
-                    float weight_float = Float.parseFloat(weight);
-                    data_num++;
-                    entries.add(new Entry(diffDay,weight_float));
+                    else if (diffDay >0){
+                        float weight_float = Float.parseFloat(weight);
+                        data_num++;
+                        entries.add(new Entry(diffDay,weight_float));
+                    }
+
 
                 } while (c.moveToNext());
             }
@@ -265,23 +287,35 @@ public class Weight_Graph extends AppCompatActivity {
         yRAxis.setDrawAxisLine(false);
         yRAxis.setDrawGridLines(false);
         yRAxis.setGranularity(1f);
-        yRAxis.setGranularityEnabled(true);      
+        yRAxis.setGranularityEnabled(true);
         //------------------------------------------
 
         Description description = new Description(); // 라벨 지우기
         description.setText("");
         lineChart.setDescription(description);
         //------------------------------------------
-       
-        lineChart.moveViewToX(data_num-5);
+
+        /*if(data_num > 1) {
+            int test = (int) entries.get(data_num-1).getX();
+
+            if(data_num>1 && test > 5){
+                lineChart.moveViewToX(test-5);
+            }
+            else if(data_num==1){
+                lineChart.moveViewToX(test-3);
+            }
+        }*/
+
         lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(true);
         lineChart.setDrawGridBackground(false);
         lineChart.invalidate();
 
+        MyMarkerView marker = new MyMarkerView(this,R.layout.activity_my_marker_view);
+        marker.setChartView(lineChart);
+        lineChart.setMarker(marker);
 
     }
-
     protected void showList(){
 
         SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
@@ -303,5 +337,6 @@ public class Weight_Graph extends AppCompatActivity {
 
         ReadDB.close();
     }
-}
 
+
+}

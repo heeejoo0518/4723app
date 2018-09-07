@@ -27,6 +27,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     public static Context mContext;
+    public static String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == REQ_ADD_CONTACT) {
             if (resultCode == RESULT_OK) {
-                String data = intent.getStringExtra("날짜"); //마이 페이지로부터 날짜를 받음
+                data = intent.getStringExtra("날짜"); //마이 페이지로부터 날짜를 받음
                 savePreferences("날짜",data);  //받은 날짜를 앱에 저장
 
                String baby_name = intent.getStringExtra("아기이름");

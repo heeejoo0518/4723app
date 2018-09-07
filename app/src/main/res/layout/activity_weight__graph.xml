@@ -39,13 +39,13 @@
 
         <Button
             android:id="@+id/save_data"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="저장" />
 
         <Button
             android:id="@+id/delete_data"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="삭제" />
 

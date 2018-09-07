@@ -1,7 +1,10 @@
 package com.example.koh.a4723_app;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,6 +28,7 @@ public class My_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my__page);
+        final Context context = this;
 
         final Spinner spinner1 = (Spinner)findViewById(R.id.mySpinner1);
         ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,R.array.year, android.R.layout.simple_spinner_item);
@@ -91,6 +95,39 @@ public class My_Page extends AppCompatActivity {
                 String myDate = myDate_year + myDate_month + myDate_day;
                 String baby_name = name_text.getText().toString();
 
+                String check_data = getPreferences("날짜");
+              /*  if(check_data != null){ // 이미 저장된 날짜 데이터가 있는지
+                    Toast.makeText(getApplicationContext() , "이미 저장된 데이터가 있습니다", Toast.LENGTH_SHORT).show();
+
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                    alertDialogBuilder.setTitle("프로그램 종료");
+                    alertDialogBuilder
+                            .setMessage("프로그램을 종료할 것입니까?")
+                            .setCancelable(false)
+                            .setPositiveButton("종료",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(
+                                                DialogInterface dialog, int id) {
+                                            // 프로그램을 종료한다
+                                            My_Page.this.finish();
+                                        }
+                                    })
+                            .setNegativeButton("취소",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(
+                                                DialogInterface dialog, int id) {
+                                            // 다이얼로그를 취소한다
+                                            dialog.cancel();
+                                        }
+                                    });
+
+                    // 다이얼로그 생성
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // 다이얼로그 보여주기
+                    alertDialog.show();
+                }
+*/
 
                 Intent intent = new Intent();
                 intent.putExtra("날짜", myDate) ; //MainActivity로 값을 넘김
