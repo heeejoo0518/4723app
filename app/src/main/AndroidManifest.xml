@@ -28,30 +28,47 @@
         <activity
             android:name=".Health_Service"
             android:label="@string/title_activity_health__service" />
+
         <activity android:name=".find_hospital" />
+
         <activity
             android:name=".Calendar"
             android:label="@string/title_activity_calendar"
             android:windowSoftInputMode="adjustPan" /> <!--키패드가 화면을 가리지 않도록 함-->
+
         <activity
             android:name=".Pregnant_Week"
             android:label="@string/title_activity_pregnant__week" />
+
         <activity android:name=".Calendar.xml" />
+
         <activity
             android:name=".activity_Calendar"
             android:label="@string/title_activity__calendar"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Find_Hospital"
             android:label="@string/title_activity_find__hospital" />
-        <activity android:name=".My_Page">
-        </activity>
+
+        <activity android:name=".My_Page"/>
+
         <activity android:name=".TEST"
             android:label="TEST"/>
+
         <activity
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
             android:theme="@style/AppTheme" />
+
+        <activity android:name=".Health_Sokcho"/>
+
+        <activity android:name=".Health_Pyeongchang"/>
+
+
+
+
+
 
     </application>
 
