@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.ImageButton;
 
+import com.example.koh.a4723_app.R;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;

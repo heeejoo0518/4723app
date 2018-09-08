@@ -1,5 +1,4 @@
-package com.example.koh.a4723_app;
-
+package com.example.koh.a4723_app.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -8,10 +7,10 @@ import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
-public class OnedayAdapter extends BaseAdapter {
+public class StatusAdapter extends BaseAdapter {
     ArrayList<String> items = new ArrayList<>();
 
-    public OnedayAdapter() {}
+    public StatusAdapter(){}
 
     @Override
     public int getCount() {
@@ -30,21 +29,27 @@ public class OnedayAdapter extends BaseAdapter {
 
     public void addItem(String item){
         items.add(item);
+        this.notifyDataSetChanged();
+    }
+    public void addItems(String[] item){
+        for(int i=0;i<item.length;i++){
+            items.add(item[i]);
+        }
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        OnedayView view = null;
+    public View getView(int position, View convertView, ViewGroup parent){
+        StatusView view = null;
         Context context = parent.getContext();
 
         if (convertView == null){
-            view = new OnedayView(context);
+            view = new StatusView(context);
         }else{
-            view = (OnedayView)convertView;
+            view = (StatusView)convertView;
         }
 
         view.setStatus(items.get(position));
 
         return view;
+
     }
 }

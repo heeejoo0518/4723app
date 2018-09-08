@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,6 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.example.koh.a4723_app.R;
+import com.example.koh.a4723_app.adapter.ScheduleAdapter;
+import com.example.koh.a4723_app.adapter.SingleSchedule;
+
 import java.util.ArrayList;
 
 

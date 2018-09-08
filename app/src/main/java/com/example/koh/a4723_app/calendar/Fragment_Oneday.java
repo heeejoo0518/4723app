@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,6 +16,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.koh.a4723_app.adapter.OnedayAdapter;
+import com.example.koh.a4723_app.R;
 
 public class Fragment_Oneday extends Fragment {
     ListView listView;
