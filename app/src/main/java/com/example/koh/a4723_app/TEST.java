@@ -60,7 +60,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             LocationListener {
 
 
-
+        SQLiteDatabase db=null;
 
         static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3","LIST4","LIST5" ,"LIST6"} ;
         private GoogleApiClient mGoogleApiClient = null;
@@ -81,6 +81,9 @@ import android.database.sqlite.SQLiteOpenHelper;
         boolean mMoveMapByUser = true;
         boolean mMoveMapByAPI = true;
         LatLng currentPosition;
+
+        String tableName;
+        String dbName = "H_address.db";
 
         LocationRequest locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -116,6 +119,19 @@ import android.database.sqlite.SQLiteOpenHelper;
             ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
             ListView listview = (ListView) findViewById(R.id.distance_listview) ;
             listview.setAdapter(adapter) ;
+
+            db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+            db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ("
+                    + "_id INTEGER primary key autoincrement,"
+                    +"name TEXT,"
+                    + "p_Number INTEGER,"
+                    +"address TEXT,"
+                    + "latitude REAL,"
+                    +"longitude REAL);");
+            db.execSQL("INSERT INTO  tableName Values (1,'산부인과 예시',01020789744,'서울시성북구',127.112,123.113);");
+
+           // Log.i("db","id:"+_id+",name:"+name);
+
 
         }
 
