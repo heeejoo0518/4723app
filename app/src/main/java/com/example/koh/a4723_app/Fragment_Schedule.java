@@ -83,7 +83,8 @@ public class Fragment_Schedule extends Fragment {
                 c.moveToLast();//커서 이동
 
                 String sche = editText.getText().toString();
-                db.execSQL("INSERT INTO " + tableName + "(schedule) Values ('" + sche + "');");
+                long time = System.currentTimeMillis();
+                db.execSQL("INSERT INTO " + tableName + "(time, schedule) Values ('" + time + "', '" + sche + "');");
 
                 adapter.addItem(new SingleSchedule(sche));
                 editText.setText("");//EditText 내용 삭제

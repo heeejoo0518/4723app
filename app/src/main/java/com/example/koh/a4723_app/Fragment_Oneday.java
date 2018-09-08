@@ -66,7 +66,7 @@ public class Fragment_Oneday extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = (String)adapter.getItem(position);
-                showMessage_schedule(item);
+                showMessage_schedule(item,position);
             }
         });
 
@@ -124,7 +124,8 @@ public class Fragment_Oneday extends Fragment {
         dialog.show();
     }
 
-    public void showMessage_schedule(final String item){
+    public void showMessage_schedule(final String item,int position){
+        final int pos = position;
         builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("삭제하시겠습니까?");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
@@ -133,7 +134,13 @@ public class Fragment_Oneday extends Fragment {
         builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                db.execSQL("DELETE FROM "+ tableName +" WHERE schedule = '" + item + "';");
+                c = db.rawQuery("SELECT * FROM " + tableName,null);
+                c.moveToFirst();
+                for(int i=0;i<pos;i++){
+                    c.moveToNext();
+                }
+                String time = c.getString(c.getColumnIndex("time"));
+                db.execSQL("DELETE FROM "+ tableName +" WHERE time = '" + time + "';");
                 setT(tableName);
             }
         });
