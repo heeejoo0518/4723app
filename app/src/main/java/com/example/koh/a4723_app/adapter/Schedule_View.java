@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.koh.a4723_app.R;
 
 public class Schedule_View extends LinearLayout{
     TextView schedule;

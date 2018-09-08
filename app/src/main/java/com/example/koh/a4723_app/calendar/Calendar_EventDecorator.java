@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;

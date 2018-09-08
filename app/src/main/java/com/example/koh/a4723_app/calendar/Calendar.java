@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.ImageButton;
 
+import com.example.koh.a4723_app.R;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;
@@ -63,7 +64,7 @@ public class Calendar extends AppCompatActivity {
         String str = new SimpleDateFormat("yyyy/MM/dd").format(new Date(System.currentTimeMillis()));
         fragment2.setDate(str);fragment0.setDate(str);
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (time VARCHAR PRIMARY KEY,schedule VARCHAR);");//time,schedule 칼럼 있는 테이블 추가
 
         materialCalendarView = (MaterialCalendarView) findViewById(R.id.calendarView);
         materialCalendarView.state().edit()
@@ -127,7 +128,7 @@ public class Calendar extends AppCompatActivity {
                 String str = Integer.toString(date.getYear())+"/"+month_st+"/"+day_st;
                 fragment2.setDate(str);
 
-                db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (schedule VARCHAR);");//schedule 칼럼 1개 있는 테이블 추가
+                db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (time VARCHAR PRIMARY KEY,schedule VARCHAR);");//time,schedule 칼럼 있는 테이블 추가
                 //fragment0에 tableName, date 전달
                 fragment0.setT(tableName);fragment0.setTableName(tableName);
                 fragment0.setS(str); fragment0.setDate(str);

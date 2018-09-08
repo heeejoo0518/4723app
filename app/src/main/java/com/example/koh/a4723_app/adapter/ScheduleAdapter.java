@@ -1,8 +1,6 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.adapter;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.*;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;

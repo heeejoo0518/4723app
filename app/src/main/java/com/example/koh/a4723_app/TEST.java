@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -29,6 +30,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.koh.a4723_app.adapter.OnedayAdapter;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -60,9 +62,9 @@ import android.database.sqlite.SQLiteOpenHelper;
             LocationListener {
 
 
+        SQLiteDatabase db=null;
 
-
-        static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3","LIST4","LIST5" ,"LIST6"} ;
+        //static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3","LIST4","LIST5" ,"LIST6"} ;
         private GoogleApiClient mGoogleApiClient = null;
         private GoogleMap mGoogleMap = null;
         private Marker currentMarker = null;
@@ -81,6 +83,13 @@ import android.database.sqlite.SQLiteOpenHelper;
         boolean mMoveMapByUser = true;
         boolean mMoveMapByAPI = true;
         LatLng currentPosition;
+
+        String tableName = "aaa";
+        String dbName = "H_address.db";
+
+        TEST_adapter adapter;
+        ListView listView;
+        Cursor c;
 
         LocationRequest locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -113,10 +122,47 @@ import android.database.sqlite.SQLiteOpenHelper;
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
 
-            ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
-            ListView listview = (ListView) findViewById(R.id.distance_listview) ;
-            listview.setAdapter(adapter) ;
 
+            db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+            db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ("
+                    + "_id INTEGER,"
+                    +"name TEXT,"
+                    + "p_Number INTEGER,"
+                    +"address TEXT,"
+                    + "latitude REAL,"
+                    +"longitude REAL);");
+
+            //db.execSQL("INSERT INTO "+ tableName + " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','127.112','123.113');");
+            setRecord();
+
+            //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
+            listView = (ListView) findViewById(R.id.distance_listview) ;
+            //listview.setAdapter(adapter) ;
+            setList();
+
+           // Log.i("db","id:"+_id+",name:"+name);
+
+
+        }
+
+        public void setRecord(){
+            c = db.rawQuery("SELECT * FROM " + tableName, null);
+            if(c.getCount()<=0){//db에 저장된 값이 없을 때만 새로 입력
+                db.execSQL("INSERT INTO "+ tableName +
+                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','127.112','123.113');");
+            }
+        }
+
+        public void setList(){
+            c = db.rawQuery("SELECT * FROM " + tableName, null);
+            adapter = new TEST_adapter();
+            if(c.moveToFirst()){
+                do {
+                    adapter.addItem(c.getString(c.getColumnIndex("name")));
+                }while(c.moveToNext());
+
+            }
+            listView.setAdapter(adapter);
         }
 
 

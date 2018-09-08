@@ -1,10 +1,9 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
+import com.example.koh.a4723_app.R;
+import com.example.koh.a4723_app.adapter.StatusAdapter;
 
 import java.util.ArrayList;
 

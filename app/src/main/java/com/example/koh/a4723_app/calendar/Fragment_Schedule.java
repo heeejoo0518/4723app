@@ -1,4 +1,4 @@
-package com.example.koh.a4723_app;
+package com.example.koh.a4723_app.calendar;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,6 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.example.koh.a4723_app.R;
+import com.example.koh.a4723_app.adapter.ScheduleAdapter;
+import com.example.koh.a4723_app.adapter.SingleSchedule;
+
 import java.util.ArrayList;
 
 
@@ -83,7 +88,8 @@ public class Fragment_Schedule extends Fragment {
                 c.moveToLast();//커서 이동
 
                 String sche = editText.getText().toString();
-                db.execSQL("INSERT INTO " + tableName + "(schedule) Values ('" + sche + "');");
+                long time = System.currentTimeMillis();
+                db.execSQL("INSERT INTO " + tableName + "(time, schedule) Values ('" + time + "', '" + sche + "');");
 
                 adapter.addItem(new SingleSchedule(sche));
                 editText.setText("");//EditText 내용 삭제
