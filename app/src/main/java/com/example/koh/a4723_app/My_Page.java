@@ -98,7 +98,6 @@ public class My_Page extends AppCompatActivity {
                 String check_data = getPreferences("날짜");
               /*  if(check_data != null){ // 이미 저장된 날짜 데이터가 있는지
                     Toast.makeText(getApplicationContext() , "이미 저장된 데이터가 있습니다", Toast.LENGTH_SHORT).show();
-
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                     alertDialogBuilder.setTitle("프로그램 종료");
                     alertDialogBuilder
@@ -120,10 +119,8 @@ public class My_Page extends AppCompatActivity {
                                             dialog.cancel();
                                         }
                                     });
-
                     // 다이얼로그 생성
                     AlertDialog alertDialog = alertDialogBuilder.create();
-
                     // 다이얼로그 보여주기
                     alertDialog.show();
                 }
@@ -140,11 +137,11 @@ public class My_Page extends AppCompatActivity {
             }
         });
 
-       weight.setOnClickListener(new View.OnClickListener() {
+        weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent intent = new Intent(My_Page.this,Weight_Graph.class);
-               // startActivity(intent);
+                // startActivity(intent);
 
                 String myDate_year = (String) spinner1.getSelectedItem();
                 String myDate_month = (String) spinner2.getSelectedItem();

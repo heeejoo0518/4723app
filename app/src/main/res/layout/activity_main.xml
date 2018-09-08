@@ -40,8 +40,13 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical" >
+        <Button
+            android:id="@+id/Pregnant_Week"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+           />
 
-        <TextView
+    <!--  <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12pt"
@@ -62,30 +67,26 @@
             android:textSize="9pt"
             android:hint="출산 예정일은"
             android:id="@+id/delivery_day"
-            />
+            />-->
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/Pregnant_Week"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="임신 주수" />
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical|center_horizontal">
 
             <Button
                 android:id="@+id/Health_Service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보건 사업" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical|center_horizontal">
 
             <Button
                 android:id="@+id/Find_Hospital"

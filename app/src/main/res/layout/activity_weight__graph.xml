@@ -35,6 +35,7 @@
             android:id="@+id/today_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:hint="체중 입력" />
 
         <Button
