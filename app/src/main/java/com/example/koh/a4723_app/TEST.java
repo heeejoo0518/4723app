@@ -149,7 +149,11 @@ import android.database.sqlite.SQLiteOpenHelper;
             c = db.rawQuery("SELECT * FROM " + tableName, null);
             if(c.getCount()<=0){//db에 저장된 값이 없을 때만 새로 입력
                 db.execSQL("INSERT INTO "+ tableName +
-                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','127.112','123.113');");
+                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','37.5844562','129.040229');");
+                db.execSQL("INSERT INTO "+ tableName +
+                        " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역',0000000,'서울시','37.555744','126.970431');");
+                db.execSQL("INSERT INTO "+ tableName +
+                        " (_id, name, p_Number, address, latitude, longitude) Values (3,'예시',0000000,'서울시','38.555744','130.970431');");
             }
         }
 
@@ -217,15 +221,12 @@ import android.database.sqlite.SQLiteOpenHelper;
         }
 
 
-
         private void stopLocationUpdates() {
 
             Log.d(TAG,"stopLocationUpdates : LocationServices.FusedLocationApi.removeLocationUpdates");
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             mRequestingLocationUpdates = false;
         }
-
-
 
         @Override
         public void onMapReady(GoogleMap googleMap) {
@@ -234,6 +235,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             mGoogleMap = googleMap;
 
+            //마커 추가========================
+            c = db.rawQuery("SELECT * FROM " + tableName, null);
+            if(c.moveToFirst()){
+                do{
+                    double lat = c.getDouble(c.getColumnIndex("latitude"));
+                    double lng = c.getDouble(c.getColumnIndex("longitude"));
+                    String title = c.getString(c.getColumnIndex("name"));
+                    mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(title)).showInfoWindow();
+                }while(c.moveToNext());
+            }
+            //==================================
+
+
+            /*
             MarkerOptions marker = new MarkerOptions();
             marker .position(new LatLng(37.555744, 126.970431))
                     .title("서울역")
@@ -246,7 +261,7 @@ import android.database.sqlite.SQLiteOpenHelper;
                     .title("예시")
                     .snippet("example");
             googleMap.addMarker(marker1).showInfoWindow();
-
+            */
 
             //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
             //지도의 초기위치를 서울로 이동
@@ -495,7 +510,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             //디폴트 위치, Seoul
             LatLng DEFAULT_LOCATION = new LatLng(37.56, 126.97);
             String markerTitle = "위치정보 가져올 수 없음";
-            String markerSnippet = "위치 퍼미션과 GPS 활성 요부 확인하세요";
+            String markerSnippet = "위치 퍼미션과 GPS 활성 여부 확인하세요";
 
 
             if (currentMarker != null) currentMarker.remove();
