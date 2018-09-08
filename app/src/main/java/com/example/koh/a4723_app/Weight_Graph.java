@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,6 +41,7 @@ public class Weight_Graph extends AppCompatActivity {
     SQLiteDatabase Weight_db = null;
     static String diff_str;
     int data_num = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +76,6 @@ public class Weight_Graph extends AppCompatActivity {
         save_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String myDate_year = (String) spinner1.getSelectedItem();
                 String myDate_month = (String) spinner2.getSelectedItem();
                 String myDate_day = (String) spinner3.getSelectedItem();
@@ -120,7 +120,7 @@ public class Weight_Graph extends AppCompatActivity {
                         Weight_db.execSQL("INSERT INTO " + tableName + "(date, weight) Values ('" + date + "', '" + weight + "');");
 
                         draw_graph();
-                        Toast.makeText(getApplicationContext() , "완료", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext() , "저장 완료", Toast.LENGTH_SHORT).show();
 
                     }
                     else{ //사용자가 체중 입력을 하지 않았을 경우
@@ -148,9 +148,35 @@ public class Weight_Graph extends AppCompatActivity {
                     myDate_day = "0" + myDate_day;
                 }
                 String date = myDate_year + myDate_month + myDate_day;
-                Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
-                draw_graph();
 
+                diff_str = getPreferences("날짜");
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+                Date startDate = new Date();
+                try {
+                    startDate = sdf.parse(date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } //지금 날짜 형식 변환
+
+                Date endDate = new Date();
+                try {
+                    endDate = sdf.parse(diff_str);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } //사용자가 저장한 날짜 불러온거 형식 변환
+                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1; // 저장할 날짜가 임신 며칠차 인지
+
+                if(diffDay > 0) {
+
+                        Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
+                        draw_graph();
+                        Toast.makeText(getApplicationContext() , "삭제 완료", Toast.LENGTH_SHORT).show();
+                }
+                else if(diffDay <= 0) {
+                    Toast.makeText(getApplicationContext(), "마지막 생리 이후 날짜를 선택해주세요", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -213,14 +239,13 @@ public class Weight_Graph extends AppCompatActivity {
                     }
                     else if (diffDay >0){
                         float weight_float = Float.parseFloat(weight);
-                        data_num++;
                         entries.add(new Entry(diffDay,weight_float));
                     }
 
 
                 } while (c.moveToNext());
             }
-            Toast.makeText(getApplicationContext() , data_num + "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
+
         }
 
         ReadDB.close();
@@ -246,6 +271,8 @@ public class Weight_Graph extends AppCompatActivity {
 
             }
         });
+        showList();
+
         if(data_num == 0){
             entries.add(new Entry(0,0));
         }
@@ -295,16 +322,18 @@ public class Weight_Graph extends AppCompatActivity {
         lineChart.setDescription(description);
         //------------------------------------------
 
-        /*if(data_num > 1) {
+
+        if(data_num > 1) {
             int test = (int) entries.get(data_num-1).getX();
 
             if(data_num>1 && test > 5){
                 lineChart.moveViewToX(test-5);
             }
-            else if(data_num==1){
-                lineChart.moveViewToX(test-3);
-            }
-        }*/
+
+        }else if(data_num==1){
+            int test = (int) entries.get(data_num-1).getX();
+            lineChart.moveViewToX(test-3);
+        }
 
         lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(true);
@@ -317,7 +346,7 @@ public class Weight_Graph extends AppCompatActivity {
 
     }
     protected void showList(){
-
+        data_num = 0;
         SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
 
         Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
@@ -329,14 +358,15 @@ public class Weight_Graph extends AppCompatActivity {
 
                     String date = c.getString(c.getColumnIndex("date"));
                     String weight = c.getString(c.getColumnIndex("weight"));
-                    Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
+                    data_num ++;
                 } while (c.moveToNext());
             }
         }
-
         ReadDB.close();
     }
+
+
 
 
 }
