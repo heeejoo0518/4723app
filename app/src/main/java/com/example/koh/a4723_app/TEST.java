@@ -9,6 +9,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+
+import android.database.SQLException;
+
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -27,6 +30,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,6 +51,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -96,6 +101,14 @@ import android.database.sqlite.SQLiteOpenHelper;
                 .setInterval(UPDATE_INTERVAL_MS)
                 .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
 
+     //   private static final String TAG = "TEST";
+
+
+
+
+
+
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +123,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             mActivity = this;
 
-
+            //----------구글맵
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
@@ -122,6 +135,15 @@ import android.database.sqlite.SQLiteOpenHelper;
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
 
+            //-------------listview
+
+         /*   ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
+            ListView listview = (ListView) findViewById(R.id.distance_listview) ;
+            listview.setAdapter(adapter) ;*/
+
+            //------------------여기서부터 DB
+
+            // DB Create and Open
 
             db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
             db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ("
@@ -136,7 +158,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             setRecord();
 
             //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
-            listView = (ListView) findViewById(R.id.distance_listview) ;
+           // listView = (ListView) findViewById(R.id.distance_listview) ;
             //listview.setAdapter(adapter) ;
             setList();
 
@@ -168,6 +190,12 @@ import android.database.sqlite.SQLiteOpenHelper;
             }
             listView.setAdapter(adapter);
         }
+
+
+
+
+
+
 
 
         @Override
@@ -708,6 +736,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             return distance;
         }
+
+
 
 
     }
