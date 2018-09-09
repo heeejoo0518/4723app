@@ -55,9 +55,21 @@
         <activity android:name=".Health.Health_Pyeongchang" />
         <activity android:name=".Health_s_1" />
         <activity android:name=".Wellness.WellnessClicked" />
-        <activity android:name=".Health.Health_yangyang">
-
-        </activity>
+        <activity android:name=".Health.Health_yangyang" />
+        <activity android:name=".Health.Health_jeongseon" />
+        <activity android:name=".Health.Health_samcheok" />
+        <activity android:name=".Health.Health_youngweol" />
+        <activity android:name=".Health.Health_goseong" />
+        <activity android:name=".Health.Health_gangneug" />
+        <activity android:name=".Health.Health_inje" />
+        <activity android:name=".Health.Health_taebaek" />
+        <activity android:name=".Health.Health_yanggu" />
+        <activity android:name=".Health.Health_chuncheon" />
+        <activity android:name=".Health.Health_hongcheon" />
+        <activity android:name=".Health.Health_donghae" />
+        <activity android:name=".Health.Health_chulwon" />
+        <activity android:name=".Health.Health_hseong" />
+        <activity android:name=".Health.Health_wonju"></activity>
     </application>
 
 </manifest>

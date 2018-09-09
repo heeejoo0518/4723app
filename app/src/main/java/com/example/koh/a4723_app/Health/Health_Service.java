@@ -81,19 +81,111 @@ public class Health_Service extends Activity {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (select_item[0].equals("속초시보건소")) {
+                if (select_item[0].equals("양양군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_yangyang.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("속초시보건소")) {
                     {
                         Intent intent = new Intent(Health_Service.this, Health_Sokcho.class);
                         startActivity(intent);
                         finish();
                     }
-                } else if (select_item[0].equals("평창")) {
+                } else if (select_item[0].equals("평창군보건의료원")) {
                     {
                         Intent intent = new Intent(Health_Service.this, Health_Pyeongchang.class);
                         startActivity(intent);
                         finish();
                     }
                 }
+                else if (select_item[0].equals("정선군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_jeongseon.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("영월군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_youngweol.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("고성군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_goseong.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("강릉시보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_gangneug.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("인제군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_inje.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("양구군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_yanggu.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }else if (select_item[0].equals("춘천시보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_chuncheon.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }else if (select_item[0].equals("홍천군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_hongcheon.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("동해시보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_donghae.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("횡성군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_hseong.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("철원군보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_chulwon.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else if (select_item[0].equals("원주시보건소")) {
+                    {
+                        Intent intent = new Intent(Health_Service.this, Health_wonju.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+
+
+
             }
         });
 
