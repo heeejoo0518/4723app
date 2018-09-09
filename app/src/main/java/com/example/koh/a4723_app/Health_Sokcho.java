@@ -24,7 +24,7 @@ public class Health_Sokcho extends AppCompatActivity implements ListViewBtnAdapt
         ArrayList<ListViewBtnItem> items = new ArrayList<ListViewBtnItem>() ;
 
         // items 로드.
-        loadItemsFromDB(items) ;
+        //loadItemsFromDB(items) ;
 
         // Adapter 생성
         adapter = new ListViewBtnAdapter(this, R.layout.listview_btn_item, items, this) ;
@@ -44,7 +44,7 @@ public class Health_Sokcho extends AppCompatActivity implements ListViewBtnAdapt
     public void onListBtnClick(int position) {
         Toast.makeText(this, Integer.toString(position+1) + " Item is selected..", Toast.LENGTH_SHORT).show() ;
     }
-    public boolean loadItemsFromDB(ArrayList<ListViewBtnItem> list) {
+   /* public boolean loadItemsFromDB(ArrayList<ListViewBtnItem> list) {
         ListViewBtnItem item ;
         int i ;
 
@@ -80,6 +80,6 @@ public class Health_Sokcho extends AppCompatActivity implements ListViewBtnAdapt
         list.add(item) ;
 
         return true ;
-    }
+    }*/
 }
 

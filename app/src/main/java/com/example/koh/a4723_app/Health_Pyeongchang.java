@@ -11,7 +11,7 @@ public class Health_Pyeongchang extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health__pyeongchang);
 
-        Toast.makeText(getApplicationContext(), "pyeongchang", Toast.LENGTH_LONG).show();
+
 
     }
 }
