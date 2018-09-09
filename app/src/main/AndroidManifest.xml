@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Health_Service"
+            android:name=".Health.Health_Service"
             android:label="@string/title_activity_health__service" />
         <activity android:name=".find_hospital" />
         <activity
@@ -51,10 +51,13 @@
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Health_Sokcho" />
-        <activity android:name=".Health_Pyeongchang" />
+        <activity android:name=".Health.Health_Sokcho" />
+        <activity android:name=".Health.Health_Pyeongchang" />
         <activity android:name=".Health_s_1" />
-        <activity android:name=".Wellness.WellnessClicked"></activity>
+        <activity android:name=".Wellness.WellnessClicked" />
+        <activity android:name=".Health.Health_yangyang">
+
+        </activity>
     </application>
 
 </manifest>

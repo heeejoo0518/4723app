@@ -12,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.Format;
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         Health_Service.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this,Health_Service.class);
+            Intent intent = new Intent(MainActivity.this, com.example.koh.a4723_app.Health.Health_Service.class);
             startActivity(intent);
         }
     });

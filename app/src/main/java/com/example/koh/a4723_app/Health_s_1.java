@@ -11,6 +11,6 @@ public class Health_s_1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_s_1);
 
-        Toast.makeText(getApplicationContext(), "wells1", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "wells", Toast.LENGTH_LONG).show();
     }
 }
