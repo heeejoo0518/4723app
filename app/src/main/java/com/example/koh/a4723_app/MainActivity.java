@@ -46,16 +46,22 @@ public class MainActivity extends AppCompatActivity {
         Button Calendar = (Button) findViewById(R.id.Calendar);
         Button TEST = (Button) findViewById(R.id.testbutton);//테스트버튼
 
+        setText_str = "";
+
         String baby_name = getPreferences("아기이름");
+        String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
+        String check = getPreferences("자동계산");
+        String due_date = getPreferences("출산날짜");
 
-        if(baby_name.length()>0){
-            //TextView text1 = (TextView) findViewById(R.id.text1);
-            setText_str += "오늘 나의 " + baby_name +"는" + "\n";
-            Pregnant_Week.setText(setText_str);
-            //text1.setText("오늘 나의 " + baby_name +"는");
+        if(baby_name != ""){
+            setText_str += baby_name + "\n";
+        }
+        else if(baby_name ==""){
+            setText_str += "이름 없음 \n";
+        }
 
+        if(my_date != ""){
 
-            String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
             long now = System.currentTimeMillis();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date date = new Date(now);
@@ -64,13 +70,10 @@ public class MainActivity extends AppCompatActivity {
             Date startDate = new Date();
             Date endDate = new Date();
 
-            if (my_date.length() != 0 ) {
-                try {
+            try {
                 startDate = sdf.parse(nowDate);
-
-                } catch (ParseException e) {
+            } catch (ParseException e) {
                 e.printStackTrace();
-
             }
 
             try {
@@ -78,48 +81,96 @@ public class MainActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-                //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
-                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
-                final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
-                //TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
-                setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
-                Pregnant_Week.setText(setText_str);
-                //my_weeks.setText(tmp);
 
-                long test1 = endDate.getTime()/1000;
-                long test2 = 280 * 24*  60 * 60 ;
+            //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
+            long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
+            final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
+            //TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
+            setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
+        }
+        else if(my_date  == ""){
+
+            setText_str += "마지막 월경 날짜를 입력해주세요\n";
+
+        }
+
+        if((due_date !="") && (check == "true")) {
+
+            long now = System.currentTimeMillis();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            Date date = new Date(now);
+            String nowDate = sdf.format(date); // 현재 시간 구하고 yyyyMMdd 형식으로 변환
+            Date startDate = new Date();
+            Date endDate = new Date();
+
+            if (my_date.length() != 0 ) {
+                try {
+                    startDate = sdf.parse(nowDate);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+
+                }
+
+                try {
+                    endDate = sdf.parse(my_date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
+
+                long test1 = endDate.getTime() / 1000;
+                long test2 = 280 * 24 * 60 * 60;
                 long test3 = test1 + test2;
                 String test4 = Long.toString(test3);
 
                 Date date3 = new Date(test3);
                 Format format = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
+
+                String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date((test1 + test2) * 1000L));
+
+                if (timeStamp.length() != 0) {
+
+                    String year = timeStamp.substring(0, 4);
+                    String month = null;
+
+                    if (timeStamp.substring(4, 5).equals("1")) {
+                        month = timeStamp.substring(4, 6);
+                        //Toast.makeText(getApplicationContext() , " ㅋ", Toast.LENGTH_SHORT).show();
+                    } else {
+                        month = timeStamp.substring(5, 6);
+                    }
+                    String day = timeStamp.substring(6, 8);
+                    setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+
+                }
             }
-
-        long test1 = endDate.getTime()/1000;
-        long test2 = 279*24*60*60;
-
-        String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date((test1+test2)*1000L));
-
-        if(timeStamp.length()!=0) {
-
-            String year = timeStamp.substring(0, 4);
+        } else if(due_date !="" && check == "false"){
+            Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
+            String my_date2 = getPreferences("출산날짜");
+            String year = my_date2.substring(0, 4);
             String month = null;
-
-            if (timeStamp.substring(4, 5).equals("1")) {
-                month = timeStamp.substring(4, 6);
-                //Toast.makeText(getApplicationContext() , " ㅋ", Toast.LENGTH_SHORT).show();
+            String day = null;
+            if (my_date2.substring(4, 5).equals("1")) {
+                month = my_date2.substring(4, 6);
             } else {
-                month = timeStamp.substring(5, 6);
+                month = my_date2.substring(5, 6);
             }
-            String day = timeStamp.substring(6, 8);
+            if (my_date2.substring(6, 7).equals("1")) {
+                day = my_date2.substring(6, 8);
+            } else {
+                day = my_date2.substring(7, 8);
+            }
+            Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
             setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
-            Pregnant_Week.setText(setText_str);
-            }
+
         }
-        else if(baby_name == ""){
-            setText_str = "아이의 정보를 저장해주세요";
-            Pregnant_Week.setText(setText_str);
+
+        if(due_date ==""){
+            setText_str += "출산 예정일을 입력해주세요";
         }
+
+        Pregnant_Week.setText(setText_str);
 
         Pregnant_Week.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -227,13 +278,18 @@ public class MainActivity extends AppCompatActivity {
         setText_str = "";
 
         String baby_name = getPreferences("아기이름");
+        String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
+        String check = getPreferences("자동계산");
+        String due_date = getPreferences("출산날짜");
 
-        if (baby_name.length() != 0) {
+        if(baby_name.length()>0){
+            setText_str += baby_name + "\n";
+        }
+        else {
+            setText_str += "이름 없음 \n";
+        }
 
-            setText_str += "오늘 나의 " + baby_name + "는" + "\n";
-            Pregnant_Week.setText(setText_str);
-
-            String my_date = getPreferences("날짜"); // 사용자가 저장한 마지막 생리 날짜 불러오기
+        if(my_date != ""){
 
             long now = System.currentTimeMillis();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -242,10 +298,44 @@ public class MainActivity extends AppCompatActivity {
 
             Date startDate = new Date();
             Date endDate = new Date();
-            if (my_date.length() != 0) {
 
+            try {
+                startDate = sdf.parse(nowDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                endDate = sdf.parse(my_date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
+            long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
+            final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
+            //TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
+            setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
+        }
+        else if(my_date  == ""){
+
+            setText_str += "마지막 월경 날짜를 입력해주세요\n";
+
+        }
+
+        if((due_date !="") && (check == "true")) {
+
+            long now = System.currentTimeMillis();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            Date date = new Date(now);
+            String nowDate = sdf.format(date); // 현재 시간 구하고 yyyyMMdd 형식으로 변환
+            Date startDate = new Date();
+            Date endDate = new Date();
+
+            if (my_date.length() != 0 ) {
                 try {
                     startDate = sdf.parse(nowDate);
+
                 } catch (ParseException e) {
                     e.printStackTrace();
 
@@ -257,12 +347,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
-                long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
-                final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
-                //TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
-                setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
-                Pregnant_Week.setText(setText_str);
-                //my_weeks.setText(tmp);
 
                 long test1 = endDate.getTime() / 1000;
                 long test2 = 280 * 24 * 60 * 60;
@@ -272,33 +356,54 @@ public class MainActivity extends AppCompatActivity {
                 Date date3 = new Date(test3);
                 Format format = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
 
+                String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date((test1 + test2) * 1000L));
 
-            }
+                if (timeStamp.length() != 0) {
 
-            long test1 = endDate.getTime() / 1000;
-            long test2 = 279 * 24 * 60 * 60;
+                    String year = timeStamp.substring(0, 4);
+                    String month = null;
 
-            String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date((test1 + test2) * 1000L));
+                    if (timeStamp.substring(4, 5).equals("1")) {
+                        month = timeStamp.substring(4, 6);
+                        //Toast.makeText(getApplicationContext() , " ㅋ", Toast.LENGTH_SHORT).show();
+                    } else {
+                        month = timeStamp.substring(5, 6);
+                    }
+                    String day = timeStamp.substring(6, 8);
+                    setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
 
-            if (timeStamp.length() != 0) {
-
-                String year = timeStamp.substring(0, 4);
-                String month = null;
-
-                if (timeStamp.substring(4, 5).equals("1")) {
-                    month = timeStamp.substring(4, 6);
-                } else {
-                    month = timeStamp.substring(5, 6);
                 }
-                String day = timeStamp.substring(6, 8);
-                setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
-                Pregnant_Week.setText(setText_str);
-
-
             }
-        } else if(baby_name == ""){
-            setText_str ="아이의 정보를 저장해주세요";
-            Pregnant_Week.setText(setText_str);
+        } else if(due_date !="" && check == "false"){
+                Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
+                String my_date2 = getPreferences("출산날짜");
+                String year = my_date2.substring(0, 4);
+                String month = null;
+                String day = null;
+                if (my_date2.substring(4, 5).equals("1")) {
+                    month = my_date2.substring(4, 6);
+                } else {
+                    month = my_date2.substring(5, 6);
+                }
+                if (my_date2.substring(6, 7).equals("1")) {
+                    day = my_date2.substring(6, 8);
+                } else {
+                    day = my_date2.substring(7, 8);
+                }
+                Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
+                setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+
+        }else if(due_date =="" && check == "true") {
+
+                setText_str +="(출산 예정일을 자동으로 계산하기 위해서는 ";
+
         }
+
+        if(due_date ==""){
+            setText_str += "출산 예정일을 입력해주세요";
+        }
+
+        Pregnant_Week.setText(setText_str);
+
     }
 }

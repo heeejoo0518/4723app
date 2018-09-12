@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- 현경이가 바꾼거임 바꾸지 말 것: android:allowBackup="false" -->
-
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDoJYDdp-inMbUJq3Q4-Lw7QGnqjFCPz04" />
@@ -28,48 +26,35 @@
         <activity
             android:name=".Health_Service"
             android:label="@string/title_activity_health__service" />
-
         <activity android:name=".find_hospital" />
-
         <activity
             android:name=".calendar.Calendar"
             android:label="@string/title_activity_calendar"
-            android:windowSoftInputMode="adjustPan" /> <!--키패드가 화면을 가리지 않도록 함-->
-
+            android:windowSoftInputMode="adjustPan" /> <!-- 키패드가 화면을 가리지 않도록 함 -->
         <activity
             android:name=".Pregnant_Week"
             android:label="@string/title_activity_pregnant__week" />
-
         <activity android:name=".Calendar.xml" />
-
         <activity
             android:name=".activity_Calendar"
             android:label="@string/title_activity__calendar"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".Find_Hospital"
             android:label="@string/title_activity_find__hospital" />
-
-        <activity android:name=".My_Page"/>
-
-        <activity android:name=".TEST"
-            android:label="TEST"/>
-
+        <activity android:name=".My_Page" />
+        <activity
+            android:name=".TEST"
+            android:label="TEST" />
         <activity
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".Health_Sokcho"/>
-
-        <activity android:name=".Health_Pyeongchang"/>
-
-
-
-
-
-
+        <activity android:name=".Health_Sokcho" />
+        <activity android:name=".Health_Pyeongchang" />
+        <activity android:name=".CustomDialog_DueDate" />
+        <activity android:name=".CustomDialog_LastDay" />
+        <activity android:name=".CustomDialog_HealthCenter"></activity>
     </application>
 
 </manifest>
