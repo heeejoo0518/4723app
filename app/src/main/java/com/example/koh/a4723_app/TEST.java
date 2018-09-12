@@ -9,6 +9,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+
+import android.database.SQLException;
+
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -27,6 +30,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,6 +51,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -96,6 +101,14 @@ import android.database.sqlite.SQLiteOpenHelper;
                 .setInterval(UPDATE_INTERVAL_MS)
                 .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
 
+     //   private static final String TAG = "TEST";
+
+
+
+
+
+
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +123,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             mActivity = this;
 
-
+            //----------구글맵
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
@@ -122,6 +135,15 @@ import android.database.sqlite.SQLiteOpenHelper;
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
 
+            //-------------listview
+
+         /*   ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
+            ListView listview = (ListView) findViewById(R.id.distance_listview) ;
+            listview.setAdapter(adapter) ;*/
+
+            //------------------여기서부터 DB
+
+            // DB Create and Open
 
             db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
             db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ("
@@ -136,7 +158,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             setRecord();
 
             //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
-            listView = (ListView) findViewById(R.id.distance_listview) ;
+           // listView = (ListView) findViewById(R.id.distance_listview) ;
             //listview.setAdapter(adapter) ;
             setList();
 
@@ -149,7 +171,11 @@ import android.database.sqlite.SQLiteOpenHelper;
             c = db.rawQuery("SELECT * FROM " + tableName, null);
             if(c.getCount()<=0){//db에 저장된 값이 없을 때만 새로 입력
                 db.execSQL("INSERT INTO "+ tableName +
-                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','127.112','123.113');");
+                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','37.5844562','129.040229');");
+                db.execSQL("INSERT INTO "+ tableName +
+                        " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역',0000000,'서울시','37.555744','126.970431');");
+                db.execSQL("INSERT INTO "+ tableName +
+                        " (_id, name, p_Number, address, latitude, longitude) Values (3,'예시',0000000,'서울시','38.555744','130.970431');");
             }
         }
 
@@ -164,6 +190,12 @@ import android.database.sqlite.SQLiteOpenHelper;
             }
             listView.setAdapter(adapter);
         }
+
+
+
+
+
+
 
 
         @Override
@@ -217,15 +249,12 @@ import android.database.sqlite.SQLiteOpenHelper;
         }
 
 
-
         private void stopLocationUpdates() {
 
             Log.d(TAG,"stopLocationUpdates : LocationServices.FusedLocationApi.removeLocationUpdates");
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             mRequestingLocationUpdates = false;
         }
-
-
 
         @Override
         public void onMapReady(GoogleMap googleMap) {
@@ -234,6 +263,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             mGoogleMap = googleMap;
 
+            //마커 추가========================
+            c = db.rawQuery("SELECT * FROM " + tableName, null);
+            if(c.moveToFirst()){
+                do{
+                    double lat = c.getDouble(c.getColumnIndex("latitude"));
+                    double lng = c.getDouble(c.getColumnIndex("longitude"));
+                    String title = c.getString(c.getColumnIndex("name"));
+                    mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(title)).showInfoWindow();
+                }while(c.moveToNext());
+            }
+            //==================================
+
+
+            /*
             MarkerOptions marker = new MarkerOptions();
             marker .position(new LatLng(37.555744, 126.970431))
                     .title("서울역")
@@ -246,7 +289,7 @@ import android.database.sqlite.SQLiteOpenHelper;
                     .title("예시")
                     .snippet("example");
             googleMap.addMarker(marker1).showInfoWindow();
-
+            */
 
             //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
             //지도의 초기위치를 서울로 이동
@@ -495,7 +538,7 @@ import android.database.sqlite.SQLiteOpenHelper;
             //디폴트 위치, Seoul
             LatLng DEFAULT_LOCATION = new LatLng(37.56, 126.97);
             String markerTitle = "위치정보 가져올 수 없음";
-            String markerSnippet = "위치 퍼미션과 GPS 활성 요부 확인하세요";
+            String markerSnippet = "위치 퍼미션과 GPS 활성 여부 확인하세요";
 
 
             if (currentMarker != null) currentMarker.remove();
@@ -693,6 +736,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             return distance;
         }
+
+
 
 
     }

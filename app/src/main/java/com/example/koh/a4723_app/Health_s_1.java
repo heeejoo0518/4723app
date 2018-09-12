@@ -4,14 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-public class Health_Pyeongchang extends AppCompatActivity {
+public class Health_s_1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_health__pyeongchang);
+        setContentView(R.layout.activity_health_s_1);
 
-        Toast.makeText(getApplicationContext(), "pyeongchang", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getApplicationContext(), "wells", Toast.LENGTH_LONG).show();
     }
 }
