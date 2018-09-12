@@ -42,7 +42,7 @@ dependencies {
     //Material-CalendarView
     implementation 'com.prolificinteractive:material-calendarview:1.4.3'
     implementation 'com.github.PhilJay:MpAndroidChart:v3.0.2'
-    implementation files('libs/jsoup-1.11.3.jar')
-   // compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+    implementation 'com.android.support:design:25.3.1'
+
 
 }

@@ -323,7 +323,7 @@ public class Weight_Graph extends AppCompatActivity {
         //------------------------------------------
 
 
-        if(data_num > 1) {
+     /*   if(data_num > 1) {
             int test = (int) entries.get(data_num-1).getX();
 
             if(data_num>1 && test > 5){
@@ -333,7 +333,7 @@ public class Weight_Graph extends AppCompatActivity {
         }else if(data_num==1){
             int test = (int) entries.get(data_num-1).getX();
             lineChart.moveViewToX(test-3);
-        }
+        }*/
 
         lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(true);
