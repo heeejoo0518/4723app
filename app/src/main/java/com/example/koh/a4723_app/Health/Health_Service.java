@@ -184,12 +184,8 @@ public class Health_Service extends Activity {
                     }
                 }
 
-
-
             }
         });
-
-
 
     }
 }

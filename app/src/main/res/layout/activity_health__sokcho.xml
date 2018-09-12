@@ -13,4 +13,22 @@
         android:dividerHeight="1.5dp">
     </ListView>
 
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text=""
+        android:id="@+id/textView"
+        android:maxLines = "100"
+        android:scrollbars = "vertical"
+        android:layout_above="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="데이터 가져오기"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </LinearLayout>

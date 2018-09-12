@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Health.Health_yangyang">
 
+    <ListView
+        android:id="@+id/health_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
 </android.support.constraint.ConstraintLayout>
