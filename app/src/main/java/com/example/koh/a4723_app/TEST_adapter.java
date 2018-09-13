@@ -8,10 +8,30 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
+
+class TEST_items {
+    private String name;
+    private String call;
+    public void setName(String name){
+        this.name=name;
+    }
+    public void setCall(String call){
+        this.call=call;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public String getCall(){
+        return this.call;
+    }
+}
+
 public class TEST_adapter extends BaseAdapter {
-    ArrayList<String> items = new ArrayList<>();
+    ArrayList<TEST_items> items = new ArrayList<TEST_items>();
 
     public TEST_adapter() {}
 
@@ -30,7 +50,10 @@ public class TEST_adapter extends BaseAdapter {
         return position;
     }
 
-    public void addItem(String item){
+    public void addItem(String name,String call){
+        TEST_items item = new TEST_items();
+        item.setName(name);
+        item.setCall(call);
         items.add(item);
     }
 
@@ -44,7 +67,6 @@ public class TEST_adapter extends BaseAdapter {
         }else{
             view = (TEST_View)convertView;
         }
-
         view.setStatus(items.get(position));
 
         return view;
@@ -53,17 +75,20 @@ public class TEST_adapter extends BaseAdapter {
 
 
 class TEST_View extends LinearLayout {
-    TextView textView;
+    TextView name;
+    TextView call;
     public TEST_View(Context context){
         super(context);
         init(context);
     }
 
     public void init(Context context){
-        LayoutInflater.from(context).inflate(R.layout.list_item,this);
-        textView = (TextView) findViewById(R.id.schedule_);
+        LayoutInflater.from(context).inflate(R.layout.list_item2,this);
+        name = (TextView) findViewById(R.id.name);
+        call=(TextView) findViewById(R.id.call);
     }
-    public void setStatus(String item){
-        textView.setText(item);
+    public void setStatus(TEST_items items){
+        name.setText(items.getName());
+        call.setText(items.getCall());
     }
 }

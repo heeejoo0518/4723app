@@ -135,12 +135,6 @@ import android.database.sqlite.SQLiteOpenHelper;
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
 
-            //-------------listview
-
-         /*   ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
-            ListView listview = (ListView) findViewById(R.id.distance_listview) ;
-            listview.setAdapter(adapter) ;*/
-
             //------------------여기서부터 DB
 
             // DB Create and Open
@@ -149,17 +143,13 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ("
                     + "_id INTEGER,"
                     +"name TEXT,"
-                    + "p_Number INTEGER,"
+                    + "p_Number TEXT,"
                     +"address TEXT,"
                     + "latitude REAL,"
                     +"longitude REAL);");
 
-            //db.execSQL("INSERT INTO "+ tableName + " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','127.112','123.113');");
             setRecord();
-
-            //ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, LIST_MENU) ;
-           // listView = (ListView) findViewById(R.id.distance_listview) ;
-            //listview.setAdapter(adapter) ;
+            listView = (ListView) findViewById(R.id.list) ;
             setList();
 
            // Log.i("db","id:"+_id+",name:"+name);
@@ -171,11 +161,11 @@ import android.database.sqlite.SQLiteOpenHelper;
             c = db.rawQuery("SELECT * FROM " + tableName, null);
             if(c.getCount()<=0){//db에 저장된 값이 없을 때만 새로 입력
                 db.execSQL("INSERT INTO "+ tableName +
-                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시',01020789744,'서울시성북구','37.5844562','129.040229');");
+                        " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시','01020789744','서울시성북구','37.5844562','129.040229');");
                 db.execSQL("INSERT INTO "+ tableName +
-                        " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역',0000000,'서울시','37.555744','126.970431');");
+                        " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역','0000000','서울시','37.555744','126.970431');");
                 db.execSQL("INSERT INTO "+ tableName +
-                        " (_id, name, p_Number, address, latitude, longitude) Values (3,'예시',0000000,'서울시','38.555744','130.970431');");
+                        " (_id, name, p_Number, address, latitude, longitude) Values (3,'예시','0000000','서울시','38.555744','130.970431');");
             }
         }
 
@@ -184,16 +174,14 @@ import android.database.sqlite.SQLiteOpenHelper;
             adapter = new TEST_adapter();
             if(c.moveToFirst()){
                 do {
-                    adapter.addItem(c.getString(c.getColumnIndex("name")));
+                    String Name = c.getString(c.getColumnIndex("name"));
+                    String Call = c.getString(c.getColumnIndex("p_Number"));
+                    adapter.addItem(Name,Call);
                 }while(c.moveToNext());
 
             }
             listView.setAdapter(adapter);
         }
-
-
-
-
 
 
 
