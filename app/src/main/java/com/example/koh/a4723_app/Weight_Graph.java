@@ -3,6 +3,7 @@ package com.example.koh.a4723_app;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,24 +52,24 @@ public class Weight_Graph extends AppCompatActivity {
         Weight_db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (date INTEGER(20) PRIMARY KEY, weight REAL(20) );");
         final SQLiteDatabase finalWeight_db = Weight_db;
 
-        final Spinner spinner1 = (Spinner)findViewById(R.id.mySpinner1);
-        ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this,R.array.year, android.R.layout.simple_spinner_item);
+        final Spinner spinner1 = (Spinner) findViewById(R.id.mySpinner1);
+        ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this, R.array.year, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
 
-        final Spinner spinner2 = (Spinner)findViewById(R.id.mySpinner2);
-        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this,R.array.month, android.R.layout.simple_spinner_item);
+        final Spinner spinner2 = (Spinner) findViewById(R.id.mySpinner2);
+        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.month, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
-        final Spinner spinner3 = (Spinner)findViewById(R.id.mySpinner3);
-        ArrayAdapter adapter3 = ArrayAdapter.createFromResource(this,R.array.day, android.R.layout.simple_spinner_item);
+        final Spinner spinner3 = (Spinner) findViewById(R.id.mySpinner3);
+        ArrayAdapter adapter3 = ArrayAdapter.createFromResource(this, R.array.day, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
 
-        final EditText get_weight = (EditText)findViewById(R.id.today_weight);
-        Button save_data = (Button)findViewById(R.id.save_data);
-        Button delete_data = (Button)findViewById(R.id.delete_data);
+        final EditText get_weight = (EditText) findViewById(R.id.today_weight);
+        Button save_data = (Button) findViewById(R.id.save_data);
+        Button delete_data = (Button) findViewById(R.id.delete_data);
 
 
         draw_graph();
@@ -109,25 +110,23 @@ public class Weight_Graph extends AppCompatActivity {
 
                 long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1; // 저장할 날짜가 임신 며칠차 인지
 
-                if(diffDay > 0) {
+                if (diffDay > 0) {
                     String weight_str = get_weight.getText().toString();
 
 
-                    if(weight_str.length() > 0){ //사용자가 체중 입력을 했을 경우 DB에 저장
+                    if (weight_str.length() > 0) { //사용자가 체중 입력을 했을 경우 DB에 저장
                         float weight = Float.parseFloat(weight_str);
 
                         Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
                         Weight_db.execSQL("INSERT INTO " + tableName + "(date, weight) Values ('" + date + "', '" + weight + "');");
 
                         draw_graph();
-                        Toast.makeText(getApplicationContext() , "저장 완료", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "저장 완료", Toast.LENGTH_SHORT).show();
 
+                    } else { //사용자가 체중 입력을 하지 않았을 경우
+                        Toast.makeText(getApplicationContext(), "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
                     }
-                    else{ //사용자가 체중 입력을 하지 않았을 경우
-                        Toast.makeText(getApplicationContext() , "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else if(diffDay <= 0) {
+                } else if (diffDay <= 0) {
                     Toast.makeText(getApplicationContext(), "마지막 생리 이후 날짜를 선택해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -168,13 +167,12 @@ public class Weight_Graph extends AppCompatActivity {
                 } //사용자가 저장한 날짜 불러온거 형식 변환
                 long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1; // 저장할 날짜가 임신 며칠차 인지
 
-                if(diffDay > 0) {
+                if (diffDay > 0) {
 
-                        Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
-                        draw_graph();
-                        Toast.makeText(getApplicationContext() , "삭제 완료", Toast.LENGTH_SHORT).show();
-                }
-                else if(diffDay <= 0) {
+                    Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
+                    draw_graph();
+                    Toast.makeText(getApplicationContext(), "삭제 완료", Toast.LENGTH_SHORT).show();
+                } else if (diffDay <= 0) {
                     Toast.makeText(getApplicationContext(), "마지막 생리 이후 날짜를 선택해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -182,26 +180,26 @@ public class Weight_Graph extends AppCompatActivity {
 
     }
 
-    private void savePreferences(String code , String str){ //데이터 저장 함수
+    private void savePreferences(String code, String str) { //데이터 저장 함수
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(code, str);
         editor.commit();
     }
 
-    private String getPreferences(String code){ //데이터 불러오는 함수
+    private String getPreferences(String code) { //데이터 불러오는 함수
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-        String temp = pref.getString(code , "");
+        String temp = pref.getString(code, "");
         return temp;
 
     }
 
-    public void draw_graph(){
-        lineChart = (LineChart)findViewById(R.id.chart);
+    public void draw_graph() {
+        lineChart = (LineChart) findViewById(R.id.chart);
 
         List<Entry> hide_entries = new ArrayList<>();// 투명 dataset
-        for(int i=1;i<=280;i++){
-            hide_entries.add(new Entry(i,0));
+        for (int i = 1; i <= 280; i++) {
+            hide_entries.add(new Entry(i, 0));
         }
 
         List<Entry> entries = new ArrayList<>(); // 나타낼 dataset
@@ -219,29 +217,34 @@ public class Weight_Graph extends AppCompatActivity {
                     String weight = c.getString(c.getColumnIndex("weight"));
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
-                    Date startDate = new Date();
-                    try {
-                        startDate = sdf.parse(date);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    } //지금 날짜 형식 변환
+                    int diff_1 = Integer.parseInt(diff_str);
+                    int diff_2 = Integer.parseInt(date);
 
-                    Date endDate = new Date();
-                    try {
-                        endDate = sdf.parse(diff_str);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    } //사용자가 저장한 날짜 불러온거 형식 변환
+                    if (diff_1 <= diff_2) {
 
-                    long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
-                    if (diffDay < 0) {
-                        Toast.makeText(getApplicationContext() , "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
+                        Date startDate = new Date();
+                        try {
+                            startDate = sdf.parse(date);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        } //지금 날짜 형식 변환
+
+                        Date endDate = new Date();
+                        try {
+                            endDate = sdf.parse(diff_str);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        } //사용자가 저장한 날짜 불러온거 형식 변환
+
+                        long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000) + 1;
+                        if (diffDay < 0) {
+                            Toast.makeText(getApplicationContext(), "입력일이 이전입니다", Toast.LENGTH_SHORT).show();
+                        } else if (diffDay > 0) {
+                            float weight_float = Float.parseFloat(weight);
+                            entries.add(new Entry(diffDay, weight_float));
+                        }
+
                     }
-                    else if (diffDay >0){
-                        float weight_float = Float.parseFloat(weight);
-                        entries.add(new Entry(diffDay,weight_float));
-                    }
-
 
                 } while (c.moveToNext());
             }
@@ -252,8 +255,8 @@ public class Weight_Graph extends AppCompatActivity {
         //
 
         final ArrayList<String> xAxes = new ArrayList<>(); //x축 라벨 만들기
-        for (int i=0; i <= 280; i++) {
-            xAxes.add(i, String.valueOf(i)+"일 차"); //Dynamic x-axis labels
+        for (int i = 0; i <= 280; i++) {
+            xAxes.add(i, String.valueOf(i) + "일 차"); //Dynamic x-axis labels
         }
 
         lineChart.getXAxis().setValueFormatter(new IAxisValueFormatter() {
@@ -267,14 +270,15 @@ public class Weight_Graph extends AppCompatActivity {
         Collections.sort(entries, new Comparator<Entry>() {
             @Override
             public int compare(Entry o1, Entry o2) {
-                return (o1.getX() < o2.getX() ? -1 : (o1.getX() > o2.getX() ? 1 : 0 ));
+                return (o1.getX() < o2.getX() ? -1 : (o1.getX() > o2.getX() ? 1 : 0));
 
             }
         });
+
         showList();
 
-        if(data_num == 0){
-            entries.add(new Entry(0,0));
+        if (data_num == 0) {
+            entries.add(new Entry(0, 0));
         }
         LineDataSet hide_lineDataSet = new LineDataSet(hide_entries, "");
         hide_lineDataSet.setVisible(false);
@@ -297,7 +301,6 @@ public class Weight_Graph extends AppCompatActivity {
 
 
         lineChart.setData(lineData);
-
 
 
         XAxis xAxis = lineChart.getXAxis();
@@ -335,18 +338,32 @@ public class Weight_Graph extends AppCompatActivity {
             lineChart.moveViewToX(test-3);
         }*/
 
+
+        int test = (int) entries.get(0).getX();
+        int test2 = (int) entries.get(data_num-1).getX();
+
+        if(test2 - test > 5){
+            lineChart.moveViewToX(test2-3);
+        }
+        if(test2 - test <= 5){
+            lineChart.moveViewToX(0);
+        }
+
+
         lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(true);
         lineChart.setDrawGridBackground(false);
         lineChart.invalidate();
 
-        MyMarkerView marker = new MyMarkerView(this,R.layout.activity_my_marker_view);
+        MyMarkerView marker = new MyMarkerView(this, R.layout.activity_my_marker_view);
         marker.setChartView(lineChart);
         lineChart.setMarker(marker);
 
     }
-    protected void showList(){
+
+    protected void showList() {
         data_num = 0;
+        String diff = getPreferences("날짜");
         SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
 
         Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
@@ -358,15 +375,19 @@ public class Weight_Graph extends AppCompatActivity {
 
                     String date = c.getString(c.getColumnIndex("date"));
                     String weight = c.getString(c.getColumnIndex("weight"));
-                    //Toast.makeText(getApplicationContext() , date + " " +weight, Toast.LENGTH_SHORT).show();
-                    data_num ++;
+
+                    int diff_1 = Integer.parseInt(date);
+                    int diff_2 = Integer.parseInt(diff);
+
+                    if (diff_1 >= diff_2) {
+                        data_num++;
+                    }
+
                 } while (c.moveToNext());
             }
         }
         ReadDB.close();
     }
-
-
 
 
 }

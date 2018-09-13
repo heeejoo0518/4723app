@@ -51,6 +51,7 @@
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
             android:theme="@style/AppTheme" />
+        <activity android:name=".Health.Health_Service" />
         <activity android:name=".Health.Health_Sokcho" />
         <activity android:name=".Health.Health_Pyeongchang" />
         <activity android:name=".Health_s_1" />
@@ -70,6 +71,7 @@
         <activity android:name=".Health.Health_chulwon" />
         <activity android:name=".Health.Health_hseong" />
         <activity android:name=".Health.Health_wonju"></activity>
+
         <activity android:name=".CustomDialog_DueDate" />
         <activity android:name=".CustomDialog_LastDay" />
         <activity android:name=".CustomDialog_HealthCenter"></activity>

@@ -1,15 +1,20 @@
 package com.example.koh.a4723_app;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -103,10 +108,19 @@ public class CustomDialog_LastDay extends Dialog implements View.OnClickListener
 
                 String myDate = myDate_year + myDate_month + myDate_day;
 
+                String tmp = getPreferences("날짜");
+
+                if(tmp.length() > 1) {
+
+                }
+
                 savePreferences("날짜",myDate);
                 ((MainActivity)(MainActivity.mContext)).onResume();
 
                 cancel();
+                ((Activity) context).finish();
+                Intent refresh =new Intent(context , My_Page.class);
+                context.startActivity(refresh);
                 break;
         }
     }
@@ -116,6 +130,14 @@ public class CustomDialog_LastDay extends Dialog implements View.OnClickListener
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(code, str);
         editor.commit();
+    }
+
+
+    private String getPreferences(String code) { //데이터 불러오는 함수
+        SharedPreferences pref = context.getSharedPreferences("pref", MODE_PRIVATE);
+        String temp = pref.getString(code, "");
+        return temp;
+
     }
 }
 

@@ -81,10 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
             final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
-            //TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
             setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
         }
         else if(my_date  == ""){
@@ -93,12 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if((due_date !="") && (check == "true")) {
+        if(check.equals("true")) {
 
             long now = System.currentTimeMillis();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date date = new Date(now);
-            String nowDate = sdf.format(date); // 현재 시간 구하고 yyyyMMdd 형식으로 변환
+            String nowDate = sdf.format(date);
             Date startDate = new Date();
             Date endDate = new Date();
 
@@ -116,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
 
                 long test1 = endDate.getTime() / 1000;
                 long test2 = 280 * 24 * 60 * 60;
@@ -144,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-        } else if(due_date !="" && check == "false"){
-            Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
+        } else if(check.equals("false")){
+
             String my_date2 = getPreferences("출산날짜");
             String year = my_date2.substring(0, 4);
             String month = null;
@@ -160,57 +157,57 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 day = my_date2.substring(7, 8);
             }
-            Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
+
             setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
 
-        }
+        }else if(check.equals("")) {
 
-        if(due_date ==""){
-            setText_str += "출산 예정일을 입력해주세요";
+            setText_str +="예정일을 입력해주세요";
+
         }
 
         Pregnant_Week.setText(setText_str);
 
         Pregnant_Week.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-            String test = getPreferences("날짜");
-            //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT).show();
+                String test = getPreferences("날짜");
+                //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT).show();
 
-            if(test.length() ==0) {
-                Toast.makeText(getApplicationContext(), "먼저 아이의 정보를 저장 해주세요", Toast.LENGTH_SHORT).show();
+                if(test.length() ==0) {
+                    Toast.makeText(getApplicationContext(), "먼저 아이의 정보를 저장 해주세요", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this,Weight_Graph.class);
+                    startActivity(intent);
+                }
             }
-            else{
-                Intent intent = new Intent(MainActivity.this,Weight_Graph.class);
-                startActivity(intent);
-            }
-        }
-    });
+        });
 
         Health_Service.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, com.example.koh.a4723_app.Health.Health_Service.class);
-            startActivity(intent);
-        }
-    });
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, com.example.koh.a4723_app.Health.Health_Service.class);
+                startActivity(intent);
+            }
+        });
 
         Find_Hospital.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this,Find_Hospital.class);
-            startActivity(intent);
-        }
-    });
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Find_Hospital.class);
+                startActivity(intent);
+            }
+        });
 
         Calendar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, com.example.koh.a4723_app.calendar.Calendar.class);
-            startActivity(intent);
-        }
-    });
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, com.example.koh.a4723_app.calendar.Calendar.class);
+                startActivity(intent);
+            }
+        });
         //테스트버튼-===========================
         TEST.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //==========================================
 
-}
+    }
     public boolean onCreateOptionsMenu(Menu menu) {
         //return super.onCreateOptionsMenu(menu);
         MenuInflater menuInflater = getMenuInflater();
@@ -247,10 +244,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == REQ_ADD_CONTACT) {
             if (resultCode == RESULT_OK) {
-                data = intent.getStringExtra("날짜"); //마이 페이지로부터 날짜를 받음
-                savePreferences("날짜",data);  //받은 날짜를 앱에 저장
 
-               String baby_name = intent.getStringExtra("아기이름");
+                String baby_name = intent.getStringExtra("아기이름");
                 savePreferences("아기이름",baby_name);
             }
         }
@@ -268,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
         String temp = pref.getString(code , "");
         return temp;
 
-}
+    }
 
     public void onResume() {
         super.onResume();
@@ -322,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if((due_date !="") && (check == "true")) {
+        if(check.equals("true")) {
 
             long now = System.currentTimeMillis();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -373,33 +368,29 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-        } else if(due_date !="" && check == "false"){
-                Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
-                String my_date2 = getPreferences("출산날짜");
-                String year = my_date2.substring(0, 4);
-                String month = null;
-                String day = null;
-                if (my_date2.substring(4, 5).equals("1")) {
-                    month = my_date2.substring(4, 6);
-                } else {
-                    month = my_date2.substring(5, 6);
-                }
-                if (my_date2.substring(6, 7).equals("1")) {
-                    day = my_date2.substring(6, 8);
-                } else {
-                    day = my_date2.substring(7, 8);
-                }
-                Toast.makeText(getApplicationContext(), "ㅇㅇㅇㅇ", Toast.LENGTH_SHORT).show();
-                setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+        } else if(check.equals("false")){
 
-        }else if(due_date =="" && check == "true") {
+            String my_date2 = getPreferences("출산날짜");
+            String year = my_date2.substring(0, 4);
+            String month = null;
+            String day = null;
+            if (my_date2.substring(4, 5).equals("1")) {
+                month = my_date2.substring(4, 6);
+            } else {
+                month = my_date2.substring(5, 6);
+            }
+            if (my_date2.substring(6, 7).equals("1")) {
+                day = my_date2.substring(6, 8);
+            } else {
+                day = my_date2.substring(7, 8);
+            }
 
-                setText_str +="(출산 예정일을 자동으로 계산하기 위해서는 ";
+            setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
 
-        }
+        }else if(check.equals("")) {
 
-        if(due_date ==""){
-            setText_str += "출산 예정일을 입력해주세요";
+            setText_str +="예정일을 입력해주세요";
+
         }
 
         Pregnant_Week.setText(setText_str);

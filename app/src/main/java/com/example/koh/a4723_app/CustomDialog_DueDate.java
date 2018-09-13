@@ -1,5 +1,6 @@
 package com.example.koh.a4723_app;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -92,6 +93,28 @@ public class CustomDialog_DueDate extends Dialog implements View.OnClickListener
             case R.id.save_date:
 
                 if(auto.isChecked() == true){
+                    String myDate_year = (String) spinner1.getSelectedItem();
+                    String myDate_month = (String) spinner2.getSelectedItem();
+                    String myDate_day = (String) spinner3.getSelectedItem();
+
+                    int myDate_year_position = (int) spinner1.getSelectedItemPosition();
+                    int myDate_month_position = (int) spinner2.getSelectedItemPosition();
+                    int myDate_day_position = (int) spinner3.getSelectedItemPosition();
+
+                    savePreferences("년", Integer.toString(myDate_year_position)); //스피너 선택값 저장
+                    savePreferences("월", Integer.toString(myDate_month_position));
+                    savePreferences("일", Integer.toString(myDate_day_position));
+
+                    if(myDate_month.length() == 1){ //월,일이 한자리수일때 0을 덧붙임
+                        myDate_month = "0"+myDate_month;
+                    }
+                    if(myDate_day.length() == 1){
+                        myDate_day = "0"+myDate_day;
+                    }
+
+                    String myDate = myDate_year + myDate_month + myDate_day;
+                    savePreferences("출산날짜",myDate);
+
                     String tmp = getPreferences("날짜");
                     if(tmp.equals("") || tmp == null) {
                         Toast.makeText(context.getApplicationContext() , "자동계산을 원하시면 마지막 월경 날짜를 입력하세요" , Toast.LENGTH_SHORT).show();
@@ -127,13 +150,20 @@ public class CustomDialog_DueDate extends Dialog implements View.OnClickListener
                     savePreferences("출산날짜",myDate);
 
                     savePreferences("자동계산","false");
-
                 }
 
-                ((MainActivity)(MainActivity.mContext)).onResume();
+                //((MainActivity)(MainActivity.mContext)).onResume();
+
                 cancel();
+
+                Intent refresh =new Intent(context , My_Page.class);
+                context.startActivity(refresh);
+                ((Activity) context).finish();
                 break;
         }
+
+
+
     }
 
     private void savePreferences(String code , String str){ //데이터 저장 함수
