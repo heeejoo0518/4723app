@@ -40,8 +40,8 @@ public class Health_Service extends AppCompatActivity {
         //String temp = getSharedPreferences("보건소", );
 
 
-        String tmp = getPreferences("보건소");
-        Toast.makeText(getApplicationContext(),tmp, Toast.LENGTH_LONG).show();
+        String health_center = getPreferences("보건소");
+       // Toast.makeText(getApplicationContext(),health_center, Toast.LENGTH_LONG).show();
 
 
         //툴바 설정=================================
@@ -94,7 +94,7 @@ public class Health_Service extends AppCompatActivity {
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View v) {*/
                 if (health_center.equals("양양군보건소")) {
                     {
                         Intent intent = new Intent(Health_Service.this, Health_yangyang.class);
