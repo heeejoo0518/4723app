@@ -32,10 +32,10 @@ public class Health_Service extends Activity {
 
         setContentView(R.layout.activity_health__service);
 
-        //SharedPreferences sp = getSharedPreferences("보건소");
-        //health_center = sp.getString("보건소","");
-       // String temp = getSharedPreferences("보건소", );
-        //Toast.makeText(getApplicationContext(), health_center, Toast.LENGTH_LONG).show();
+        SharedPreferences sp = getSharedPreferences("보건소",MODE_PRIVATE);
+        health_center = sp.getString("보건소","");
+       //String temp = getSharedPreferences("보건소", );
+        Toast.makeText(getApplicationContext(), health_center, Toast.LENGTH_LONG).show();
 
         /*cityList = new ArrayList();
         cityList.add("양양군보건소");
