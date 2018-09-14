@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Calendar_EventDecorator에 쓸 이벤트 표시 xml-->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle"
-    android:padding="10dp">
-    <corners
-        android:bottomRightRadius="6dp"
-        android:bottomLeftRadius="6dp"
-        android:topLeftRadius="6dp"
-        android:topRightRadius="6dp" />
-    <stroke
-        android:width="5px"
-        android:color="?attr/colorAccent" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:background="@android:color/transparent"
+        >
+        <shape>
+            <stroke
+                android:dashGap="10px"
+                android:dashWidth="10px"
+                android:width="1dp"
+                android:color="#ababb2" />
+        </shape>
+    </item>
+
+</layer-list>

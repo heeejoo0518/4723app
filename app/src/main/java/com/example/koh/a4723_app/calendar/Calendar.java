@@ -188,7 +188,7 @@ public class Calendar extends AppCompatActivity {
                 return;
             }
             if(eventDecorator!=null) materialCalendarView.removeDecorator(eventDecorator);
-            eventDecorator = new Calendar_EventDecorator(Color.rgb(255,187,0), calendarDays,Calendar.this);
+            eventDecorator = new Calendar_EventDecorator(calendarDays,Calendar.this);
             materialCalendarView.addDecorator(eventDecorator);//yellow
         }
     }
