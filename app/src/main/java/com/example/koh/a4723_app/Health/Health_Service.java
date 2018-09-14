@@ -1,8 +1,11 @@
 package com.example.koh.a4723_app.Health;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +23,7 @@ import java.util.ArrayList;
 
 
 
-public class Health_Service extends Activity {
+public class Health_Service extends AppCompatActivity {
 
     //implements ListViewBtnAdapter.ListBtnClickListener
     Button button;
@@ -41,6 +44,13 @@ public class Health_Service extends Activity {
         String tmp = getPreferences("보건소");
         Toast.makeText(getApplicationContext(),tmp, Toast.LENGTH_LONG).show();
 
+
+        //툴바 설정=================================
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("WHITE")); //제목의 칼라
+        toolbar.setTitle("보건 사업");
+        setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
+        //==========================================
 
         /*cityList = new ArrayList();
         cityList.add("양양군보건소");
