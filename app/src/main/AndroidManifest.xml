@@ -18,19 +18,16 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDoJYDdp-inMbUJq3Q4-Lw7QGnqjFCPz04" />
-
+            android:value="AIzaSyBWlNz7wa32ragZ-52n3B0W8FbT0nOIA0g"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".Health_Service"
+            android:name=".Health.Health_Service"
             android:label="@string/title_activity_health__service" />
-        <activity android:name=".find_hospital" />
         <activity
             android:name=".calendar.Calendar"
             android:label="@string/title_activity_calendar"
@@ -54,7 +51,7 @@
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Health.Health_Service" />
+
         <activity android:name=".Health.Health_Sokcho" />
         <activity android:name=".Health.Health_Pyeongchang" />
         <activity android:name=".Health_s_1" />
