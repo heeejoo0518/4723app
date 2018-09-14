@@ -32,10 +32,15 @@ public class Health_Service extends Activity {
 
         setContentView(R.layout.activity_health__service);
 
-        SharedPreferences sp = getSharedPreferences("보건소",MODE_PRIVATE);
-        health_center = sp.getString("보건소","");
-       //String temp = getSharedPreferences("보건소", );
-        Toast.makeText(getApplicationContext(), health_center, Toast.LENGTH_LONG).show();
+        //SharedPreferences sp = getSharedPreferences("보건소",MODE_PRIVATE);
+        //health_center = sp.getString("보건소","");
+        //String temp = getSharedPreferences("보건소", );
+
+
+
+        String tmp = getPreferences("보건소");
+        Toast.makeText(getApplicationContext(),tmp, Toast.LENGTH_LONG).show();
+
 
         /*cityList = new ArrayList();
         cityList.add("양양군보건소");
@@ -56,7 +61,6 @@ public class Health_Service extends Activity {
         cityList.add("횡성군보건소");
         cityList.add("철원군보건소");
         cityList.add("주문진보건출장소");
-
         final String[] select_item = {""};
         final TextView tv = (TextView) findViewById(R.id.textView1);
         Spinner s = (Spinner) findViewById(R.id.spinner1);
@@ -76,7 +80,6 @@ public class Health_Service extends Activity {
                 }
                 tv.setText("선택한 지역은 " +arg0.getItemAtPosition(arg2)+" 입니다");
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -191,19 +194,17 @@ public class Health_Service extends Activity {
 
     }
 
-   /* private void savePreferences(String code, String str) { //데이터 저장 함수
+    private void savePreferences(String code, String str) { //데이터 저장 함수
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(code, str);
         editor.commit();
     }
-
     private String getPreferences(String code) { //데이터 불러오는 함수
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         String temp = pref.getString(code, "");
         return temp;
-
-    }*/
+    }
 
 
 }
