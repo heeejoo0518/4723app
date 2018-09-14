@@ -40,7 +40,6 @@ public class Health_Service extends AppCompatActivity {
         //String temp = getSharedPreferences("보건소", );
 
 
-
         String tmp = getPreferences("보건소");
         Toast.makeText(getApplicationContext(),tmp, Toast.LENGTH_LONG).show();
 
