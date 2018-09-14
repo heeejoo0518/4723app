@@ -30,7 +30,7 @@ public class Fragment_Status extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        items = new String[]{"상태1","상태2","상태3","상태4","상태5","상태6"};
+        items = new String[]{"매우 좋음","좋음","신남","설렘","놀람","슬픔","지침","아픔","나쁨"};
 
     }
 

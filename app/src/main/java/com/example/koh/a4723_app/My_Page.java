@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +30,13 @@ public class My_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my__page);
+
+        //툴바 설정=================================
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("WHITE")); //제목의 칼라
+        toolbar.setTitle("마이페이지");
+        setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
+        //==========================================
 
         final Context context = this;
         Button save_name = (Button) findViewById(R.id.save_name);

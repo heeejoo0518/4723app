@@ -1,6 +1,6 @@
 package com.example.koh.a4723_app;
 
-// @Override
+   // @Override
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -27,7 +27,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,6 +50,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -63,7 +67,7 @@ public class TEST extends FragmentActivity
     SQLiteDatabase db=null;
 
     private GoogleApiClient mGoogleApiClient = null;
-    private GoogleMap mGoogleMap = null;
+    private static GoogleMap mGoogleMap = null;
     private Marker currentMarker = null;
     GoogleMap mMap;
 
@@ -85,19 +89,15 @@ public class TEST extends FragmentActivity
     String dbName = "H_address.db";
 
     TEST_adapter adapter;
-    ListView listView;
+    static ListView listView;
     Cursor c;
+
+    ArrayList<Marker> markers = new ArrayList<>();
 
     LocationRequest locationRequest = new LocationRequest()
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
             .setInterval(UPDATE_INTERVAL_MS)
             .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
-
-    //   private static final String TAG = "TEST";
-
-
-
-
 
 
 
@@ -144,6 +144,16 @@ public class TEST extends FragmentActivity
         listView = (ListView) findViewById(R.id.list);
         setList();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Marker marker = markers.get(position);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(marker.getPosition());
+                mGoogleMap.moveCamera(cameraUpdate);
+                marker.showInfoWindow();
+
+            }
+        });
     }
 
     public void setRecord(){
@@ -170,6 +180,7 @@ public class TEST extends FragmentActivity
 
         }
         listView.setAdapter(adapter);
+
     }
 
 
@@ -233,6 +244,7 @@ public class TEST extends FragmentActivity
         mRequestingLocationUpdates = false;
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -241,32 +253,23 @@ public class TEST extends FragmentActivity
         mGoogleMap = googleMap;
 
         //마커 추가========================
+
         c = db.rawQuery("SELECT * FROM " + tableName, null);
         if(c.moveToFirst()){
             do{
                 double lat = c.getDouble(c.getColumnIndex("latitude"));
                 double lng = c.getDouble(c.getColumnIndex("longitude"));
                 String title = c.getString(c.getColumnIndex("name"));
-                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(title)).showInfoWindow();
+                MarkerOptions mo = new MarkerOptions().position(new LatLng(lat, lng)).title(title);
+                Marker marker = mGoogleMap.addMarker(mo);
+                //marker.showInfoWindow();
+                markers.add(marker);
             }while(c.moveToNext());
         }
         //==================================
 
 
-            /*
-            MarkerOptions marker = new MarkerOptions();
-            marker .position(new LatLng(37.555744, 126.970431))
-                    .title("서울역")
-                    .snippet("Seoul Station");
-            marker.getPosition();
-            googleMap.addMarker(marker).showInfoWindow(); // 마커추가,화면에출력
 
-            MarkerOptions marker1 = new MarkerOptions();
-            marker1 .position(new LatLng(38.555744, 126.970431))
-                    .title("예시")
-                    .snippet("example");
-            googleMap.addMarker(marker1).showInfoWindow();
-            */
 
         //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
         //지도의 초기위치를 서울로 이동

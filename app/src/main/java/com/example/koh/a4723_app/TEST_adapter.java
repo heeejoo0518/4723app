@@ -11,7 +11,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gun0912.tedpermission.*;
 
@@ -61,6 +60,7 @@ public class TEST_adapter extends BaseAdapter {
         item.setName(name);
         item.setCall(call);
         items.add(item);
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -78,17 +78,14 @@ public class TEST_adapter extends BaseAdapter {
         view.imgbt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 PermissionListener permissionlistener = new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted() {
-                        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+items.get(position).getCall()));
-                        parent.getContext().startActivity(callIntent);
-                    }
-                    @Override
-                    public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                    }
-
+                @Override
+                public void onPermissionGranted() {
+                    Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+items.get(position).getCall()));
+                    parent.getContext().startActivity(callIntent);
+                }
+                @Override
+                public void onPermissionDenied(ArrayList<String> deniedPermissions) {}
                 };
                 TedPermission.with(parent.getContext())
                         .setPermissionListener(permissionlistener)
@@ -114,7 +111,8 @@ class TEST_View extends LinearLayout {
     }
 
     public void init(Context context){
-        LayoutInflater.from(context).inflate(R.layout.list_item2,this);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.list_item2,this, true);
         name = (TextView) findViewById(R.id.name);
         call=(TextView) findViewById(R.id.call);
         imgbt = (ImageButton)findViewById(R.id.img_call);
