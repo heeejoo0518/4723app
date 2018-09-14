@@ -5,6 +5,7 @@ package com.example.koh.a4723_app;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,17 +25,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.koh.a4723_app.adapter.OnedayAdapter;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -51,16 +47,13 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 
-    public class TEST extends FragmentActivity
+public class TEST extends FragmentActivity
             implements OnMapReadyCallback,
             GoogleApiClient.ConnectionCallbacks,
             GoogleApiClient.OnConnectionFailedListener,
@@ -69,7 +62,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         SQLiteDatabase db=null;
 
-        //static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3","LIST4","LIST5" ,"LIST6"} ;
         private GoogleApiClient mGoogleApiClient = null;
         private GoogleMap mGoogleMap = null;
         private Marker currentMarker = null;
@@ -149,11 +141,8 @@ import android.database.sqlite.SQLiteOpenHelper;
                     +"longitude REAL);");
 
             setRecord();
-            listView = (ListView) findViewById(R.id.list) ;
+            listView = (ListView) findViewById(R.id.list);
             setList();
-
-           // Log.i("db","id:"+_id+",name:"+name);
-
 
         }
 
@@ -163,7 +152,7 @@ import android.database.sqlite.SQLiteOpenHelper;
                 db.execSQL("INSERT INTO "+ tableName +
                         " (_id, name, p_Number, address, latitude, longitude) Values (1,'산부인과 예시','01020789744','서울시성북구','37.5844562','129.040229');");
                 db.execSQL("INSERT INTO "+ tableName +
-                        " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역','0000000','서울시','37.555744','126.970431');");
+                        " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역','01047108178','서울시','37.555744','126.970431');");
                 db.execSQL("INSERT INTO "+ tableName +
                         " (_id, name, p_Number, address, latitude, longitude) Values (3,'예시','0000000','서울시','38.555744','130.970431');");
             }
