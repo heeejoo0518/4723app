@@ -82,7 +82,7 @@ public class Health_Service extends Activity {
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {*/
+            public void onClick(View v) {
                 if (health_center.equals("양양군보건소")) {
                     {
                         Intent intent = new Intent(Health_Service.this, Health_yangyang.class);
