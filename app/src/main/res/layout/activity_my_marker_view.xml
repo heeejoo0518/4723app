@@ -17,7 +17,7 @@
         android:layout_marginRight="5dp"
         android:text=""
         android:textSize="15dp"
-        android:textColor="#00aaff"
+        android:textColor="#e5bebe"
         android:ellipsize="end"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceSmall" />

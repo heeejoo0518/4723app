@@ -290,8 +290,8 @@ public class Weight_Graph extends AppCompatActivity {
         lineDataSet.setDrawValues(true);
         lineDataSet.setLineWidth(2);
         lineDataSet.setCircleRadius(4);
-        lineDataSet.setCircleColor(Color.parseColor("#FFA1B4DC"));
-        lineDataSet.setColor(Color.parseColor("#FFA1B4DC"));
+        lineDataSet.setCircleColor(Color.parseColor("#e5bebe"));
+        lineDataSet.setColor(Color.parseColor("#e5bebe"));
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
         dataSets.add(hide_lineDataSet); // add the datasets
@@ -339,21 +339,25 @@ public class Weight_Graph extends AppCompatActivity {
         }*/
 
 
-        int test = (int) entries.get(0).getX();
+        /*int test = (int) entries.get(0).getX();
         int test2 = (int) entries.get(data_num-1).getX();
+        Toast.makeText(getApplicationContext(), test2, Toast.LENGTH_SHORT).show();
+
 
         if(test2 - test > 5){
             lineChart.moveViewToX(test2-3);
         }
         if(test2 - test <= 5){
             lineChart.moveViewToX(0);
-        }
+        }*/
 
 
+        lineChart.getLegend().setEnabled(false);
         lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(true);
         lineChart.setDrawGridBackground(false);
         lineChart.invalidate();
+
 
         MyMarkerView marker = new MyMarkerView(this, R.layout.activity_my_marker_view);
         marker.setChartView(lineChart);

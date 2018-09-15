@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,87 +19,65 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-       <!--<Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="mypage" /> -->
-
     </android.support.v7.widget.Toolbar>
 
-    <!--테스트버튼-->
+    <TextView
+        android:id="@+id/info_weeks_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:background="#e5bebe"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/info_weeks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#e5bebe"
+        android:text="혜택 입력"
+        android:layout_weight="5"/>
+
+    <Button
+        android:id="@+id/Weight_Graph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#e09d9d"
+        android:layout_weight="5"/>
+
+    <Button
+        android:id="@+id/Health_Service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#e29695"
+        android:layout_weight="2"
+        android:text="보건 사업" />
+
+
     <Button
         android:id="@+id/testbutton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/my_toolbar"
-        android:text="test"/>
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:background="#e28f8e"
+        android:gravity="center|center_vertical"
+        android:text="가까운 병원" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+
+    <Button
+        android:id="@+id/Calendar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical" >
-        <Button
-            android:id="@+id/Pregnant_Week"
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-           />
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:background="#e58685"
+        android:text="달력" />
 
-    <!--  <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12pt"
-            android:text="오늘 나의 아이는"
-            android:id="@+id/text1"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12pt"
-            android:hint="0주 0일째"
-            android:id="@+id/my_weeks"
-            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="9pt"
-            android:hint="출산 예정일은"
-            android:id="@+id/delivery_day"
-            />-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical|center_horizontal">
 
-            <Button
-                android:id="@+id/Health_Service"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보건 사업" />
-        </RelativeLayout>
+</LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical|center_horizontal">
-
-            <Button
-                android:id="@+id/Find_Hospital"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="가까운 병원" />
-
-            <Button
-                android:id="@+id/Calendar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="달력" />
-        </LinearLayout>
-    </LinearLayout>
-
-</RelativeLayout >

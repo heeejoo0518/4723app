@@ -24,7 +24,11 @@ public class My_Page extends AppCompatActivity {
     private final String dbName = "Weight_DB";
     SQLiteDatabase Weight_db = null;
     public static Context mContext;
-
+    Button save_name;
+    Button save_date;
+    Button save_date_lastday;
+    Button save_healthcenter;
+    Button delete_all;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,11 @@ public class My_Page extends AppCompatActivity {
         //==========================================
 
         final Context context = this;
-        Button save_name = (Button) findViewById(R.id.save_name);
-        Button save_date = (Button) findViewById(R.id.save_date);
-        Button save_date_lastday = (Button) findViewById(R.id.save_date_lastday);
-        Button save_healthcenter = (Button) findViewById(R.id.save_health_center);
-        Button delete_all = (Button) findViewById(R.id.delete_all);
+        save_name = (Button) findViewById(R.id.save_name);
+        save_date = (Button) findViewById(R.id.save_date);
+        save_date_lastday = (Button) findViewById(R.id.save_date_lastday);
+        save_healthcenter = (Button) findViewById(R.id.save_health_center);
+        delete_all = (Button) findViewById(R.id.delete_all);
 
 
         getWindow().setWindowAnimations(0);
@@ -205,11 +209,6 @@ public class My_Page extends AppCompatActivity {
         super.onResume();
 
 
-        TextView name = (TextView) findViewById(R.id.baby_text2);
-        TextView duedate = (TextView) findViewById(R.id.delivery_text2);
-        TextView lastday = (TextView) findViewById(R.id.last_day2);
-        TextView healthcenter = (TextView) findViewById(R.id.health_center2);
-
         String name_ = getPreferences("아기이름");
         String duedate_ = getPreferences("출산날짜");
         String lastday_ = getPreferences("날짜");
@@ -218,7 +217,7 @@ public class My_Page extends AppCompatActivity {
 
 
         if (name_ != "") {
-            name.setText(name_);
+            save_name.setText(name_);
         }
         if (duedate_ != "" && check == "false") {
 
@@ -237,8 +236,11 @@ public class My_Page extends AppCompatActivity {
             }
 
             duedate_ =  year + "년" + month + "월" + day + "일";
+            save_date.setText(duedate_);
 
-            duedate.setText(duedate_);
+        }
+        if (lastday_ !="" && check == "true") {
+            save_date.setText("자동계산");
         }
         if (lastday_ != "") {
 
@@ -257,14 +259,12 @@ public class My_Page extends AppCompatActivity {
             }
             lastday_ =  year + "년" + month + "월" + day + "일";
 
-            lastday.setText(lastday_);
+            save_date_lastday.setText(lastday_);
         }
         if (healthcenter_ != "") {
-            healthcenter.setText(healthcenter_);
+            save_healthcenter.setText(healthcenter_);
         }
-        if (check == "true") {
-            duedate.setText("자동계산");
-        }
+
     }
 
 }

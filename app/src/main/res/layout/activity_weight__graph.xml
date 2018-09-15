@@ -41,26 +41,34 @@
         <Button
             android:id="@+id/save_data"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_shape"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp"
             android:text="저장" />
 
         <Button
             android:id="@+id/delete_data"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_shape"
+            android:layout_marginTop="2dp"
             android:text="삭제" />
 
     </LinearLayout>
 
+
     <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="450dp" />
+        android:layout_height="match_parent" />
 
 
     </RelativeLayout>
