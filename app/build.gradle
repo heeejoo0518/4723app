@@ -44,7 +44,5 @@ dependencies {
 
     implementation 'com.github.PhilJay:MpAndroidChart:v3.0.2'
     implementation 'com.android.support:design:25.3.1'
-    //퍼미션 권한 라이브러리
-    implementation 'gun0912.ted:tedpermission:2.0.0'
 
 }

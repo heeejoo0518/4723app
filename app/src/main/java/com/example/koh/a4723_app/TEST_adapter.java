@@ -1,9 +1,15 @@
 package com.example.koh.a4723_app;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.gun0912.tedpermission.*;
-
 import java.util.ArrayList;
-
-
 
 class TEST_items {
     private String name;
@@ -75,27 +76,32 @@ public class TEST_adapter extends BaseAdapter {
         }
         view.setText(items.get(position));
 
+        final TEST_View finalView = view;
+        final Context finalcontext = context;
         view.imgbt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PermissionListener permissionlistener = new PermissionListener() {
-                @Override
-                public void onPermissionGranted() {
+                int Permission = ContextCompat.checkSelfPermission(finalcontext, Manifest.permission.CALL_PHONE);
+                if(Permission== PackageManager.PERMISSION_GRANTED){
                     Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+items.get(position).getCall()));
-                    parent.getContext().startActivity(callIntent);
+                    finalcontext.startActivity(callIntent);
                 }
-                @Override
-                public void onPermissionDenied(ArrayList<String> deniedPermissions) {}
-                };
-                TedPermission.with(parent.getContext())
-                        .setPermissionListener(permissionlistener)
-                        .setDeniedMessage("권한허용 필요")
-                        .setPermissions(Manifest.permission.READ_CONTACTS)
-                        .check();
+                else{
+                    if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) finalcontext, "Manifest.permission.CALL_PHONE")){
+                        Snackbar.make(finalView, "이 앱을 실행하려면 통화 접근 권한이 필요합니다.",
+                                Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
+                                ActivityCompat.requestPermissions( (Activity)finalcontext, new String[]{"Manifest.permission.CALL_PHONE"}, 200);
+                            }
+                        }).show();
+                    }else {
+                    ActivityCompat.requestPermissions((Activity)finalcontext,new String[]{"Manifest.permission.CALL_PHONE"},200);
+                    }
+                }
             }
         });
-
         return view;
     }
 }
