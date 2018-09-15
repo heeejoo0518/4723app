@@ -1,6 +1,7 @@
 package com.example.koh.a4723_app.calendar;
 
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -9,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.*;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 
 import com.example.koh.a4723_app.R;
@@ -139,6 +141,11 @@ public class Calendar extends AppCompatActivity {
             }
         });
 
+    }
+
+    public InputMethodManager setIMM(){
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        return imm;
     }
 
     public void setFragment0(){

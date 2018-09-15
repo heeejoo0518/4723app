@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -93,6 +94,7 @@ public class Fragment_Schedule extends Fragment {
 
                 adapter.addItem(new SingleSchedule(sche));
                 editText.setText("");//EditText 내용 삭제
+                ((Calendar)getActivity()).setIMM().hideSoftInputFromWindow(editText.getWindowToken(), 0);
                 adapter.notifyDataSetChanged(); // 이 메소드를 호출하면 어댑터 쪽에서 리스트뷰를 갱신하라 함.
             }
         });
