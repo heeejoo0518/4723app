@@ -67,6 +67,7 @@ public class Fragment_Status extends Fragment {
                 db.execSQL("DELETE FROM Table_status WHERE date = '" + date + "';"); //Table_status 테이블의 date 칼럼 중에 현재 날짜와 같은 게 있으면 레코드 삭제
                 db.execSQL("INSERT INTO " + tableName + "(date, status) Values ('" + date + "', '" + item + "');");
                 ((Calendar)getActivity()).clickStatus();// 상태 클릭 시 activity로 업데이트를 알려줌
+                ((Calendar)getActivity()).setFragment0();
             }
         });
 

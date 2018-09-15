@@ -43,6 +43,7 @@ public class Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         db = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS Table_status (date VARCHAR, status VARCHAR);");
 
         fragment0.setDB(db);
         fragment1.setDB(db);
@@ -65,6 +66,7 @@ public class Calendar extends AppCompatActivity {
         fragment2.setDate(str);fragment0.setDate(str);
 
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (time VARCHAR PRIMARY KEY,schedule VARCHAR);");//time,schedule 칼럼 있는 테이블 추가
+
 
         materialCalendarView = (MaterialCalendarView) findViewById(R.id.calendarView);
         materialCalendarView.state().edit()
@@ -137,6 +139,10 @@ public class Calendar extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void setFragment0(){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment0).commit();
     }
 
     public void setFragment2(){

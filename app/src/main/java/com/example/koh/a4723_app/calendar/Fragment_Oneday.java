@@ -219,6 +219,7 @@ public class Fragment_Oneday extends Fragment {
     public void setS(String date){//새로 date로 status 설정
         setDate(date);
         c = db.rawQuery("SELECT * FROM Table_status",null);
+        if(c.getCount()<=0) textView.setText("기분을 추가해주세요");
         if(c.moveToFirst()){
             while(true){
                 if(date.equals(c.getString(c.getColumnIndex("date")))) {
