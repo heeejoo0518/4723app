@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.koh.a4723_app">
-   <!--인터넷 연결 관련 퍼미션-->
+
+    <!-- 인터넷 연결 관련 퍼미션 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!--phone call-->
+    <!-- phone call -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <!-- 현경이가 바꾼거임 바꾸지 말 것: android:allowBackup="false" -->
@@ -18,10 +19,12 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBWlNz7wa32ragZ-52n3B0W8FbT0nOIA0g"/>
+            android:value="AIzaSyBWlNz7wa32ragZ-52n3B0W8FbT0nOIA0g" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -51,10 +54,8 @@
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".Health.Health_Sokcho" />
         <activity android:name=".Health.Health_Pyeongchang" />
-        <activity android:name=".Health_s_1" />
         <activity android:name=".Wellness.WellnessClicked" />
         <activity android:name=".Health.Health_yangyang" />
         <activity android:name=".Health.Health_jeongseon" />
@@ -70,12 +71,11 @@
         <activity android:name=".Health.Health_donghae" />
         <activity android:name=".Health.Health_chulwon" />
         <activity android:name=".Health.Health_hseong" />
-        <activity android:name=".Health.Health_wonju"></activity>
-
+        <activity android:name=".Health.Health_wonju" />
         <activity android:name=".CustomDialog_DueDate" />
         <activity android:name=".CustomDialog_LastDay" />
-        <activity android:name=".CustomDialog_HealthCenter"></activity>
-
+        <activity android:name=".CustomDialog_HealthCenter" />
+        <activity android:name=".Health.Example"></activity>
     </application>
 
 </manifest>
