@@ -15,9 +15,7 @@ public class Health_yangyang extends AppCompatActivity {
     private ListView _listview;
 
     private String[] items = { "List1", "List2", "List3", "List4", "List5", "List6",
-
             "List7", "List8", "List9", "List10" };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,44 +35,45 @@ public class Health_yangyang extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id)
         {
             if(position == 0){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 1){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 2){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 3){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 4){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 5) {
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 6){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 7){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
             if(position == 8){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
 
             if(position == 9){
-                Intent intent = new Intent(Health_yangyang.this, Health_chulwon.class);
+                Intent intent = new Intent(Health_yangyang.this, Example.class);
                 startActivity(intent);
             }
         }
