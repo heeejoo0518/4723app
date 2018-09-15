@@ -5,10 +5,15 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -35,12 +40,15 @@ public class CustomDialog_HealthCenter extends Dialog implements View.OnClickLis
     public CustomDialog_HealthCenter(@NonNull Context context) {
         super(context);
         this.context = context;
+
     }
 
     public CustomDialog_HealthCenter(Context context, String name){
         super(context);
         this.context = context;
         this.name = name;
+
+
     }
 
     @Override
