@@ -31,12 +31,13 @@ public class Example extends AppCompatActivity {
         setContentView(R.layout.activity_example);
 
         textviewHtmlDocument = (TextView)findViewById(R.id.textView);
-        textviewHtmlDocument.setMovementMethod(new ScrollingMovementMethod()); //스크롤 가능한 텍스트뷰로 만들기
+       // textviewHtmlDocument.setMovementMethod(new ScrollingMovementMethod()); //스크롤 가능한 텍스트뷰로 만들기
      //   Example.JsoupAsyncTask jsoupAsyncTask = new Example.JsoupAsyncTask();
       //  jsoupAsyncTask.execute();
 
         site = getPreferences("사이트주소");
         Toast.makeText(getApplicationContext(),site, Toast.LENGTH_LONG).show();
+
     }
 
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {

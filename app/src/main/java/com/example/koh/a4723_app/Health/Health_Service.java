@@ -44,8 +44,10 @@ public class Health_Service extends AppCompatActivity {
         String health_center = getPreferences("보건소");
 
        // Toast.makeText(getApplicationContext(),health_center, Toast.LENGTH_LONG).show();
+
         str = "http://www.yonhapnews.co.kr/";
         savePreferences("사이트주소",str);
+
 
         //툴바 설정=================================
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
