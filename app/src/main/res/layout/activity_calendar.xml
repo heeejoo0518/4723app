@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".calendar.Calendar">
+    tools:context=".calendar.Calendar"
+    android:background="#e5bebe" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -44,7 +45,8 @@
         android:layout_height="310dp"
         android:layout_below="@id/my_toolbar"
         android:layout_centerHorizontal="true"
-        app:mcv_selectionColor="@android:color/holo_blue_dark"
+        app:mcv_tileWidth="match_parent"
+        app:mcv_selectionColor="#e58685"
         app:mcv_showOtherDates="defaults" />
 
     <!--프래그먼트-->
