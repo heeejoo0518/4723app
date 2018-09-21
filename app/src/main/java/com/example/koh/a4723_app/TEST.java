@@ -146,7 +146,6 @@ public class TEST extends FragmentActivity
                 + "latitude REAL,"
                 +"longitude REAL);");
 
-        Log.d("hj","start=============================================================================");
         setRecord();
         setList();
 
@@ -176,7 +175,6 @@ public class TEST extends FragmentActivity
             db.execSQL("INSERT INTO "+ tableName +
                     " (_id, name, p_Number, address, latitude, longitude) Values (5,'춘천성심병원','123456789','강원도 춘천','37.884026','127.740039');");
         }
-        Log.d("hj","setRecord");
     }
 
     public void setTestItems(){
@@ -194,7 +192,6 @@ public class TEST extends FragmentActivity
 
             }while(c.moveToNext());
         }
-        Log.d("hj","setTestItems");
     }
     public void setList(){
         setTestItems();
@@ -209,9 +206,6 @@ public class TEST extends FragmentActivity
         }
         listView.setAdapter(adapter);
         adapter.notifyDataSetInvalidated();
-        Log.d("hj","setList");
-
-
     }
 
     public double getDistance(LatLng latlng) {
@@ -225,7 +219,6 @@ public class TEST extends FragmentActivity
         locationB.setLatitude(latlng.latitude);
         locationB.setLongitude(latlng.longitude);
         distance = locationA.distanceTo(locationB);
-        Log.d("hj","getDistance");
         return distance;
     }
 
@@ -315,9 +308,6 @@ public class TEST extends FragmentActivity
             mapKeys.add(key);
         }
         //==================================
-        setList();
-
-
 
         //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
         //지도의 초기위치를 서울로 이동
@@ -747,38 +737,5 @@ public class TEST extends FragmentActivity
                 break;
         }
     }
-
-
-    public double getDistance(double lat1 , double lng1 , double lat2 , double lng2 ){
-        double distance;
-
-        Location locationA = new Location("point A");
-        locationA.setLatitude(lat1);
-        locationA.setLongitude(lng1);
-
-        Location locationB = new Location("point B");
-        locationB.setLatitude(lat2);
-        locationB.setLongitude(lng2);
-
-        distance = locationA.distanceTo(locationB);
-
-        return distance;
-    }
-
-
-
-
 }
 
-    /* googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                // 마커 클릭시 호출되는 콜백 메서드
-                Toast.makeText(getApplicationContext(),
-                        marker.getTitle() + " 클릭했음"
-                        , Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-    }
-*/
