@@ -76,6 +76,7 @@
         <activity android:name=".CustomDialog_LastDay" />
         <activity android:name=".CustomDialog_HealthCenter" />
         <activity android:name=".Health.Example"></activity>
+        <activity android:name=".Benefit"/>
     </application>
 
 </manifest>

@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //Button Find_Hospital = (Button) findViewById(R.id.Find_Hospital);
         Button Calendar = (Button) findViewById(R.id.Calendar);
         Button TEST = (Button) findViewById(R.id.testbutton);//테스트버튼
+        Button Benefit = (Button) findViewById(R.id.info_weeks);
 
 
 
@@ -232,6 +233,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //==========================================
+        Benefit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Benefit.class);
+                startActivity(intent);
+            }
+        });
 
     }
     public boolean onCreateOptionsMenu(Menu menu) {
