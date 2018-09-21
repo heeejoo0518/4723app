@@ -147,6 +147,7 @@ public class TEST extends FragmentActivity
                 +"longitude REAL);");
 
         setRecord();
+        setTestItems();
         setList();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -161,7 +162,7 @@ public class TEST extends FragmentActivity
         });
     }
 
-    public void setRecord(){
+    public void setRecord(){//db에 레코드 저장
         c = db.rawQuery("SELECT * FROM " + tableName, null);
         if(c.getCount()<=0){//db에 저장된 값이 없을 때만 새로 입력
             db.execSQL("INSERT INTO "+ tableName +
@@ -177,7 +178,7 @@ public class TEST extends FragmentActivity
         }
     }
 
-    public void setTestItems(){
+    public void setTestItems(){//db에 있는 레코드를 testItems에 저장
         c = db.rawQuery("SELECT * FROM " + tableName, null);
         testItems.clear();
         if(c.moveToFirst()){
@@ -193,8 +194,7 @@ public class TEST extends FragmentActivity
             }while(c.moveToNext());
         }
     }
-    public void setList(){
-        setTestItems();
+    public void setList(){//adapter 새로 설정하고 listview 연결
         treeMap = new TreeMap<Double,TEST_items>();
         adapter = new TEST_adapter();
         for(int i=0;i<testItems.size();i++){
@@ -281,16 +281,7 @@ public class TEST extends FragmentActivity
         mRequestingLocationUpdates = false;
     }
 
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        Log.d(TAG, "onMapReady :");
-
-        mGoogleMap = googleMap;
-
-        //마커 추가========================
-
+    public void setMarker(){//마커 추가
         c = db.rawQuery("SELECT * FROM " + tableName, null);
         if(c.moveToFirst()){
             do{
@@ -307,7 +298,16 @@ public class TEST extends FragmentActivity
         for (Double key : markerTreeMap.keySet()) {
             mapKeys.add(key);
         }
-        //==================================
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        Log.d(TAG, "onMapReady :");
+
+        mGoogleMap = googleMap;
+
+       setMarker();//마커 추가
 
         //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
         //지도의 초기위치를 서울로 이동
@@ -380,6 +380,7 @@ public class TEST extends FragmentActivity
 
         mCurrentLocation = location;
         setList();//list 다시 생성
+        setMarker();
     }
 
 
