@@ -10,16 +10,17 @@
         android:right="8dp"
         android:top="8dp" />
 
-    <corners
+  <!--  <corners
         android:bottomRightRadius="3dp"
         android:bottomLeftRadius="3dp"
         android:topLeftRadius="3dp"
-        android:topRightRadius="3dp"/>
+        android:topRightRadius="3dp"/>-->
 
 
+    <corners android:radius="15dp"/>
     <!-- 테두리 설정: 두께, 색상 -->
     <stroke
         android:width="2dp"
-        android:color="#e5bebe" />
+        android:color="#CCCCCC" />
 
 </shape>

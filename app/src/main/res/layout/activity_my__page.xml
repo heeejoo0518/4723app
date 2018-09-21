@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     tools:context=".My_Page">
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -32,7 +35,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#e5bebe"
+            android:background="@drawable/my_page_textview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight='10dp'
+
             android:orientation="horizontal">
 
             <TextView
@@ -40,7 +46,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+
                 android:text="아기 이름"
+
                 android:textSize="12pt" />
 
             <View
@@ -63,8 +71,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#e5bebe"
+            android:background="@drawable/my_page_textview"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight='10dp'
             android:orientation="horizontal">
 
             <TextView
@@ -96,8 +106,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#e5bebe"
+            android:background="@drawable/my_page_textview"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight='10dp'
             android:orientation="horizontal">
 
             <TextView
@@ -131,8 +143,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#e5bebe"
+            android:background="@drawable/my_page_textview"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight='10dp'
             android:orientation="horizontal">
 
             <TextView
@@ -176,7 +190,7 @@
                 android:id="@+id/delete_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="10dp"
                 android:layout_gravity="bottom"
                 android:background="@drawable/btn_shape"
                 android:text="내 정보 모두 삭제" />

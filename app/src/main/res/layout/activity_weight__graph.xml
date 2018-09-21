@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     tools:context=".Weight_Graph">
 
 <LinearLayout
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Spinner
@@ -31,28 +35,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
         <EditText
             android:id="@+id/today_weight"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="체중 입력" />
+            android:hint="kg" />
 
         <Button
             android:id="@+id/save_data"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/btn_shape"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="2dp"
             android:text="저장" />
 
         <Button
             android:id="@+id/delete_data"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/btn_shape"
-            android:layout_marginTop="2dp"
             android:text="삭제" />
 
     </LinearLayout>

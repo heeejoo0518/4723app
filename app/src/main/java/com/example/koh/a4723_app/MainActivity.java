@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,19 +45,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
 
 
-        Button Weight_Graph = (Button) findViewById(R.id.Weight_Graph);
-
-        Button Health_Service = (Button) findViewById(R.id.Health_Service);
+        ImageButton Weight_Graph = (ImageButton) findViewById(R.id.Weight_Graph);
+        TextView info_txt =  (TextView) findViewById(R.id.info_txt);
+        ImageButton Health_Service = (ImageButton) findViewById(R.id.Health_Service);
         //Button Find_Hospital = (Button) findViewById(R.id.Find_Hospital);
-        Button Calendar = (Button) findViewById(R.id.Calendar);
-        Button TEST = (Button) findViewById(R.id.testbutton);//테스트버튼
+        ImageButton Calendar = (ImageButton) findViewById(R.id.Calendar);
+        ImageButton TEST = (ImageButton) findViewById(R.id.testbutton);//테스트버튼
+
         Button Benefit = (Button) findViewById(R.id.info_weeks);
-
-
-
-
-
-
 
         setText_str = "";
 
@@ -66,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
         String due_date = getPreferences("출산날짜");
 
         if(baby_name.length()>0){
-            setText_str += baby_name + "\n";
+            setText_str += baby_name + " ";
         }
         else {
-            setText_str += "이름 없음 \n";
+            setText_str += "이름 없음 ";
         }
 
         if(my_date != ""){
@@ -182,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Weight_Graph.setText(setText_str);
+        info_txt.setText(setText_str);
 
         Weight_Graph.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -290,9 +286,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
-        Button Weight_Graph = (Button) findViewById(R.id.Weight_Graph);
+        ImageButton Weight_Graph = (ImageButton) findViewById(R.id.Weight_Graph);
         TextView weeks_txt = (TextView) findViewById(R.id.info_weeks_txt);
-
+        TextView info_txt =  (TextView) findViewById(R.id.info_txt);
         setText_str = "";
 
         String baby_name = getPreferences("아기이름");
@@ -304,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
             setText_str += baby_name + "\n";
         }
         else {
-            setText_str += "이름 없음 \n";
+            setText_str += "이름 없음 ";
         }
 
         if(my_date != ""){
@@ -331,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
 
             //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
-            final String tmp = "      " + diffDay / 7 + "주 " + diffDay % 7 + "일째";
+            final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
             weeks_txt.setText(tmp);
             //setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
 
@@ -339,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
         else if(my_date  == ""){
 
            //setText_str += "마지막 월경 날짜를 입력해주세요\n";
-            weeks_txt.setText("      마지막 월경 날짜를 입력해주세요");
+            weeks_txt.setText("마지막 월경 날짜를 입력해주세요");
         }
 
         if(check.equals("true")) {
@@ -418,7 +414,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Weight_Graph.setText(setText_str);
+        info_txt.setText(setText_str);
 
     }
 }

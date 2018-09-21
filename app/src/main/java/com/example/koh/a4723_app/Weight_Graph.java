@@ -42,7 +42,7 @@ public class Weight_Graph extends AppCompatActivity {
     SQLiteDatabase Weight_db = null;
     static String diff_str;
     int data_num = 0;
-
+    long last_diff_day = 0 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,6 +122,7 @@ public class Weight_Graph extends AppCompatActivity {
 
                         draw_graph();
                         Toast.makeText(getApplicationContext(), "저장 완료", Toast.LENGTH_SHORT).show();
+                        last_diff_day = diffDay;
 
                     } else { //사용자가 체중 입력을 하지 않았을 경우
                         Toast.makeText(getApplicationContext(), "체중을 입력 해주세요", Toast.LENGTH_SHORT).show();
@@ -129,6 +130,9 @@ public class Weight_Graph extends AppCompatActivity {
                 } else if (diffDay <= 0) {
                     Toast.makeText(getApplicationContext(), "마지막 생리 이후 날짜를 선택해주세요", Toast.LENGTH_SHORT).show();
                 }
+
+
+
             }
         });
 
@@ -242,6 +246,7 @@ public class Weight_Graph extends AppCompatActivity {
                         } else if (diffDay > 0) {
                             float weight_float = Float.parseFloat(weight);
                             entries.add(new Entry(diffDay, weight_float));
+                            last_diff_day = diffDay;
                         }
 
                     }
@@ -250,7 +255,7 @@ public class Weight_Graph extends AppCompatActivity {
             }
 
         }
-
+        Toast.makeText(getApplicationContext(), last_diff_day + "ddd", Toast.LENGTH_SHORT).show();
         ReadDB.close();
         //
 
@@ -277,6 +282,7 @@ public class Weight_Graph extends AppCompatActivity {
 
         showList();
 
+
         if (data_num == 0) {
             entries.add(new Entry(0, 0));
         }
@@ -290,8 +296,8 @@ public class Weight_Graph extends AppCompatActivity {
         lineDataSet.setDrawValues(true);
         lineDataSet.setLineWidth(2);
         lineDataSet.setCircleRadius(4);
-        lineDataSet.setCircleColor(Color.parseColor("#e5bebe"));
-        lineDataSet.setColor(Color.parseColor("#e5bebe"));
+        lineDataSet.setCircleColor(Color.parseColor("#002435"));
+        lineDataSet.setColor(Color.parseColor("#002435"));
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
         dataSets.add(hide_lineDataSet); // add the datasets
@@ -350,8 +356,12 @@ public class Weight_Graph extends AppCompatActivity {
         if(test2 - test <= 5){
             lineChart.moveViewToX(0);
         }*/
-
-
+        if(last_diff_day > 5){
+            lineChart.moveViewToX(last_diff_day-3);
+        }
+        else{
+            lineChart.moveViewToX(0);
+        }
         lineChart.getLegend().setEnabled(false);
         lineChart.setVisibleXRangeMaximum(5);
         lineChart.setDoubleTapToZoomEnabled(true);
