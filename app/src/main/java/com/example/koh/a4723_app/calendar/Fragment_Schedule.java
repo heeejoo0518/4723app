@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.koh.a4723_app.R;
 import com.example.koh.a4723_app.adapter.ScheduleAdapter;
@@ -89,13 +90,18 @@ public class Fragment_Schedule extends Fragment {
                 c.moveToLast();//커서 이동
 
                 String sche = editText.getText().toString();
-                long time = System.currentTimeMillis();
-                db.execSQL("INSERT INTO " + tableName + "(time, schedule) Values ('" + time + "', '" + sche + "');");
+                if(!sche.equals("")){
+                    long time = System.currentTimeMillis();
+                    db.execSQL("INSERT INTO " + tableName + "(time, schedule) Values ('" + time + "', '" + sche + "');");
 
-                adapter.addItem(new SingleSchedule(sche));
-                editText.setText("");//EditText 내용 삭제
-                ((Calendar)getActivity()).setIMM().hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                adapter.notifyDataSetChanged(); // 이 메소드를 호출하면 어댑터 쪽에서 리스트뷰를 갱신하라 함.
+                    adapter.addItem(new SingleSchedule(sche));
+                    editText.setText("");//EditText 내용 삭제
+                    ((Calendar)getActivity()).setIMM().hideSoftInputFromWindow(editText.getWindowToken(), 0);
+                    adapter.notifyDataSetChanged(); // 이 메소드를 호출하면 어댑터 쪽에서 리스트뷰를 갱신하라 함.
+                }
+                else{
+                    Toast.makeText(getActivity().getApplicationContext() , "일정을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
