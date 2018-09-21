@@ -53,6 +53,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -83,16 +85,19 @@ public class TEST extends FragmentActivity
     Location mCurrentLocation;
     boolean mMoveMapByUser = true;
     boolean mMoveMapByAPI = true;
-    LatLng currentPosition;
+    static LatLng currentPosition = new LatLng(37.56, 126.97); //currentPosition을 서울로 초기화
 
-    String tableName = "aaa";
+    String tableName = "Hospital";
     String dbName = "H_address.db";
 
+    ArrayList<TEST_item_2> testItems = new ArrayList<>();//병원 이름, 전화번호, 위도, 경도 저장
+    TreeMap<Double,TEST_items> treeMap = new TreeMap<Double,TEST_items>();
     TEST_adapter adapter;
-    static ListView listView;
+    ListView listView;
     Cursor c;
 
-    ArrayList<Marker> markers = new ArrayList<>();
+    TreeMap<Double,Marker> markerTreeMap = new TreeMap<Double,Marker>();
+    ArrayList<Double> mapKeys = new ArrayList<>();
 
     LocationRequest locationRequest = new LocationRequest()
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -110,8 +115,9 @@ public class TEST extends FragmentActivity
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_testbutton);
 
-
         Log.d(TAG, "onCreate");
+
+        listView = (ListView) findViewById(R.id.list);
 
         mActivity = this;
 
@@ -140,14 +146,14 @@ public class TEST extends FragmentActivity
                 + "latitude REAL,"
                 +"longitude REAL);");
 
+        Log.d("hj","start=============================================================================");
         setRecord();
-        listView = (ListView) findViewById(R.id.list);
         setList();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Marker marker = markers.get(position);
+                Marker marker = markerTreeMap.get(mapKeys.get(position));
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(marker.getPosition());
                 mGoogleMap.moveCamera(cameraUpdate);
                 marker.showInfoWindow();
@@ -165,25 +171,63 @@ public class TEST extends FragmentActivity
                     " (_id, name, p_Number, address, latitude, longitude) Values (2,'서울역','01047108178','서울시','37.555744','126.970431');");
             db.execSQL("INSERT INTO "+ tableName +
                     " (_id, name, p_Number, address, latitude, longitude) Values (3,'예시','0000000','서울시','38.555744','130.970431');");
+            db.execSQL("INSERT INTO "+ tableName +
+                    " (_id, name, p_Number, address, latitude, longitude) Values (4,'국민대학교','123456789','성북구','37.609989','126.997042');");
+            db.execSQL("INSERT INTO "+ tableName +
+                    " (_id, name, p_Number, address, latitude, longitude) Values (5,'춘천성심병원','123456789','강원도 춘천','37.884026','127.740039');");
         }
+        Log.d("hj","setRecord");
     }
 
-    public void setList(){
+    public void setTestItems(){
         c = db.rawQuery("SELECT * FROM " + tableName, null);
-        adapter = new TEST_adapter();
+        testItems.clear();
         if(c.moveToFirst()){
             do {
+                TEST_item_2 testItem = new TEST_item_2();
                 String Name = c.getString(c.getColumnIndex("name"));
                 String Call = c.getString(c.getColumnIndex("p_Number"));
-                adapter.addItem(Name,Call);
-            }while(c.moveToNext());
+                double lat = c.getDouble(c.getColumnIndex("latitude"));
+                double lng = c.getDouble(c.getColumnIndex("longitude"));
+                testItem.setAll(Name,Call,lat,lng);
+                testItems.add(testItem);
 
+            }while(c.moveToNext());
+        }
+        Log.d("hj","setTestItems");
+    }
+    public void setList(){
+        setTestItems();
+        treeMap = new TreeMap<Double,TEST_items>();
+        adapter = new TEST_adapter();
+        for(int i=0;i<testItems.size();i++){
+            double distance = getDistance(testItems.get(i).getLatLng());
+            treeMap.put(distance,testItems.get(i).getTEST_items());
+        }
+        for (Map.Entry<Double,TEST_items> entry : treeMap.entrySet()) {
+            adapter.addItem(entry.getValue());
         }
         listView.setAdapter(adapter);
+        adapter.notifyDataSetInvalidated();
+        Log.d("hj","setList");
+
 
     }
 
+    public double getDistance(LatLng latlng) {
+        double distance = 0;
 
+        Location locationA = new Location("A");
+        locationA.setLatitude(currentPosition.latitude);
+        locationA.setLongitude(currentPosition.longitude);
+
+        Location locationB = new Location("B");
+        locationB.setLatitude(latlng.latitude);
+        locationB.setLongitude(latlng.longitude);
+        distance = locationA.distanceTo(locationB);
+        Log.d("hj","getDistance");
+        return distance;
+    }
 
 
     @Override
@@ -262,12 +306,16 @@ public class TEST extends FragmentActivity
                 String title = c.getString(c.getColumnIndex("name"));
                 MarkerOptions mo = new MarkerOptions().position(new LatLng(lat, lng)).title(title);
                 Marker marker = mGoogleMap.addMarker(mo);
-                //marker.showInfoWindow();
-                markers.add(marker);
+                markerTreeMap.put(getDistance(marker.getPosition()),marker);
             }while(c.moveToNext());
         }
+        //markerTreeMap에 저장된 key를 순서대로 ArrayList mapKeys에 저장
+        mapKeys = new ArrayList<>();
+        for (Double key : markerTreeMap.keySet()) {
+            mapKeys.add(key);
+        }
         //==================================
-
+        setList();
 
 
 
@@ -328,8 +376,7 @@ public class TEST extends FragmentActivity
     @Override
     public void onLocationChanged(Location location) {
 
-        currentPosition
-                = new LatLng( location.getLatitude(), location.getLongitude());
+        currentPosition = new LatLng( location.getLatitude(), location.getLongitude());
 
 
         Log.d(TAG, "onLocationChanged : ");
@@ -342,6 +389,7 @@ public class TEST extends FragmentActivity
         setCurrentLocation(location, markerTitle, markerSnippet);
 
         mCurrentLocation = location;
+        setList();//list 다시 생성
     }
 
 

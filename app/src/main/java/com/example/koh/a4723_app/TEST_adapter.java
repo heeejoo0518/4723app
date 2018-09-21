@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -17,6 +16,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 class TEST_items {
@@ -28,11 +30,70 @@ class TEST_items {
     public void setCall(String call){
         this.call=call;
     }
+    public void setAll(String name,String call){
+        this.name=name;
+        this.call=call;
+    }
     public String getName(){
         return this.name;
     }
     public String getCall(){
         return this.call;
+    }
+}
+
+class TEST_item_2 {
+    private String name;
+    private String call;
+    private double lat;
+    private double lng;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCall(String call) {
+        this.call = call;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
+    public void setAll(String name, String call,double lat,double lng) {
+        this.name = name;
+        this.call = call;
+        this.lat=lat;
+        this.lng=lng;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getCall() {
+        return this.call;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+    public LatLng getLatLng(){
+        LatLng latlng = new LatLng(lat,lng);
+        return latlng;
+    }
+    public TEST_items getTEST_items(){
+        TEST_items test_items = new TEST_items();
+        test_items.setAll(name,call);
+        return test_items;
     }
 }
 
@@ -60,6 +121,10 @@ public class TEST_adapter extends BaseAdapter {
         TEST_items item = new TEST_items();
         item.setName(name);
         item.setCall(call);
+        items.add(item);
+        this.notifyDataSetChanged();
+    }
+    public void addItem(TEST_items item){
         items.add(item);
         this.notifyDataSetChanged();
     }
