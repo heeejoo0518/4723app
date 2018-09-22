@@ -90,14 +90,15 @@ public class TEST extends FragmentActivity
     String tableName = "Hospital";
     String dbName = "H_address.db";
 
-    ArrayList<TEST_item_2> testItems = new ArrayList<>();//병원 이름, 전화번호, 위도, 경도 저장
-    TreeMap<Double,TEST_items> treeMap = new TreeMap<Double,TEST_items>();
+    ArrayList<TEST_item_all> testItems = new ArrayList<>();//병원 이름, 전화번호, 위도, 경도, 마커 저장
+    TreeMap<Double,TEST_item_all> treeMap = new TreeMap<Double,TEST_item_all>();
+    ArrayList<Double> mapKeys = new ArrayList<>();
+
     TEST_adapter adapter;
     ListView listView;
     Cursor c;
 
-    TreeMap<Double,Marker> markerTreeMap = new TreeMap<Double,Marker>();
-    ArrayList<Double> mapKeys = new ArrayList<>();
+
 
     LocationRequest locationRequest = new LocationRequest()
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -147,17 +148,16 @@ public class TEST extends FragmentActivity
                 +"longitude REAL);");
 
         setRecord();
-        setTestItems();
-        setList();
+        //setTestItems();
+        //setList();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Marker marker = markerTreeMap.get(mapKeys.get(position));
+                Marker marker = treeMap.get(mapKeys.get(position)).getMarker();
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(marker.getPosition());
                 mGoogleMap.moveCamera(cameraUpdate);
                 marker.showInfoWindow();
-
             }
         });
     }
@@ -183,26 +183,31 @@ public class TEST extends FragmentActivity
         testItems.clear();
         if(c.moveToFirst()){
             do {
-                TEST_item_2 testItem = new TEST_item_2();
+                TEST_item_all testItem = new TEST_item_all();
                 String Name = c.getString(c.getColumnIndex("name"));
                 String Call = c.getString(c.getColumnIndex("p_Number"));
                 double lat = c.getDouble(c.getColumnIndex("latitude"));
                 double lng = c.getDouble(c.getColumnIndex("longitude"));
                 testItem.setAll(Name,Call,lat,lng);
+                /////마커추가
+                MarkerOptions mo = new MarkerOptions().position(testItem.getLatLng()).title(Name);
+                Marker marker = mGoogleMap.addMarker(mo);
+                testItem.setMarker(marker);
+                /////
                 testItems.add(testItem);
 
             }while(c.moveToNext());
         }
     }
     public void setList(){//adapter 새로 설정하고 listview 연결
-        treeMap = new TreeMap<Double,TEST_items>();
+        treeMap = new TreeMap<Double,TEST_item_all>();
         adapter = new TEST_adapter();
         for(int i=0;i<testItems.size();i++){
             double distance = getDistance(testItems.get(i).getLatLng());
-            treeMap.put(distance,testItems.get(i).getTEST_items());
+            treeMap.put(distance,testItems.get(i));
         }
-        for (Map.Entry<Double,TEST_items> entry : treeMap.entrySet()) {
-            adapter.addItem(entry.getValue());
+        for (Map.Entry<Double,TEST_item_all> entry : treeMap.entrySet()) {
+            adapter.addItem(entry.getValue().getTEST_items());
         }
         listView.setAdapter(adapter);
         adapter.notifyDataSetInvalidated();
@@ -221,7 +226,13 @@ public class TEST extends FragmentActivity
         distance = locationA.distanceTo(locationB);
         return distance;
     }
-
+    public void setMapKeys(){//마커 추가
+        //treeMap에 저장된 key를 순서대로 ArrayList mapKeys에 저장
+        mapKeys = new ArrayList<>();
+        for (Double key : treeMap.keySet()) {
+            mapKeys.add(key);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -281,24 +292,7 @@ public class TEST extends FragmentActivity
         mRequestingLocationUpdates = false;
     }
 
-    public void setMarker(){//마커 추가
-        c = db.rawQuery("SELECT * FROM " + tableName, null);
-        if(c.moveToFirst()){
-            do{
-                double lat = c.getDouble(c.getColumnIndex("latitude"));
-                double lng = c.getDouble(c.getColumnIndex("longitude"));
-                String title = c.getString(c.getColumnIndex("name"));
-                MarkerOptions mo = new MarkerOptions().position(new LatLng(lat, lng)).title(title);
-                Marker marker = mGoogleMap.addMarker(mo);
-                markerTreeMap.put(getDistance(marker.getPosition()),marker);
-            }while(c.moveToNext());
-        }
-        //markerTreeMap에 저장된 key를 순서대로 ArrayList mapKeys에 저장
-        mapKeys = new ArrayList<>();
-        for (Double key : markerTreeMap.keySet()) {
-            mapKeys.add(key);
-        }
-    }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -306,8 +300,9 @@ public class TEST extends FragmentActivity
         Log.d(TAG, "onMapReady :");
 
         mGoogleMap = googleMap;
-
-       setMarker();//마커 추가
+        setTestItems();
+        setList();
+        setMapKeys();//mapKey 재배치
 
         //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
         //지도의 초기위치를 서울로 이동
@@ -380,7 +375,7 @@ public class TEST extends FragmentActivity
 
         mCurrentLocation = location;
         setList();//list 다시 생성
-        setMarker();
+        setMapKeys();
     }
 
 

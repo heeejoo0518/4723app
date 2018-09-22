@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 
 import java.util.ArrayList;
 
@@ -42,11 +43,12 @@ class TEST_items {
     }
 }
 
-class TEST_item_2 {
+class TEST_item_all {
     private String name;
     private String call;
     private double lat;
     private double lng;
+    private Marker marker;
 
     public void setName(String name) {
         this.name = name;
@@ -64,7 +66,11 @@ class TEST_item_2 {
         this.lng = lng;
     }
 
-    public void setAll(String name, String call,double lat,double lng) {
+    public void setMarker(Marker marker) {
+        this.marker = marker;
+    }
+
+    public void setAll(String name, String call, double lat, double lng) {
         this.name = name;
         this.call = call;
         this.lat=lat;
@@ -86,6 +92,11 @@ class TEST_item_2 {
     public double getLng() {
         return lng;
     }
+
+    public Marker getMarker() {
+        return marker;
+    }
+
     public LatLng getLatLng(){
         LatLng latlng = new LatLng(lat,lng);
         return latlng;
