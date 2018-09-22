@@ -53,7 +53,7 @@ public class Calendar extends AppCompatActivity {
 
         //툴바 설정=================================
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        toolbar.setTitleTextColor(Color.parseColor("WHITE")); //제목의 칼라
+        toolbar.setTitleTextColor(Color.parseColor("BLACK")); //제목의 칼라
         toolbar.setTitle("Calendar");
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
         //==========================================
