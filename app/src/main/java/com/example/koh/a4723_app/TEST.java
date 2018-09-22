@@ -226,7 +226,7 @@ public class TEST extends FragmentActivity
         distance = locationA.distanceTo(locationB);
         return distance;
     }
-    public void setMapKeys(){//마커 추가
+    public void setMapKeys(){
         //treeMap에 저장된 key를 순서대로 ArrayList mapKeys에 저장
         mapKeys = new ArrayList<>();
         for (Double key : treeMap.keySet()) {
