@@ -33,6 +33,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class Weight_Graph extends AppCompatActivity {
@@ -71,6 +72,40 @@ public class Weight_Graph extends AppCompatActivity {
         Button save_data = (Button) findViewById(R.id.save_data);
         Button delete_data = (Button) findViewById(R.id.delete_data);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
+        Date date = new Date();
+        String currentDate = formatter.format(date);
+
+        String year = currentDate.substring(0, 4);
+
+        String month, day;
+
+        if (currentDate.substring(4, 5).equals("1")) {
+            month = currentDate.substring(4, 6);
+        } else {
+            month = currentDate.substring(5, 6);
+        }
+        if (currentDate.substring(6, 7).equals("1")) {
+            day = currentDate.substring(6, 8);
+        } else {
+            day = currentDate.substring(7, 8);
+        }
+
+        int month_int =Integer.parseInt(month);
+        int day_int =Integer.parseInt(day);
+
+        if(year.equals("2018")){
+            spinner1.setSelection(0);
+        }
+        else {
+            spinner1.setSelection(1);
+        }
+
+        spinner2.setSelection(month_int-1);
+        spinner3.setSelection(day_int-1
+        );
 
         draw_graph();
 
@@ -174,6 +209,7 @@ public class Weight_Graph extends AppCompatActivity {
                 if (diffDay > 0) {
 
                     Weight_db.execSQL("DELETE FROM Weight WHERE date = '" + date + "';");
+                    last_diff_day = diffDay;
                     draw_graph();
                     Toast.makeText(getApplicationContext(), "삭제 완료", Toast.LENGTH_SHORT).show();
                 } else if (diffDay <= 0) {
@@ -296,8 +332,8 @@ public class Weight_Graph extends AppCompatActivity {
         lineDataSet.setDrawValues(true);
         lineDataSet.setLineWidth(2);
         lineDataSet.setCircleRadius(4);
-        lineDataSet.setCircleColor(Color.parseColor("#002435"));
-        lineDataSet.setColor(Color.parseColor("#002435"));
+        lineDataSet.setCircleColor(Color.parseColor("#808080"));
+        lineDataSet.setColor(Color.parseColor("#808080"));
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
         dataSets.add(hide_lineDataSet); // add the datasets

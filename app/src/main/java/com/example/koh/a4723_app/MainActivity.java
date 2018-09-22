@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //Button Find_Hospital = (Button) findViewById(R.id.Find_Hospital);
         ImageButton Calendar = (ImageButton) findViewById(R.id.Calendar);
         ImageButton TEST = (ImageButton) findViewById(R.id.testbutton);//테스트버튼
-
+        TextView weeks_txt = (TextView) findViewById(R.id.info_weeks_txt);
         Button Benefit = (Button) findViewById(R.id.info_weeks);
 
         setText_str = "";
@@ -61,12 +61,7 @@ public class MainActivity extends AppCompatActivity {
         String check = getPreferences("자동계산");
         String due_date = getPreferences("출산날짜");
 
-        if(baby_name.length()>0){
-            setText_str += baby_name + " ";
-        }
-        else {
-            setText_str += "이름 없음 ";
-        }
+
 
         if(my_date != ""){
 
@@ -92,14 +87,15 @@ public class MainActivity extends AppCompatActivity {
 
             //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
-            final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
-            //TextView my_weeks = (TextView) findViewById(R.id.my_weeks);
-            setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
+            final String tmp = "오늘은 " + diffDay / 7 + "주 " + diffDay % 7 + "일째";
+            weeks_txt.setText(tmp);
+
+
         }
         else if(my_date  == ""){
 
-            setText_str += "마지막 월경 날짜를 입력해주세요\n";
-
+            //setText_str += "마지막 월경 날짜를 입력해주세요\n";
+            weeks_txt.setText("마지막 월경 날짜를 입력해주세요");
         }
 
         if(check.equals("true")) {
@@ -149,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                         month = timeStamp.substring(5, 6);
                     }
                     String day = timeStamp.substring(6, 8);
-                    setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+                    setText_str += year + "년 " + month + "월 " + day + "일, ";
 
                 }
             }
@@ -170,15 +166,26 @@ public class MainActivity extends AppCompatActivity {
                 day = my_date2.substring(7, 8);
             }
 
-            setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+            setText_str += year + "년" + month + "월" + day + "일, ";
 
         }else if(check.equals("")) {
 
-            setText_str +="예정일을 입력해주세요";
+            setText_str +="(출산 예정일을 입력해주세요) \n";
 
         }
 
+        if(baby_name.length()>0){
+            String name1= getComleteWordByJongsung(baby_name,"을","를");
+            setText_str += name1 + " 만나는 날!";
+        }
+        else {
+            setText_str += "(아기의 이름을 등록해주세요) \n";
+        }
+
+
         info_txt.setText(setText_str);
+
+
 
         Weight_Graph.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -283,6 +290,17 @@ public class MainActivity extends AppCompatActivity {
         return temp;
 
     }
+    public static final String getComleteWordByJongsung(String name, String firstValue, String secondValue) {
+        char lastName = name.charAt(name.length() - 1); // 한글의 제일 처음과 끝의 범위밖일 경우는 오류
+        if (lastName < 0xAC00 || lastName > 0xD7A3) {
+            return name;
+        }
+        String seletedValue = (lastName - 0xAC00) % 28 > 0 ? firstValue : secondValue;
+        return name+seletedValue;
+    }
+
+
+
 
     public void onResume() {
         super.onResume();
@@ -296,12 +314,7 @@ public class MainActivity extends AppCompatActivity {
         String check = getPreferences("자동계산");
         String due_date = getPreferences("출산날짜");
 
-        if(baby_name.length()>0){
-            setText_str += baby_name + "\n";
-        }
-        else {
-            setText_str += "이름 없음 ";
-        }
+
 
         if(my_date != ""){
 
@@ -327,9 +340,9 @@ public class MainActivity extends AppCompatActivity {
 
             //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
-            final String tmp = diffDay / 7 + "주 " + diffDay % 7 + "일째";
+            final String tmp = "오늘은 " + diffDay / 7 + "주 " + diffDay % 7 + "일째";
             weeks_txt.setText(tmp);
-            //setText_str += diffDay / 7 + "주 " + diffDay % 7 + "일째" + "\n";
+
 
         }
         else if(my_date  == ""){
@@ -385,7 +398,7 @@ public class MainActivity extends AppCompatActivity {
                         month = timeStamp.substring(5, 6);
                     }
                     String day = timeStamp.substring(6, 8);
-                    setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+                    setText_str += year + "년 " + month + "월 " + day + "일, ";
 
                 }
             }
@@ -406,13 +419,22 @@ public class MainActivity extends AppCompatActivity {
                 day = my_date2.substring(7, 8);
             }
 
-            setText_str += "출산 예정일은 " + year + "년" + month + "월" + day + "일";
+            setText_str += year + "년" + month + "월" + day + "일, ";
 
         }else if(check.equals("")) {
 
-            setText_str +="출산 예정일을 입력해주세요";
+            setText_str +="(출산 예정일을 입력해주세요) \n";
 
         }
+
+        if(baby_name.length()>0){
+            String name1= getComleteWordByJongsung(baby_name,"을","를");
+            setText_str += name1 + " 만나는 날!";
+        }
+        else {
+            setText_str += "(아기의 이름을 등록해주세요) \n";
+        }
+
 
         info_txt.setText(setText_str);
 
