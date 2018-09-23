@@ -74,6 +74,7 @@ public class CustomDialog_LastDay extends Dialog implements View.OnClickListener
         spinner3.setAdapter(adapter3);
 
 
+
         if(name != null){
             nameEt.setText(name);
         }

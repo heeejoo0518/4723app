@@ -77,7 +77,7 @@ public class Weight_Graph extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Date date = new Date();
         String currentDate = formatter.format(date);
-
+        Toast.makeText(getApplicationContext(), currentDate, Toast.LENGTH_SHORT).show();
         String year = currentDate.substring(0, 4);
 
         String month, day;
@@ -87,10 +87,12 @@ public class Weight_Graph extends AppCompatActivity {
         } else {
             month = currentDate.substring(5, 6);
         }
-        if (currentDate.substring(6, 7).equals("1")) {
-            day = currentDate.substring(6, 8);
-        } else {
+        if (currentDate.substring(6, 7).equals("0")) {
+
             day = currentDate.substring(7, 8);
+        } else {
+            day = currentDate.substring(6, 8);
+
         }
 
         int month_int =Integer.parseInt(month);
