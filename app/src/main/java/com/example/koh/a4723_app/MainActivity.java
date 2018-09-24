@@ -1,8 +1,11 @@
 package com.example.koh.a4723_app;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +31,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     public static Context mContext;
     public static String data;
+    static Button benefit;
     String setText_str = "";
 
     @Override
@@ -52,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
         ImageButton Calendar = (ImageButton) findViewById(R.id.Calendar);
         ImageButton TEST = (ImageButton) findViewById(R.id.testbutton);//테스트버튼
         TextView weeks_txt = (TextView) findViewById(R.id.info_weeks_txt);
-        Button Benefit = (Button) findViewById(R.id.info_weeks);
+        benefit = (Button) findViewById(R.id.info_weeks);
+
+
+        btSet(BtBenefit()); //버튼에 표시할 string
 
         setText_str = "";
 
@@ -89,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
             final String tmp = "오늘은 " + diffDay / 7 + "주 " + diffDay % 7 + "일째";
             weeks_txt.setText(tmp);
+            getSharedPreferences("pref", MODE_PRIVATE).edit().remove("몇주차").apply();
+            getSharedPreferences("pref", MODE_PRIVATE).edit().putLong("몇주차",diffDay/7).apply();
 
 
         }
@@ -236,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //==========================================
-        Benefit.setOnClickListener(new View.OnClickListener() {
+        benefit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,Benefit.class);
@@ -342,7 +351,8 @@ public class MainActivity extends AppCompatActivity {
             long diffDay = (startDate.getTime() - endDate.getTime()) / (24 * 60 * 60 * 1000);
             final String tmp = "오늘은 " + diffDay / 7 + "주 " + diffDay % 7 + "일째";
             weeks_txt.setText(tmp);
-
+            getSharedPreferences("pref", MODE_PRIVATE).edit().remove("몇주차").apply();
+            getSharedPreferences("pref", MODE_PRIVATE).edit().putLong("몇주차",diffDay/7).apply();
 
         }
         else if(my_date  == ""){
@@ -438,5 +448,29 @@ public class MainActivity extends AppCompatActivity {
 
         info_txt.setText(setText_str);
 
+    }
+    public static void btSet(String str){//버튼 텍스트 바꾸는 함수
+        benefit.setText(str);
+    }
+    public String BtBenefit(){//혜택정리 버튼에 표시할 텍스트 설정
+        SQLiteDatabase db = this.openOrCreateDatabase("Benefit", MODE_PRIVATE, null);//db이름: Benefit
+        String str="";
+        String tbName = Benefit.center(getPreferences("보건소"));
+        if(tbName.equals("해당하는 보건소를 등록해주세요.")) return tbName;
+
+        Cursor c = db.rawQuery("SELECT * FROM " + tbName, null);
+        int week = (int)getSharedPreferences("pref", MODE_PRIVATE).getLong("몇주차",0);
+        if(c.moveToFirst()){
+            do {
+                int start = c.getInt(c.getColumnIndex("_start"));
+                int end = c.getInt(c.getColumnIndex("_end"));
+                if(week>=start && week <=end){
+                    str+=c.getString(c.getColumnIndex("get"));
+                        str+="\n";
+                }
+            }while(c.moveToNext());
+        }
+        db.close();
+        return str.substring(0,str.length()-1);
     }
 }

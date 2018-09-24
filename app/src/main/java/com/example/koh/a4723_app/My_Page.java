@@ -200,8 +200,7 @@ public class My_Page extends AppCompatActivity {
     void health_center_show() {
         CustomDialog_HealthCenter dialog_3 = new CustomDialog_HealthCenter(this);
         dialog_3.show();
-
-
+        MainActivity.btSet(BtBenefit());//저장될 때마다 MainActivity 버튼 text 바꾸는 함수 호출
     }
 
 
@@ -266,5 +265,25 @@ public class My_Page extends AppCompatActivity {
         }
 
     }
+    public String BtBenefit(){//혜택정리 버튼에 표시할 텍스트 설정
+        SQLiteDatabase db = this.openOrCreateDatabase("Benefit", MODE_PRIVATE, null);//db이름: Benefit
+        String str="";
+        String tbName = Benefit.center(getPreferences("보건소"));
+        if(tbName.equals("해당하는 보건소를 등록해주세요.")) return tbName;
 
+        Cursor c = db.rawQuery("SELECT * FROM " + tbName, null);
+        int week = (int)getSharedPreferences("pref", MODE_PRIVATE).getLong("몇주차",0);
+        if(c.moveToFirst()){
+            do {
+                int start = c.getInt(c.getColumnIndex("_start"));
+                int end = c.getInt(c.getColumnIndex("_end"));
+                if(week>=start && week <=end){
+                    str+=c.getString(c.getColumnIndex("get"));
+                    str+="\n";
+                }
+            }while(c.moveToNext());
+        }
+        db.close();
+        return str.substring(0,str.length()-1);
+    }
 }
