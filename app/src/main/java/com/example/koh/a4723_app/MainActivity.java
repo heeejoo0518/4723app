@@ -324,6 +324,8 @@ public class MainActivity extends AppCompatActivity {
         String due_date = getPreferences("출산날짜");
 
 
+        btSet(BtBenefit());
+
 
         if(my_date != ""){
 

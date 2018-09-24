@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -127,14 +128,14 @@ public class My_Page extends AppCompatActivity {
         builder.setPositiveButton("저장",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
+                        if(edittext.getText().toString().length() <1 ){
+                            Toast.makeText(getApplicationContext(), "한글자 이상 입력해주세요", Toast.LENGTH_LONG).show();
+                        }
                         savePreferences("아기이름", edittext.getText().toString());
                         finish();
                         Intent refresh = new Intent(My_Page.this, My_Page.class);
                         startActivity(refresh);
                         ((MainActivity) (MainActivity.mContext)).onResume();
-                        Toast.makeText(getApplicationContext(), edittext.getText().toString(), Toast.LENGTH_LONG).show();
-
 
                     }
                 }).setNegativeButton("취소",
@@ -185,6 +186,7 @@ public class My_Page extends AppCompatActivity {
 
     void date_show() {
         CustomDialog_DueDate dialog = new CustomDialog_DueDate(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.show();
 
 
@@ -192,13 +194,16 @@ public class My_Page extends AppCompatActivity {
 
     void last_day_show() {
         CustomDialog_LastDay dialog_2 = new CustomDialog_LastDay(this);
+        dialog_2.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog_2.show();
 
 
     }
 
     void health_center_show() {
+
         CustomDialog_HealthCenter dialog_3 = new CustomDialog_HealthCenter(this);
+        dialog_3.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog_3.show();
         MainActivity.btSet(BtBenefit());//저장될 때마다 MainActivity 버튼 text 바꾸는 함수 호출
     }
@@ -215,9 +220,10 @@ public class My_Page extends AppCompatActivity {
         String check = getPreferences("자동계산");
 
 
-        if (name_ != "") {
+        if (name_.length() > 1) {
             save_name.setText(name_);
         }
+
         if (duedate_ != "" && check == "false") {
 
             String year = duedate_.substring(0, 4);

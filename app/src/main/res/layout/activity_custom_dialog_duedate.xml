@@ -80,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="16dp" />
     <TextView
-        android:text="예정일이 결정되지 않았을 경우에 자동계산을 체크해주세요(단 마지막 월경 날짜를 입력해야 함)"
+        android:text="예정일이 결정되지 않았을 경우에 자동계산을 체크해주세요 \n(마지막 월경 날짜 입력 필수)"
         android:textSize="12sp"
         android:textColor="#000"
         android:paddingStart="16dp"

@@ -77,7 +77,6 @@ public class Weight_Graph extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         Date date = new Date();
         String currentDate = formatter.format(date);
-        Toast.makeText(getApplicationContext(), currentDate, Toast.LENGTH_SHORT).show();
         String year = currentDate.substring(0, 4);
 
         String month, day;
@@ -158,7 +157,6 @@ public class Weight_Graph extends AppCompatActivity {
                         Weight_db.execSQL("INSERT INTO " + tableName + "(date, weight) Values ('" + date + "', '" + weight + "');");
 
                         draw_graph();
-                        Toast.makeText(getApplicationContext(), "저장 완료", Toast.LENGTH_SHORT).show();
                         last_diff_day = diffDay;
 
                     } else { //사용자가 체중 입력을 하지 않았을 경우
@@ -293,7 +291,7 @@ public class Weight_Graph extends AppCompatActivity {
             }
 
         }
-        Toast.makeText(getApplicationContext(), last_diff_day + "ddd", Toast.LENGTH_SHORT).show();
+
         ReadDB.close();
         //
 
@@ -369,31 +367,6 @@ public class Weight_Graph extends AppCompatActivity {
         lineChart.setDescription(description);
         //------------------------------------------
 
-
-     /*   if(data_num > 1) {
-            int test = (int) entries.get(data_num-1).getX();
-
-            if(data_num>1 && test > 5){
-                lineChart.moveViewToX(test-5);
-            }
-
-        }else if(data_num==1){
-            int test = (int) entries.get(data_num-1).getX();
-            lineChart.moveViewToX(test-3);
-        }*/
-
-
-        /*int test = (int) entries.get(0).getX();
-        int test2 = (int) entries.get(data_num-1).getX();
-        Toast.makeText(getApplicationContext(), test2, Toast.LENGTH_SHORT).show();
-
-
-        if(test2 - test > 5){
-            lineChart.moveViewToX(test2-3);
-        }
-        if(test2 - test <= 5){
-            lineChart.moveViewToX(0);
-        }*/
         if(last_diff_day > 5){
             lineChart.moveViewToX(last_diff_day-3);
         }
