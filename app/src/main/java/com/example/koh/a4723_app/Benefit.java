@@ -185,7 +185,7 @@ public class Benefit extends AppCompatActivity {
         }
 
         ArrayList<CheckBox> CBs = b_all();
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < CBs.size(); i++) {
             linearLayout2.addView(CBs.get(i));
         }
 
