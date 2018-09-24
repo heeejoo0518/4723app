@@ -276,6 +276,10 @@ public class My_Page extends AppCompatActivity {
         String str="";
         String tbName = Benefit.center(getPreferences("보건소"));
         if(tbName.equals("해당하는 보건소를 등록해주세요.")) return tbName;
+        if(getPreferences("자동계산").equals("")) {
+            str="출산 예정일을 입력해주세요";
+            return str;
+        }
 
         Cursor c = db.rawQuery("SELECT * FROM " + tbName, null);
         int week = (int)getSharedPreferences("pref", MODE_PRIVATE).getLong("몇주차",0);
