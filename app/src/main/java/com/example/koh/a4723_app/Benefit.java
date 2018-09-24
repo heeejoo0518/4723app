@@ -14,47 +14,48 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+class benefits{
+    private int start;
+    private int end;
+    private CheckBox checkBox;
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public CheckBox getCheckBox() {
+        return checkBox;
+    }
+
+    public void setCheckBox(CheckBox checkBox) {
+        this.checkBox = checkBox;
+    }
+    public void add(int start,int end, CheckBox cb){
+        this.start=start;
+        this.end=end;
+        this.checkBox=cb;
+    }
+}
+
 public class Benefit extends AppCompatActivity {
     SQLiteDatabase db= null;
     String tableName = "";
-
-    public ArrayList<CheckBox> b_current(){
-        ArrayList<CheckBox> checkBoxes = new ArrayList<>();
-        final String tbName=center(getSharedPreferences("pref", Context.MODE_PRIVATE).getString("보건소",""));
-        Cursor c = db.rawQuery("SELECT * FROM " + tbName, null);
-        int week = (int)getSharedPreferences("pref", MODE_PRIVATE).getLong("몇주차",0);
-        if(c.moveToFirst()){
-            do {
-                int start = c.getInt(c.getColumnIndex("_start"));
-                int end = c.getInt(c.getColumnIndex("_end"));
-                if(week>=start && week <=end){
-                    CheckBox cb = new CheckBox(getApplicationContext());
-                    final String get = c.getString(c.getColumnIndex("get"));
-                    cb.setText(get);
-                    cb.setTextColor(Color.BLACK);
-
-                    if(c.getInt(c.getColumnIndex("checked"))==0) cb.setChecked(false);
-                    else cb.setChecked(true);
-
-                    cb.setOnClickListener(new CheckBox.OnClickListener() {
-                        @Override public void onClick(View v) {
-                            if (((CheckBox)v).isChecked()) {
-                                Toast.makeText(getApplicationContext() , "OOO", Toast.LENGTH_SHORT).show();
-                                db.execSQL("UPDATE "+tbName+" SET checked = '1' WHERE get='"+get+"';");
-                            } else {
-                                Toast.makeText(getApplicationContext() , "XXX", Toast.LENGTH_SHORT).show();
-                                db.execSQL("UPDATE "+tbName+" SET checked = '0' WHERE get='"+get+"';");
-                            }
-                        }
-                    });
-                    checkBoxes.add(cb);
-                }
-            }while(c.moveToNext());
-        }
-        return checkBoxes;
-    }
-    public ArrayList<CheckBox> b_all(){
-        ArrayList<CheckBox> checkBoxes = new ArrayList<>();
+    LinearLayout linearLayout;
+    LinearLayout linearLayout2;
+    public ArrayList<benefits> b_all(){
+        ArrayList<benefits> checkBoxes = new ArrayList<>();
         final String tbName=center(getSharedPreferences("pref", Context.MODE_PRIVATE).getString("보건소",""));
         Cursor c = db.rawQuery("SELECT * FROM " + tbName, null);
         if(c.moveToFirst()){
@@ -73,15 +74,17 @@ public class Benefit extends AppCompatActivity {
                 cb.setOnClickListener(new CheckBox.OnClickListener() {
                     @Override public void onClick(View v) {
                         if (((CheckBox)v).isChecked()) {
-                            Toast.makeText(getApplicationContext() , "OOO", Toast.LENGTH_SHORT).show();
                             db.execSQL("UPDATE "+tbName+" SET checked = '1' WHERE get='"+get+"';");
+                            setLinear();
                             } else {
-                            Toast.makeText(getApplicationContext() , "XXX", Toast.LENGTH_SHORT).show();
                             db.execSQL("UPDATE "+tbName+" SET checked = '0' WHERE get='"+get+"';");
+                            setLinear();
                         }
                     }
                 });
-                checkBoxes.add(cb);
+                benefits be = new benefits();
+                be.add(start,end,cb);
+                checkBoxes.add(be);
             }while(c.moveToNext());
         }
         return checkBoxes;
@@ -116,8 +119,8 @@ public class Benefit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_benefit);
-        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearlayout);
-        LinearLayout linearLayout2 = (LinearLayout)findViewById(R.id.linearlayout2);
+        linearLayout = (LinearLayout)findViewById(R.id.linearlayout);
+        linearLayout2 = (LinearLayout)findViewById(R.id.linearlayout2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
 
         toolbar.setTitleTextColor(Color.parseColor("BLACK"));
@@ -129,15 +132,23 @@ public class Benefit extends AppCompatActivity {
         String center = getSharedPreferences("pref", Context.MODE_PRIVATE).getString("보건소","");
         tableName=center(center); //tableName 설정
 
-        ArrayList<CheckBox> checkBoxes = b_current();
+        setLinear();
+
+    }
+    public void setLinear(){
+        linearLayout.removeAllViews();
+        linearLayout2.removeAllViews();
+        int week = (int)getSharedPreferences("pref", MODE_PRIVATE).getLong("몇주차",0);
+        ArrayList<benefits> checkBoxes = b_all();
         for(int i = 0; i < checkBoxes.size(); i++) {
-           linearLayout.addView(checkBoxes.get(i));
+            if(week>=checkBoxes.get(i).getStart() && week <=checkBoxes.get(i).getEnd()){
+                linearLayout.addView(checkBoxes.get(i).getCheckBox());
+            }
         }
 
-        ArrayList<CheckBox> CBs = b_all();
+        ArrayList<benefits> CBs = b_all();
         for(int i = 0; i < CBs.size(); i++) {
-            linearLayout2.addView(CBs.get(i));
+            linearLayout2.addView(CBs.get(i).getCheckBox());
         }
-
     }
 }
