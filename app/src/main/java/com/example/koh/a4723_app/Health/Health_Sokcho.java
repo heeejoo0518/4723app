@@ -3,13 +3,16 @@ package com.example.koh.a4723_app.Health;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,99 +37,65 @@ import java.util.Map;
 
 public class Health_Sokcho extends AppCompatActivity {
 
-    private String htmlPageUrl = "http://www.yonhapnews.co.kr/"; //파싱할 홈페이지의 URL주소
-    private TextView textviewHtmlDocument;
-    private String htmlContentInStringFormat="";
+    private ListView _listview;
 
-    int cnt=0;
-
-
-    //private ArrayList<WellnessItem> data = null;
+    private String[] items = { "영유아 건강검진", "모성아동건강관리 사업",
+            "영유아 사전예방적 관리", "인구증가 시책사업", "여성과어린이건강증진",
+            "영양보충사업"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health__sokcho);
-        Toast.makeText(getApplicationContext(), "sokcho", Toast.LENGTH_LONG).show();
+        //------------------------------------------------------
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("BLACK")); //제목의 칼라
+        toolbar.setTitle("속초시 보건소");
+        setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
+        //-----------------------------------------------------------
+        _listview = (ListView)findViewById(R.id.health_listview);
 
-        textviewHtmlDocument = (TextView)findViewById(R.id.textView);
+        _listview.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
 
-        textviewHtmlDocument.setMovementMethod(new ScrollingMovementMethod()); //스크롤 가능한 텍스트뷰로 만들기
-
-
-
-        Button htmlTitleButton = (Button)findViewById(R.id.button);
-        htmlTitleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-                System.out.println( (cnt+1) +"번째 파싱");
-                JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
-                jsoupAsyncTask.execute();
-                cnt++;
-            }
-        });
+       // _listview.setOnItemClickListener(onItemClickListener);
 
     }
-
-    private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
-
-
-
+    /* private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
+    {
         @Override
-
-        protected void onPreExecute() {
-
-            super.onPreExecute();
-
-        }
-
-        @Override
-
-        protected Void doInBackground(Void... params) {
-
-            try {
-                Document doc = Jsoup.connect(htmlPageUrl).get();
-
-                //테스트1
-                Elements titles= doc.select("div.news-con h1.tit-news");
-
-                System.out.println("-------------------------------------------------------------");
-                for(Element e: titles){
-                    System.out.println("title: " + e.text());
-                    htmlContentInStringFormat += e.text().trim() + "\n";
-
-                }
-
-                //테스트2
-                titles= doc.select("div.news-con h2.tit-news");
-
-                System.out.println("-------------------------------------------------------------");
-                for(Element e: titles) {
-                    System.out.println("title: " + e.text());
-                    htmlContentInStringFormat += e.text().trim() + "\n";
-                }
-                //테스트3
-                titles= doc.select("li.section02 div.con h2.news-tl");
-
-                System.out.println("-------------------------------------------------------------");
-                for(Element e: titles){
-                    System.out.println("title: " + e.text());
-                    htmlContentInStringFormat += e.text().trim() + "\n";
-                }
-                System.out.println("-------------------------------------------------------------");
-            } catch (IOException e) {
-                e.printStackTrace();
+       public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+        {
+            if(position == 0){
+               // Intent intent = new Intent(Health_Sokcho.this, samcheok_0.class);
+                startActivity(intent);
             }
-            return null;
+            if(position == 1){
+                //setFrag(1);
+                Intent intent = new Intent(Health_Sokcho.this, samcheok_1.class);
+                startActivity(intent);
+            }
+            if(position == 2){
+                //  setFrag(2);
+                Intent intent = new Intent(Health_Sokcho.this, samcheok_2.class);
+                startActivity(intent);
+            }
+            if(position == 3){
+                Intent intent = new Intent(Health_Sokcho.this, samcheok_3.class);
+                startActivity(intent);
+            }
+            if(position == 4){
+                Intent intent = new Intent(Health_Sokcho.this, samcheok_4.class);
+                startActivity(intent);
+            }
+            if(position == 5) {
+                Intent intent = new Intent(Health_Sokcho.this, samcheok_5.class);
+                startActivity(intent);
+            }
 
         }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            textviewHtmlDocument.setText(htmlContentInStringFormat);
-        }
-    }
+    };*/
+
 
 
 }

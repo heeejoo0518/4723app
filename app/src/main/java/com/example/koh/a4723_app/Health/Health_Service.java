@@ -3,20 +3,11 @@ package com.example.koh.a4723_app.Health;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
-import java.util.*;
 import com.example.koh.a4723_app.R;
 
 import java.util.ArrayList;
@@ -45,7 +36,9 @@ public class Health_Service extends AppCompatActivity {
 
        // Toast.makeText(getApplicationContext(),health_center, Toast.LENGTH_LONG).show();
 
-        str = "http://www.yonhapnews.co.kr/";
+        //str = "\""+"http://www.yonhapnews.co.kr/"+"\"";
+
+        str = "http://health.yangyang.go.kr/page/dep/05_health/sub03/sub03_05.jsp";
         savePreferences("사이트주소",str);
 
 
@@ -70,7 +63,7 @@ public class Health_Service extends AppCompatActivity {
                     }
                 } else if (health_center.equals("평창군보건의료원")) {
                     {
-                        Intent intent = new Intent(Health_Service.this, Health_Pyeongchang.class);
+                        Intent intent = new Intent(Health_Service.this, Health_pyeongchang.class);
                         startActivity(intent);
                         finish();
                     }

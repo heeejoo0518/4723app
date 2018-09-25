@@ -1,154 +1,88 @@
 package com.example.koh.a4723_app.Health;
 
-import android.os.AsyncTask;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.koh.a4723_app.R;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
+import com.example.koh.a4723_app.chulwon.chulwon_0;
+import com.example.koh.a4723_app.chulwon.chulwon_1;
+import com.example.koh.a4723_app.chulwon.chulwon_2;
+import com.example.koh.a4723_app.chulwon.chulwon_3;
+import com.example.koh.a4723_app.chulwon.chulwon_4;
+import com.example.koh.a4723_app.chulwon.chulwon_5;
 
 
 public class Health_chulwon extends AppCompatActivity {
 
-    private String htmlPageUrl = "http://www.yonhapnews.co.kr/";
-    private TextView textviewHtmlDocument;
-    private String htmlContentInStringFormat="";
-    Elements contents;
-    int cnt=0;
-    @Override
+    private ListView _listview;
+
+    private String[] items = { "산모신생아 건강관리 지원사업","난임부부 시술비 지원사업", "미숙아 및 선천성이상아 등록관리 및 의료비 등 지원사업",
+            "난청조기진단사업", "엽산제·철분제 지원사업","저소득영유아건강검진"};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_health_chulwon);
 
-        textviewHtmlDocument = (TextView)findViewById(R.id.textView);
+        //------------------------------------------------------
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("BLACK")); //제목의 칼라
+        toolbar.setTitle("철원군 보건소");
+        setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
+        //-----------------------------------------------------------
+        _listview = (ListView)findViewById(R.id.health_listview);
 
-        textviewHtmlDocument.setMovementMethod(new ScrollingMovementMethod()); //스크롤 가능한 텍스트뷰로 만들기
+        _listview.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
 
+        _listview.setOnItemClickListener(onItemClickListener);
 
-
-      //  Button htmlTitleButton = (Button)findViewById(R.id.button);
-
-      //  htmlTitleButton.setOnClickListener(new View.OnClickListener() {
-
-
-           // public void onClick(View v) {
-             //   System.out.println( (cnt+1) +"번째 파싱");
-                JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
-                jsoupAsyncTask.execute();
-
-               // cnt++;
-           // }
-      //  });
 
     }
 
-    private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
-
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
+    {
         @Override
-
-        protected void onPreExecute() {
-
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            try {
-
-                Document doc = Jsoup.connect(htmlPageUrl).get();
-
-
-                //테스트1
-
-                Elements titles= doc.select("div.news-con h1.tit-news");
-
-
-
-                System.out.println("-------------------------------------------------------------");
-
-                for(Element e: titles){
-
-                    System.out.println("title: " + e.text());
-
-                    htmlContentInStringFormat += e.text().trim() + "\n";
-
-                }
-
-
-
-                //테스트2
-
-                titles= doc.select("div.news-con h2.tit-news");
-
-
-
-                System.out.println("-------------------------------------------------------------");
-
-                for(Element e: titles){
-
-                    System.out.println("title: " + e.text());
-
-                    htmlContentInStringFormat += e.text().trim() + "\n";
-
-                }
-
-
-
-                //테스트3
-
-                titles= doc.select("li.section02 div.con h2.news-tl");
-
-
-
-                System.out.println("-------------------------------------------------------------");
-
-                for(Element e: titles){
-
-                    System.out.println("title: " + e.text());
-
-                    htmlContentInStringFormat += e.text().trim() + "\n";
-
-                }
-
-                System.out.println("-------------------------------------------------------------");
-
-
-
-            } catch (IOException e) {
-
-                e.printStackTrace();
+        public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+        {
+            if(position == 0){
+                Intent intent = new Intent(Health_chulwon.this, chulwon_0.class);
+                startActivity(intent);
+            }
+            if(position == 1){
+                //setFrag(1);
+                Intent intent = new Intent(Health_chulwon.this, chulwon_1.class);
+                startActivity(intent);
+            }
+            if(position == 2){
+                //  setFrag(2);
+                Intent intent = new Intent(Health_chulwon.this, chulwon_2.class);
+                startActivity(intent);
+            }
+            if(position == 3){
+                Intent intent = new Intent(Health_chulwon.this, chulwon_3.class);
+                startActivity(intent);
+            }
+            if(position == 4){
+                Intent intent = new Intent(Health_chulwon.this, chulwon_4.class);
+                startActivity(intent);
+            }
+            if(position == 5) {
+                Intent intent = new Intent(Health_chulwon.this, chulwon_5.class);
+                startActivity(intent);
 
             }
 
-            return null;
-
         }
 
+    };
 
-
-        @Override
-
-        protected void onPostExecute(Void result) {
-
-            textviewHtmlDocument.setText(htmlContentInStringFormat);
-
-        }
-
-    }
 
 
 }

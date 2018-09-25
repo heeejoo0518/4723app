@@ -7,4 +7,10 @@
     <string name="title_activity_find__hospital">Find_Hospital</string>
     <string name="title_activity_weight_graph">weight_graph</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_yangyang_1">yangyang_1</string>
+    <string name="title_activity_goseong_4">goseong_4</string>
+    <string name="title_activity_goseong_7">goseong_7</string>
 </resources>
