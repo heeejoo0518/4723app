@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void saveBenefits(){//레코드 입력 함수
         getSharedPreferences("isSaved", Context.MODE_PRIVATE).edit().remove("save").apply();
         getSharedPreferences("isSaved", Context.MODE_PRIVATE).edit().putInt("save", 1).apply();
+
         db.execSQL("CREATE TABLE IF NOT EXISTS YangYang (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//양양군
         db.execSQL("CREATE TABLE IF NOT EXISTS JeongSeon (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//정선군
         db.execSQL("CREATE TABLE IF NOT EXISTS SamCheok (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//삼척시
@@ -487,6 +488,7 @@ public class MainActivity extends AppCompatActivity {
         String due_date = getPreferences("출산날짜");
 
         btSet(BtBenefit());
+
 
         if(my_date != ""){
 
