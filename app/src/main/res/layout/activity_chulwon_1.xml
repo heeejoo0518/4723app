@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
+    android:background="#FFFFFE"
+    android:orientation="vertical">
+
+    <!--android:background="?attr/colorPrimary"-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="65dp"
+        android:src="@drawable/glist" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="65dp"
+        android:text="난임부부 시술비 지원사업"
+        android:textColor="@color/Black"
+        android:textSize="18dp" />
+
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="105dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:layout_weight="1"
+        android:ellipsize="none"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="지원신청자격"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="여성연령 만44세 이하 자로 난임(체외수정, 인공수정)시술을 요하는 의사의 난임진단서 제출자"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+
+    <ImageView
+        android:id="@+id/circle1"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="지원금액 및 횟수"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="205dp"
+    android:layout_marginStart="70dp"
+    android:layout_marginEnd="10dp"
+    android:maxLines="100"
+    android:scrollHorizontally="false"
+    android:singleLine="false"
+    android:text="인공수정시술 소득 수준에 따라 1회 20만원∼50만원(1인 3회)"
+    android:textColor="@color/Black"
+    android:textSize="11dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="체외수정시술 소득 수준에 따라 1회 100만원∼240만원(단, 기초생활 수급자 300만원한도)이며 신선배아 5회 지원"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+
+    <ImageView
+        android:id="@+id/circle2"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="280dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="지원신청 제출서류"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="305dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="정부지원 난임치료(체외수정, 인공수정) 지원신청서 1부"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+
+    <ImageView
+        android:id="@+id/circle3"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="330dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="첨부서류"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="355dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="진단서 1부(정부지원 난임시술 의료기관 시술의사의 난임 진단서)"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="주민등록 등본 1부"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="405dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="건강보험증 사본 1부(맞벌이부부일 경우 부부 모두의 카드 첨부)"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="최근월분 건강보험료 본인부담금 납부확인서 1부"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="455dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="신청시 유의사항 : 시술 시작전 보건소에 신청"
+        android:textColor="@color/Black"
+        android:textSize="11dp" />
+
+
+    <ImageView
+        android:id="@+id/circle5"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="495dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="495dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="문의전화 : ☎ 450-5124"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+
+</RelativeLayout>
