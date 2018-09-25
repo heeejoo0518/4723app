@@ -1,13 +1,11 @@
 package com.example.koh.a4723_app;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,8 +17,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.text.Format;
 import java.text.ParseException;
@@ -41,43 +37,160 @@ public class MainActivity extends AppCompatActivity {
         db.execSQL("CREATE TABLE IF NOT EXISTS JeongSeon (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//정선군
         db.execSQL("CREATE TABLE IF NOT EXISTS SamCheok (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//삼척시
         db.execSQL("CREATE TABLE IF NOT EXISTS PyeongChang (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//평창군
+        db.execSQL("CREATE TABLE IF NOT EXISTS YeongWol (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//영월군
+        db.execSQL("CREATE TABLE IF NOT EXISTS Goseong (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//고성군
+        db.execSQL("CREATE TABLE IF NOT EXISTS GangNeung (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//강릉시
+        db.execSQL("CREATE TABLE IF NOT EXISTS InJe (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//인제군
+        db.execSQL("CREATE TABLE IF NOT EXISTS TaeBaek (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//태백시
+        db.execSQL("CREATE TABLE IF NOT EXISTS YangGu (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//양구군
+        db.execSQL("CREATE TABLE IF NOT EXISTS WonJu (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//원주시
+        db.execSQL("CREATE TABLE IF NOT EXISTS ChunCheon (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//춘천시
+        db.execSQL("CREATE TABLE IF NOT EXISTS SokCho (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//속초시
+        db.execSQL("CREATE TABLE IF NOT EXISTS HongCheon (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//홍천군
+        db.execSQL("CREATE TABLE IF NOT EXISTS DongHae (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//동해시
+        db.execSQL("CREATE TABLE IF NOT EXISTS Hoengseong (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//횡성군
+        db.execSQL("CREATE TABLE IF NOT EXISTS ChearWon (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//철원군
         //==================================================================================양양군
-        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','0','64','표준모자보건수첩 제공');");
         db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','0','12','엽산제 무료 지급');");
-        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','16','48','철분제 무료 제공');");
         db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','0','40','유산균제 1회 제공');");
-        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','44','신생아 청각선별검사');");
-        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','64','고위험 임산부 의료비 지원');");
+        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','0','64','표준모자보건수첩 제공');");
+        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','16','48','철분제 무료 제공');");
         db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','34','44','바우처 서비스 신청');");
-        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','64','의료비 지원사업');");
+        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','44','신생아 청각선별검사');");
         db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','44','출산장려금 지원사업');");
         db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','48','저소득층 기저귀·조제분유 지원사업');");
+        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','64','고위험 임산부 의료비 지원');");
+        db.execSQL("INSERT INTO YangYang (checked, _start, _end ,get) Values ('0','40','64','의료비 지원사업');");
         //==================================================================================정선군
         db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','0','12','엽산제 제공');");
         db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','16','40','철분제 제공');");
-        db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','40','44','출산육아용품 상품권 지원');");
-        db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','40','64','미숙아·선천성이상아 의료비지원');");
         db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','28','44','신생아 청각선별검사 지원');");
         db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','34','44','산모·신생아건강관리 지원사업');");
+        db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','40','44','출산육아용품 상품권 지원');");
+        db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','40','64','미숙아·선천성이상아 의료비지원');");
         db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','40','64','고위험임산부 의료비 지원사업');");
         db.execSQL("INSERT INTO JeongSeon (checked, _start, _end ,get) Values ('0','40','134','저소득층 기저귀·조제분유 지원사업');");
         //==================================================================================삼척시
+        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','0','40','임산부 산전검진비 지원');");
         db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','20','40','고위험 임산부 의료비지원 사업');");
-        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','34','44','산모신생아 건강관리사업');");
-        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','40','134','저소득층 기저귀 조제분유 지원사업');");
         db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','28','44','신생아 난청조기진단 검사');");
+        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','32','44','공공산후조리원 이용료 지원');");
+        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','34','44','산모신생아 건강관리사업');");
         db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','40','44','출산장려금 지원');");
         db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','40','44','출생아 건강보장보험료 지원');");
-        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','32','44','공공산후조리원 이용료 지원');");
-        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','0','40','임산부 산전검진비 지원');");
+        db.execSQL("INSERT INTO SamCheok (checked, _start, _end ,get) Values ('0','40','134','저소득층 기저귀 조제분유 지원사업');");
         //==================================================================================평창군
-        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','16','40','임산부 산전검진비 지원');");
-        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','0','12','임산부 산전검진비 지원');");
-        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','40','64','임산부 산전검진비 지원');");
-        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','40','134','임산부 산전검진비 지원');");
-        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','40','48','임산부 산전검진비 지원');");
-        //==================================================================================
-
+        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','0','12','엽산제 지급');");
+        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','16','40','철분제 지급');");
+        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','40','48','임산부 산후돌봄 지원');");
+        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','40','64','고위험 임산부 의료비 지원');");
+        db.execSQL("INSERT INTO PyeongChang (checked, _start, _end ,get) Values ('0','40','134','기저귀,조제분유 지원');");
+        //==================================================================================영월군
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','0','12','엽산제 지원');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','0','40','영양플러스 보충식품 지원');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','8','10','무료검사(빈혈, 매독, B형간염, 에이즈 검사 등)');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','16','40','철분제 지원');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','28','44','신생아 난청조기진단(청각선별검사) 지원');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','34','44','산모 · 신생아 건강관리사 지원사업');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','36','40','임신 축하기념품 지원');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','40','40','선천성대사이상검사비 지원');");
+        db.execSQL("INSERT INTO YeongWol (checked, _start, _end ,get) Values ('0','40','64','산후건강관리 지원사업');");
+        //==================================================================================고성군
+        db.execSQL("INSERT INTO Goseong (checked, _start, _end ,get) Values ('0','0','12','엽산제 지원');");
+        db.execSQL("INSERT INTO Goseong (checked, _start, _end ,get) Values ('0','0','32','출산용품 지원(아기내복,아기속싸개)');");
+        db.execSQL("INSERT INTO Goseong (checked, _start, _end ,get) Values ('0','20','40','철분제 지원');");
+        db.execSQL("INSERT INTO Goseong (checked, _start, _end ,get) Values ('0','40','52','고위험 임산부 지원');");
+        db.execSQL("INSERT INTO Goseong (checked, _start, _end ,get) Values ('0','40','88','저소득층 기저귀,조제분유 지원');");
+        //==================================================================================강릉시
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','0','15','엽산제');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','0','40','모성 검사');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','16','52','철분제');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','20','40','출산 준비 교실');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','25','40','출산용품');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','28','40','신생아 청각선별검사 쿠폰 발급');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','34','40','산모・신생아 건강관리사지원');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','40','44','출산 장려금');");
+        db.execSQL("INSERT INTO GangNeung (checked, _start, _end ,get) Values ('0','40','52','고위험임산부 의료비지원');");
+        //==================================================================================인제군
+        db.execSQL("INSERT INTO InJe (checked, _start, _end ,get) Values ('0','0','12','엽산제 지급');");
+        db.execSQL("INSERT INTO InJe (checked, _start, _end ,get) Values ('0','16','52','철분제 지급');");
+        db.execSQL("INSERT INTO InJe (checked, _start, _end ,get) Values ('0','24','40','신생아청각검사 쿠폰');");
+        db.execSQL("INSERT INTO InJe (checked, _start, _end ,get) Values ('0','34','44','산모·신생아 도우미지원사업');");
+        //==================================================================================태백시
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','0','8','모성 혈액검사');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','0','12','엽산제 지급');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','16','16','산전 기형아 검사 쿠폰 ');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','16','28','출산 준비 교실');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','16','40','철분제 지급');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','20','32','초음파 쿠폰 ');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','24','40','신생아 난청 조기 진단사업');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','34','44','산모, 신생아 도우미 지원 사업');");
+        db.execSQL("INSERT INTO TaeBaek (checked, _start, _end ,get) Values ('0','40','64','고위험 임산부 의료비 지원');");
+        //==================================================================================양구군
+        db.execSQL("INSERT INTO YangGu (checked, _start, _end ,get) Values ('0','20','40','임산부 철분제 지원');");
+        db.execSQL("INSERT INTO YangGu (checked, _start, _end ,get) Values ('0','36','43','산모·신생아 도우미지원사업');");
+        db.execSQL("INSERT INTO YangGu (checked, _start, _end ,get) Values ('0','40','88','양구군 출생아 건강보험 가입지원');");
+        db.execSQL("INSERT INTO YangGu (checked, _start, _end ,get) Values ('0','40','88','출산장려금 지원');");
+        //==================================================================================원주시
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','4','12','엽산제 지원');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','8','10','모성검사');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','16','40','철분제 지원');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','24','40','신생아 난청조기진단사업');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','28','64','모유수유 교실');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','34','44','산모 신생아 건강관리 지원');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','40','41','선천성대사이상 검사 및 환아관리');");
+        db.execSQL("INSERT INTO WonJu (checked, _start, _end ,get) Values ('0','40','64','산후 건강관리 지원사업(산후 의료비 지원)');");
+        //==================================================================================춘천시
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','0','12','엽산제 지급');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','0','48','임신·출산진료비 지원');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','17','40','철분제 지급');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','28','44','청각선별검사');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','28','44','신생아 청각 선별검사 지원');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','34','44','산모, 신생아 건강관리 지원');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','40','41','선천성대사이상검사');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','40','44','유축기 대여');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','40','64','고위험 임산부 의료비 지원');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','40','64','산후 의료비 지원');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','40','88','출산장려금 지원');");
+        db.execSQL("INSERT INTO ChunCheon (checked, _start, _end ,get) Values ('0','40','92','저소득층 기저귀·조제분유 지원');");
+        //==================================================================================속초시
+        db.execSQL("INSERT INTO SokCho (checked, _start, _end ,get) Values ('0','34','44','산모,신생아 건강관리사 지원');");
+        db.execSQL("INSERT INTO SokCho (checked, _start, _end ,get) Values ('0','40','64','출산장려금');");
+        db.execSQL("INSERT INTO SokCho (checked, _start, _end ,get) Values ('0','52','624','아이돌봄 서비스지원');");
+        //==================================================================================홍천군
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','0','12','엽산제');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','16','40','철분제');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','20','40','출산 준비교실 운영');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','34','44','산모/신생아도우미 바우처 지원사업');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','40','41','선천성대사이상검사비지원');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','40','44','신생아 청각선별검사 지원사업');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','40','52','산후영양제 지원');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','40','52','고위험 임산부 의료비 지원사업');");
+        db.execSQL("INSERT INTO HongCheon (checked, _start, _end ,get) Values ('0','40','136','저소득층 기저귀 조제분유 지원 사업');");
+        //==================================================================================동해시
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','0','4','임신 반응 검사');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','0','5','임신초기 혈액검사');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','0','12','엽산제');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','0','40','초음파 검사 쿠폰(2회)');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','14','18','기형아 검사 쿠폰');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','16','40','철분제');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','20','28','행복한 예비맘 건강교실');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','24','26','임신성 당뇨 검사 쿠폰');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','34','36','분만전 검사 쿠폰');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','34','44','산모·신생아건강관리 지원');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','35','44','청각선별검사 쿠폰 지원');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','40','64','고위험 임산부 의료비 지원사업');");
+        db.execSQL("INSERT INTO DongHae (checked, _start, _end ,get) Values ('0','40','64','저소득층 기저귀 조제분유 지원사업');");
+        //==================================================================================횡성군
+        db.execSQL("INSERT INTO Hoengseong (checked, _start, _end ,get) Values ('0','0','40','임산부 산전검사 쿠폰제');");
+        db.execSQL("INSERT INTO Hoengseong (checked, _start, _end ,get) Values ('0','0','48','청소년산모 임신·출산 의료비지원');");
+        db.execSQL("INSERT INTO Hoengseong (checked, _start, _end ,get) Values ('0','28','40','신생아 청각 선별검사');");
+        db.execSQL("INSERT INTO Hoengseong (checked, _start, _end ,get) Values ('0','34','44','산모신생아건강관리사 지원사업');");
+        //==================================================================================철원군
+        db.execSQL("INSERT INTO ChearWon (checked, _start, _end ,get) Values ('0','0','12','엽산제 지원사업');");
+        db.execSQL("INSERT INTO ChearWon (checked, _start, _end ,get) Values ('0','16','40','철분제 지원사업');");
+        db.execSQL("INSERT INTO ChearWon (checked, _start, _end ,get) Values ('0','28','44','난청조기진단사업');");
+        db.execSQL("INSERT INTO ChearWon (checked, _start, _end ,get) Values ('0','34','44','산모 신생아 도우미 지원사업');");
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
