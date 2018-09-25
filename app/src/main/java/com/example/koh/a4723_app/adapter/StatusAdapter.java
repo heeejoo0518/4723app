@@ -51,7 +51,7 @@ public class StatusAdapter extends BaseAdapter {
 
         int drawable;
         switch(items.get(position)){
-            case "매우좋음": drawable=R.drawable.feel_veryvery_happy;break;
+            case "매우 좋음": drawable=R.drawable.feel_veryvery_happy;break;
             case "좋음": drawable=R.drawable.feel_happy;break;
             case "신남":drawable=R.drawable.feel_excited;break;
             case "설렘":drawable=R.drawable.feel_in_love;break;
