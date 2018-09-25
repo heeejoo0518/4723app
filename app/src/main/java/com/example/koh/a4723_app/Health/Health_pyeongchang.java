@@ -89,7 +89,7 @@ public class Health_pyeongchang extends AppCompatActivity {
                 startActivity(intent);
 
             }
-           
+
         }
 
     };
