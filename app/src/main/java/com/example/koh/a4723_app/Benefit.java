@@ -10,8 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
 class benefits{
@@ -64,8 +62,8 @@ public class Benefit extends AppCompatActivity {
                 int end = c.getInt(c.getColumnIndex("_end"));
                 CheckBox cb = new CheckBox(getApplicationContext());
                 final String get = c.getString(c.getColumnIndex("get"));
-                String str=start+"주~"+end+"주 "+get;
-                cb.setText(str);
+                //String str=start+"주~"+end+"주 "+get;
+                cb.setText(get);
                 cb.setTextColor(Color.BLACK);
 
                 if(c.getInt(c.getColumnIndex("checked"))==0) cb.setChecked(false);
@@ -96,21 +94,19 @@ public class Benefit extends AppCompatActivity {
             case "정선군보건소": tbName="JeongSeon"; break;
             case "삼척시보건소": tbName="SamCheok"; break;
             case "평창군보건의료원": tbName="PyeongChang"; break;
-            case "영월군보건소": break;
-            case "강원도 고성군보건소": break;
-            case "춘천시남면보건지소": break;
-            case "주문진보건출장소": break;
-            case "강릉시보건소": break;
-            case "인제군보건소": break;
-            case "태백시보건소": break;
-            case "양구군보건소": break;
-            case "원주시보건소": break;
-            case "춘천시보건소": break;
-            case "속초시보건소": break;
-            case "홍천군보건소": break;
-            case "동해시보건소": break;
-            case "횡성군보건소": break;
-            case "철원군보건소": break;
+            case "영월군보건소": tbName="YeongWol"; break;
+            case "고성군보건소": tbName="Goseong"; break;
+            case "강릉시보건소": tbName="GangNeung"; break;
+            case "인제군보건소": tbName="InJe"; break;
+            case "태백시보건소": tbName="TaeBaek"; break;
+            case "양구군보건소": tbName="YangGu"; break;
+            case "원주시보건소": tbName="WonJu"; break;
+            case "춘천시보건소": tbName="ChunCheon"; break;
+            case "속초시보건소": tbName="SokCho"; break;
+            case "홍천군보건소": tbName="HongCheon"; break;
+            case "동해시보건소": tbName="DongHae"; break;
+            case "횡성군보건소": tbName="Hoengseong"; break;
+            case "철원군보건소": tbName="ChearWon"; break;
             default: tbName="해당하는 보건소를 등록해주세요."; break; //보건소가 저장되지 않았을 때
         }
         return tbName;
