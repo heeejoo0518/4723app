@@ -201,7 +201,7 @@
         <activity android:name=".yanggu.yanggu_3" />
         <activity android:name=".yanggu.yanggu_4" />
         <activity android:name=".yanggu.yanggu_5" />
-        <activity android:name=".yanggu.yanggu_6"></activity>
+        <activity android:name=".yanggu.yanggu_6" />
     </application>
 
 </manifest>
