@@ -152,7 +152,6 @@ public class CustomDialog_DueDate extends Dialog implements View.OnClickListener
                     savePreferences("자동계산","false");
                 }
 
-                //((MainActivity)(MainActivity.mContext)).onResume();
 
                 cancel();
 

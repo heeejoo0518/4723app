@@ -25,17 +25,12 @@
         android:padding="5dp"
         android:layout_below="@id/my_toolbar"
         android:text="이 주의 혜택" />
-    <ScrollView
-        android:id="@+id/scrollview"
+    <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView2">
-        <LinearLayout
-            android:id="@+id/linearlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        android:orientation="vertical"
+        android:layout_below="@id/textView2"/>
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
@@ -43,9 +38,9 @@
         android:textSize="20sp"
         android:padding="5dp"
         android:text="전체 혜택"
-        android:layout_below="@id/scrollview"/>
+        android:layout_below="@id/linearlayout"/>
     <ScrollView
-        android:id="@+id/scrollview2"
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView3">
