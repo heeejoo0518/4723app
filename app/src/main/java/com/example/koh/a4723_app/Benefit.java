@@ -87,7 +87,7 @@ public class Benefit extends AppCompatActivity {
         }
         return checkBoxes;
     }
-    public static String center(String center){
+    public static String center(String center){ //보건소 테이블 이름 설정
         String tbName="";
         switch(center){
             case "양양군보건소": tbName="YangYang"; break;
