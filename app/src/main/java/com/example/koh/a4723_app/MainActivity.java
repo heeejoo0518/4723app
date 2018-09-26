@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void saveBenefits(){//레코드 입력 함수
         getSharedPreferences("isSaved", Context.MODE_PRIVATE).edit().remove("save").apply();
         getSharedPreferences("isSaved", Context.MODE_PRIVATE).edit().putInt("save", 1).apply();
+
         db.execSQL("CREATE TABLE IF NOT EXISTS YangYang (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//양양군
         db.execSQL("CREATE TABLE IF NOT EXISTS JeongSeon (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//정선군
         db.execSQL("CREATE TABLE IF NOT EXISTS SamCheok (checked VARCHAR, _start VARCHAR, _end VARCHAR, get VARCHAR(100));");//삼척시
@@ -488,6 +489,7 @@ public class MainActivity extends AppCompatActivity {
 
         btSet(BtBenefit());
 
+
         if(my_date != ""){
 
             long now = System.currentTimeMillis();
@@ -620,8 +622,8 @@ public class MainActivity extends AppCompatActivity {
         String str="";
         String tbName = Benefit.center(getPreferences("보건소"));
         if(tbName.equals("해당하는 보건소를 등록해주세요.")) return tbName;
-        if(getPreferences("자동계산").equals("")) {
-            str="출산 예정일을 입력해주세요";
+        if(getPreferences("날짜").equals("")) {
+            str="마지막 월경 날짜를 입력해주세요.";
             return str;
         }
 

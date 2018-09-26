@@ -18,6 +18,7 @@ import com.example.koh.a4723_app.yanggu.yanggu_3;
 import com.example.koh.a4723_app.yanggu.yanggu_4;
 import com.example.koh.a4723_app.yanggu.yanggu_5;
 import com.example.koh.a4723_app.yanggu.yanggu_6;
+import com.example.koh.a4723_app.yanggu.yanggu_7;
 
 public class Health_yanggu extends AppCompatActivity {
 
@@ -79,6 +80,10 @@ public class Health_yanggu extends AppCompatActivity {
             }
             if(position == 6){
                 Intent intent = new Intent(Health_yanggu.this, yanggu_6.class);
+                startActivity(intent);
+            }
+            if(position == 7){
+                Intent intent = new Intent(Health_yanggu.this, yanggu_7.class);
                 startActivity(intent);
             }
 

@@ -150,6 +150,14 @@ public class Health_Service extends AppCompatActivity {
                         finish();
                     }
                 }
+                else if (health_center.equals("태백시보건소")) {
+                  {
+                Intent intent = new Intent(Health_Service.this, Health_taebaek.class);
+                startActivity(intent);
+                finish();
+                  } }
+
+
     }
 
     private void savePreferences(String code, String str) { //데이터 저장 함수

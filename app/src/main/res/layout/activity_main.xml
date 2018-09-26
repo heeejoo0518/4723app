@@ -41,8 +41,7 @@
             android:id="@+id/info_weeks_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:textSize="15dp" />
 
