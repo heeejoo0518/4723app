@@ -4,6 +4,347 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     tools:context=".youngweol.youngweol_6">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/glist" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:text="청소년산모 임신출산 의료비 지원사업"
+        android:textColor="@color/Black"
+        android:textSize="18dp" />
+
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:ellipsize="none"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="사업내용"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/yc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="87dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="산전관리가 취약한 청소년산모를 대상으로 임신 · 출산관련 의료비 지원"
+        android:textColor="@color/Black"
+        android:textSize="12dp" />
+
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="120dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="지원대상"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="147dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="만18세 이하 청소년산모로 임신 · 출산 의료비지원 신청자"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="180dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="180dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="지원금액"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="210dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="207dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="임신 1회 당 120만원 이내"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="240dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="240dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="지급방식 및 지원기간"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="270dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="267dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="국민행복카드 바우처로 지급"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="290dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="287dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="카드수령일로부터 분만예정일 이후 60일까지"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="320dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="320dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="신청방법"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="350dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="347dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="온라인 신청 : 사회서비스 전자바우처 홈페이지(www.socialservice.or.kr)"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="380dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="377dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="구비서류 : 주민등록등본, 임신확인서, 본인확인을 위한 신분증 \n (학생증, 청소년증 등) 온라인 신청일로부터 15일 이내에 \n사회보장정보원으로 우편 접수"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="440dp"
+            android:src="@drawable/yc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="437dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="접수처 : (우04554)서울 중구 퇴계로 173(충무로 3가) \n남산스퀘어빌딩 17층 사회보장정보원 바우처사업본부 \n청소년산모 담당자 앞"
+            android:textColor="@color/Black"
+            android:textSize="12dp" />
+
+
+
+
+
+
+    </RelativeLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

@@ -203,6 +203,7 @@
         <activity android:name=".yanggu.yanggu_5" />
         <activity android:name=".yanggu.yanggu_6" />
         <activity android:name=".Benefit" />
+        <activity android:name=".yanggu.yanggu_7"></activity>
     </application>
 
 </manifest>
