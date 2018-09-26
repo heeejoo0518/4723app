@@ -11,6 +11,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.koh.a4723_app.R;
+import com.example.koh.a4723_app.hongcheon.hongcheon_0;
+import com.example.koh.a4723_app.hongcheon.hongcheon_1;
+import com.example.koh.a4723_app.hongcheon.hongcheon_2;
+import com.example.koh.a4723_app.hongcheon.hongcheon_3;
+import com.example.koh.a4723_app.hongcheon.hongcheon_4;
+import com.example.koh.a4723_app.hongcheon.hongcheon_5;
+import com.example.koh.a4723_app.hongcheon.hongcheon_6;
+import com.example.koh.a4723_app.hongcheon.hongcheon_7;
+import com.example.koh.a4723_app.hongcheon.hongcheon_8;
+import com.example.koh.a4723_app.hongcheon.hongcheon_9;
+
 public class Health_hongcheon extends AppCompatActivity {
 
     private ListView _listview;
@@ -37,55 +48,55 @@ public class Health_hongcheon extends AppCompatActivity {
        // _listview.setOnItemClickListener(onItemClickListener);
     }
 
-    /*private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
     {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int position, long id)
         {
             if(position == 0){
-                Intent intent = new Intent(Health_goseong.this, goseong_0.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_0.class);
                 startActivity(intent);
             }
             if(position == 1){
                 //setFrag(1);
-                Intent intent = new Intent(Health_goseong.this, goseong_1.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_1.class);
                 startActivity(intent);
             }
             if(position == 2){
                 //  setFrag(2);
-                Intent intent = new Intent(Health_goseong.this, goseong_2.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_2.class);
                 startActivity(intent);
             }
             if(position == 3){
-                Intent intent = new Intent(Health_goseong.this, goseong_3.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_3.class);
                 startActivity(intent);
             }
             if(position == 4){
-                Intent intent = new Intent(Health_goseong.this, goseong_4.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_4.class);
                 startActivity(intent);
             }
             if(position == 5) {
-                Intent intent = new Intent(Health_goseong.this, goseong_5.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_5.class);
                 startActivity(intent);
 
             }
             if(position == 6){
-                Intent intent = new Intent(Health_goseong.this, goseong_6.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_6.class);
                 startActivity(intent);
 
             }
             if(position == 7){
-                Intent intent = new Intent(Health_goseong.this, goseong_7.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_7.class);
                 startActivity(intent);
 
             }
             if(position == 8){
-                Intent intent = new Intent(Health_goseong.this, goseong_8.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_8.class);
                 startActivity(intent);
 
             }
             if(position == 9){
-                Intent intent = new Intent(Health_goseong.this, goseong_9.class);
+                Intent intent = new Intent(Health_hongcheon.this, hongcheon_9.class);
                 startActivity(intent);
 
             }
@@ -93,5 +104,5 @@ public class Health_hongcheon extends AppCompatActivity {
 
         }
 
-    };*/
+    };
 }
