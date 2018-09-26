@@ -49,7 +49,8 @@
         <activity android:name=".My_Page" />
         <activity
             android:name=".TEST"
-            android:label="TEST" />
+            android:label="TEST"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
