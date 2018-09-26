@@ -23,6 +23,12 @@ import com.example.koh.a4723_app.R;
 import com.example.koh.a4723_app.Wellness.WellnessAdapter;
 import com.example.koh.a4723_app.Wellness.WellnessClicked;
 import com.example.koh.a4723_app.Wellness.WellnessItem;
+import com.example.koh.a4723_app.sokcho.sokcho_0;
+import com.example.koh.a4723_app.sokcho.sokcho_1;
+import com.example.koh.a4723_app.sokcho.sokcho_2;
+import com.example.koh.a4723_app.sokcho.sokcho_3;
+import com.example.koh.a4723_app.sokcho.sokcho_4;
+import com.example.koh.a4723_app.sokcho.sokcho_5;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -57,44 +63,44 @@ public class Health_Sokcho extends AppCompatActivity {
 
         _listview.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
 
-       // _listview.setOnItemClickListener(onItemClickListener);
+       _listview.setOnItemClickListener(onItemClickListener);
 
     }
-    /* private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener()
     {
         @Override
        public void onItemClick(AdapterView<?> parent, View v, int position, long id)
         {
             if(position == 0){
-               // Intent intent = new Intent(Health_Sokcho.this, samcheok_0.class);
+               Intent intent = new Intent(Health_Sokcho.this, sokcho_0.class);
                 startActivity(intent);
             }
             if(position == 1){
                 //setFrag(1);
-                Intent intent = new Intent(Health_Sokcho.this, samcheok_1.class);
+                Intent intent = new Intent(Health_Sokcho.this, sokcho_1.class);
                 startActivity(intent);
             }
             if(position == 2){
                 //  setFrag(2);
-                Intent intent = new Intent(Health_Sokcho.this, samcheok_2.class);
+                Intent intent = new Intent(Health_Sokcho.this, sokcho_2.class);
                 startActivity(intent);
             }
             if(position == 3){
-                Intent intent = new Intent(Health_Sokcho.this, samcheok_3.class);
+                Intent intent = new Intent(Health_Sokcho.this, sokcho_3.class);
                 startActivity(intent);
             }
             if(position == 4){
-                Intent intent = new Intent(Health_Sokcho.this, samcheok_4.class);
+                Intent intent = new Intent(Health_Sokcho.this, sokcho_4.class);
                 startActivity(intent);
             }
             if(position == 5) {
-                Intent intent = new Intent(Health_Sokcho.this, samcheok_5.class);
+                Intent intent = new Intent(Health_Sokcho.this, sokcho_5.class);
                 startActivity(intent);
             }
 
         }
 
-    };*/
+    };
 
 
 

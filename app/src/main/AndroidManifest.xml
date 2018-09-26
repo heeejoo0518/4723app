@@ -212,9 +212,15 @@
         <activity android:name=".hongcheon.hongcheon_6" />
         <activity android:name=".hongcheon.hongcheon_7" />
         <activity android:name=".hongcheon.hongcheon_8" />
-        <activity android:name=".hongcheon.hongcheon_9"></activity>
+        <activity android:name=".hongcheon.hongcheon_9" />
         <activity android:name=".Benefit" />
-        <activity android:name=".yanggu.yanggu_7"></activity>
+        <activity android:name=".yanggu.yanggu_7" />
+        <activity android:name=".sokcho.sokcho_0" />
+        <activity android:name=".sokcho.sokcho_1" />
+        <activity android:name=".sokcho.sokcho_2" />
+        <activity android:name=".sokcho.sokcho_3" />
+        <activity android:name=".sokcho.sokcho_4" />
+        <activity android:name=".sokcho.sokcho_5"></activity>
     </application>
 
 </manifest>
