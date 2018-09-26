@@ -24,11 +24,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -95,6 +98,7 @@ public class TEST extends FragmentActivity
     ListView listView;
     Cursor c;
 
+    EditText editText;
 
 
     LocationRequest locationRequest = new LocationRequest()
@@ -116,6 +120,27 @@ public class TEST extends FragmentActivity
         Log.d(TAG, "onCreate");
 
         listView = (ListView) findViewById(R.id.list);
+        editText = (EditText)findViewById(R.id.searchEditText);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // input창에 문자를 입력할때마다 호출된다.
+                // search 메소드를 호출한다.
+                String text = editText.getText().toString();
+                if(editText.length()<=0) setList();
+                else search(text);
+            }
+        });
 
         mActivity = this;
 
@@ -156,7 +181,28 @@ public class TEST extends FragmentActivity
         });
     }
 
-    public void setRecord(){//db에 레코드 저장
+    // 검색을 수행하는 메소드
+    public void search(String charText) {
+        treeMap = new TreeMap<Double,TEST_item_all>();
+        adapter=new TEST_adapter();
+            // 리스트의 모든 데이터를 검색한다.
+            for(int i = 0;i < testItems.size(); i++) {
+                // (testItems.getName) 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
+                if (testItems.get(i).getName().toLowerCase().contains(charText)){
+                    // 검색된 데이터를 리스트에 추가한다.
+                    double distance = getDistance(testItems.get(i).getLatLng());
+                    treeMap.put(distance,testItems.get(i));
+                }
+            }
+        for (Map.Entry<Double,TEST_item_all> entry : treeMap.entrySet()) {
+            adapter.addItem(entry.getValue().getTEST_items());
+        }
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    //db에 레코드 저장
+    public void setRecord(){
         c = db.rawQuery("SELECT * FROM " + tableName, null);
         if(c.getCount()<=0){//db에 저장된 값이 없을 때만 새로 입력
             //산후도우미 제공기관=====================================================================
@@ -659,7 +705,9 @@ public class TEST extends FragmentActivity
 
         mGoogleMap = googleMap;
         setTestItems();
-        setList();
+        String text = editText.getText().toString();
+        if(editText.length()<=0) setList();
+        else search(text);
         setMapKeys();//mapKey 재배치
 
         //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
@@ -732,7 +780,9 @@ public class TEST extends FragmentActivity
         setCurrentLocation(location, markerTitle, markerSnippet);
 
         mCurrentLocation = location;
-        setList();//list 다시 생성
+        String text = editText.getText().toString();
+        if(editText.length()<=0) setList();
+        else search(text);//list 다시 생성
         setMapKeys();
     }
 
