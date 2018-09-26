@@ -4,6 +4,316 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     tools:context=".taebaek.taebaek_2">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/glist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="출산 준비 교실"
+                android:textColor="@color/Black"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="운영기간"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="77dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="2018. 4. ~ 2018. 10.까지"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="110dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="140dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="137dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="16주에서 28주의 보건소 등록 임부 15명"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="170dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="170dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="사업내용"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="200dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="197dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="영양교육 및 산모 우울증 예방교육"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="220dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="217dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="출산육아용품 만들기"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="240dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="237dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="베이비마사지"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="260dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="257dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="모유수유 교육"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="280dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="277dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="임부요가 등"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="310dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="310dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="참여 대상 모집 :\n프로그램 기수별 참여인원 모집 홍보 및 접수"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="350dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="347dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="보건소 등록임부 문자 메시지 및 지역매체 등 활용 홍보 실시"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+        </RelativeLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
