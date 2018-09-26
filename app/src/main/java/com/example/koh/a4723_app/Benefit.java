@@ -149,6 +149,15 @@ public class Benefit extends AppCompatActivity {
             linearLayout2.addView(textView2);
             return;
         }
+        if(getSharedPreferences("pref", MODE_PRIVATE).getString("날짜","").equals("")) {
+            TextView textView = new TextView(getApplicationContext());
+            textView.setText("마지막 월경 날짜를 입력해주세요.");
+            TextView textView2 = new TextView(getApplicationContext());
+            textView2.setText("마지막 월경 날짜를 입력해주세요.");
+            linearLayout.addView(textView);
+            linearLayout2.addView(textView2);
+            return;
+        }
         for(int i = 0; i < checkBoxes.size(); i++) {
             if(week>=checkBoxes.get(i).getStart() && week <=checkBoxes.get(i).getEnd()){
                 linearLayout.addView(checkBoxes.get(i).getCheckBox());

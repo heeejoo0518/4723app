@@ -623,7 +623,7 @@ public class MainActivity extends AppCompatActivity {
         String tbName = Benefit.center(getPreferences("보건소"));
         if(tbName.equals("해당하는 보건소를 등록해주세요.")) return tbName;
         if(getPreferences("날짜").equals("")) {
-            str="출산 예정일을 입력해주세요";
+            str="마지막 월경 날짜를 입력해주세요.";
             return str;
         }
 
