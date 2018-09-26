@@ -155,7 +155,15 @@ public class Health_Service extends AppCompatActivity {
                 Intent intent = new Intent(Health_Service.this, Health_taebaek.class);
                 startActivity(intent);
                 finish();
-                  } }
+                  }
+                }
+                else if (health_center.equals("삼척시보건소")) {
+                    {
+                Intent intent = new Intent(Health_Service.this, Health_samcheok.class);
+                startActivity(intent);
+                finish();
+                    }
+                }
 
 
     }

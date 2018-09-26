@@ -4,6 +4,276 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     tools:context=".samcheok.samcheok_4">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/glist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="임산부 유축기 대여"
+                android:textColor="@color/Black"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="77dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="관내 주민등록을 두고 보건소 등록 임산부"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="110dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="110dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="지원항목"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="140dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="137dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="미니 전동 유축기 대여"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="170dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="170dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대여기간"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="200dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="197dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="2개월(1회연장 가능)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="240dp"
+                android:src="@drawable/glist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="240dp"
+                android:text="임산부 건강교실 운영"
+                android:textColor="@color/Black"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="280dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="280dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="310dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="307dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="관내 주민등록을 두고 보건소 등록 임산부"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="330dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="327dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="건강교실 \n ※시간표는 삼척시 보건소 홈페이지 참조"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

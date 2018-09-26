@@ -4,6 +4,285 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     tools:context=".samcheok.samcheok_0">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/glist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="영유아 건강검진"
+                android:textColor="@color/Black"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="영유아 건강검진사업"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="77dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상 : 의료수급권자 중 만6세 미만의 영유아"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="97dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="비용 : 무료"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="120dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="117dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="검진기관 : 전국 종합병원, 삼척의료원, 정소아과의원, 치과의원"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="150dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="150dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="취학전 아동실명예방 사업"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="180dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="177dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상 : 지역내 만3세 ~ 6세 어린이집 및 유치원 아동"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="200dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="197dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="내용"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="217dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="시력표 배포 : 보건소 → 어린이집 → 가정"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="237dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="가정에서의 1차 시력검진 : 그림시력표 이용"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="257dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="보건소에서 조사지 회수 : 재검진자 확인 및 통보"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="277dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="2차 시력검진, 입체시 검사 : 유아용 시력표"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="297dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="정밀검사 의뢰 : 관내 안과 병·의원"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="317dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="정밀검사 의뢰자 추후관리 : 병원 검진자 소견서 회수, 약시 아동 자료 확인"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
