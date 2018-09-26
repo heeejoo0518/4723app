@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 class benefits{
@@ -55,6 +57,8 @@ public class Benefit extends AppCompatActivity {
     public ArrayList<benefits> b_all(){
         ArrayList<benefits> checkBoxes = new ArrayList<>();
         final String tbName=center(getSharedPreferences("pref", Context.MODE_PRIVATE).getString("보건소",""));
+        if(tbName.equals("해당하는 보건소를 등록해주세요.")) return checkBoxes;
+
         Cursor c = db.rawQuery("SELECT * FROM " + tbName, null);
         if(c.moveToFirst()){
             do {
@@ -136,6 +140,15 @@ public class Benefit extends AppCompatActivity {
         linearLayout2.removeAllViews();
         int week = (int)getSharedPreferences("pref", MODE_PRIVATE).getLong("몇주차",0);
         ArrayList<benefits> checkBoxes = b_all();
+        if(checkBoxes.size()<=0) {
+            TextView textView = new TextView(getApplicationContext());
+            textView.setText("해당하는 보건소를 등록해주세요.");
+            TextView textView2 = new TextView(getApplicationContext());
+            textView2.setText("해당하는 보건소를 등록해주세요.");
+            linearLayout.addView(textView);
+            linearLayout2.addView(textView2);
+            return;
+        }
         for(int i = 0; i < checkBoxes.size(); i++) {
             if(week>=checkBoxes.get(i).getStart() && week <=checkBoxes.get(i).getEnd()){
                 linearLayout.addView(checkBoxes.get(i).getCheckBox());
