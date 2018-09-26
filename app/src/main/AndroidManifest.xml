@@ -49,8 +49,7 @@
         <activity android:name=".My_Page" />
         <activity
             android:name=".TEST"
-            android:label="TEST"
-            android:windowSoftInputMode="adjustPan"/>
+            android:label="TEST" />
         <activity
             android:name=".Weight_Graph"
             android:label="@string/title_activity_weight_graph"
@@ -203,6 +202,17 @@
         <activity android:name=".yanggu.yanggu_4" />
         <activity android:name=".yanggu.yanggu_5" />
         <activity android:name=".yanggu.yanggu_6" />
+        <activity android:name=".goseong.goseong_10" />
+        <activity android:name=".hongcheon.hongcheon_0" />
+        <activity android:name=".hongcheon.hongcheon_1" />
+        <activity android:name=".hongcheon.hongcheon_2" />
+        <activity android:name=".hongcheon.hongcheon_3" />
+        <activity android:name=".hongcheon.hongcheon_4" />
+        <activity android:name=".hongcheon.hongcheon_5" />
+        <activity android:name=".hongcheon.hongcheon_6" />
+        <activity android:name=".hongcheon.hongcheon_7" />
+        <activity android:name=".hongcheon.hongcheon_8" />
+        <activity android:name=".hongcheon.hongcheon_9"></activity>
         <activity android:name=".Benefit" />
         <activity android:name=".yanggu.yanggu_7"></activity>
     </application>
