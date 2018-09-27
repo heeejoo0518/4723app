@@ -1,9 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gangneug.gangneug_0">
+    android:background="#FFFFFE"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+<!--android:background="?attr/colorPrimary"-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?android:
+attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/glist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="임산부건강관리"
+                android:textColor="@color/Black"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="임산부 등록"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="83dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="80dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상 : 주민등록 상 강릉시 거주 임산부"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/ycircle1"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="113dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="110dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="내용"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="130dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="엽산제 : 임신 15주 이내 임산부 최대 3개월분 지원(지역제한없음)
+철분제 : 임신 16주 이상 임산부 최대 6개월분 지원(지역제한없음), 분만 후 3개월분 지원(등본상 강릉시민에 한함, 아기수첩 지참)
+출산용품 : 임신 25주 이상 임산부 1회 지원(등본상 강릉시민에 한함)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/ycircle2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="243dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="240dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="구비서류 : 산모수첩,신분증"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:id="@+id/ycircle3"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="273dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="270dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="참고 : 임산부 등록은 매 임신마다 하셔야 합니다."
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/circle2"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="310dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="310dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="임산부 기타 혜택 알림"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle4"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="343dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="340dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="동사무소에서 출생 신고 시 출산장려금과 양육수당을 함께 신청하세요."
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:id="@+id/ycircle6"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="383dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="380dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="출산가구 1년간 전기요금 30% 할인(월16,000원 한도, 문의 및 신청 한국전력 ☎123)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:id="@+id/ycircle7"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="423dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="420dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="양육수당(아동보육과 ☎640-5486) / 아이돌봄(여성청소년가족과 ☎640-5771) / 의료급여 국민행복카드(생활보장과 ☎640-5351)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:id="@+id/circle3"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="480dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="480dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="임산부 건강검진"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+
+            <ImageView
+                android:id="@+id/ycircle8"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="513dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="510dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="신혼부부 검사"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="540dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상 : 주민등록상 강릉시민 중 결혼 예정자 및 1년 미만 신혼부부"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="580dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="구비서류 : 신분증, 혼인증빙서류(모바일청첩장, 예식장 계약서, 주민등록등본 등)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="620dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="검사내용 : 혈액검사：빈혈수치,적혈구,백혈구,혈소판,B형간염항원 • 항체, C형간염항체, HIV(에이즈), 매독 등
+소변검사：요단백, 요당, 요산, 요잠혈의 4종
+흉부x-ray(임신가능성이 있을 경우 제외)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="690dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="기타 : 원할 경우 임질 • 클라미디아(성병) 무료검사 항목추가
+풍진항체 추가검사：자부담 23,870~46,640원"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:id="@+id/ycircle9"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="753dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="750dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="모성 검사"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="780dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="대상 : 임신확인~분만이전 기간에 있는 주민등록상 강릉시민 여성 (해당기간 내 2회 가능)
+ ! 산전 초기 검사와 중기 검사 지원(막달 검사는 응급 분만 시 산모와 태아의 건강상의 이유로 다니시는 병원에서 검사 받아 주시기 바랍니다.)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="860dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="구비서류 : 신분증, 산모수첩"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="890dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="검사내용 : 혈액검사：빈혈수치,적혈구,백혈구,혈소판,B형간염항원 • 항체, C형간염항체, HIV(에이즈), 매독 등
+소변검사：요단백, 요당, 요산, 요잠혈의 4종
+혈액형 확인검사"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="960dp"
+                android:layout_marginBottom="50dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="기타 : 풍진항체 추가검사：자부담 23,870~46,640원"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

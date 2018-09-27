@@ -1,9 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gangneug.gangneug_5">
+    android:background="#FFFFFE"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+    <!--android:background="?attr/colorPrimary"-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FCCA46"
+        android:minHeight="?android:attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/glist" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:text="고위험임산부 의료비지원"
+                android:textColor="@color/Black"
+                android:textSize="18dp" />
+
+
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="선정기준
+"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="80dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="기준중위소득 180% 선정기준(※ 맞벌이시 부부의 건강보험료 합산)
+자세한 기준은 홈페이지를 참조하여 주세요
+https://www.gn.go.kr/phc/sub03_01_06.do"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+            <ImageView
+                android:id="@+id/circle1"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="150dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="150dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="지원내용 "
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle1"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="183dp"
+                android:src="@drawable/yc" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="180dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="위 지원기간에 해당하는 의료비를 최대 300만원 한도내에서 입원횟수 제한없이 ‘급여 전액본인부담금+비급여’ 90%지원(의료급여는 100% 지원, 분만결과 사산이어도 지원가능)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:id="@+id/circle2"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="250dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="신청"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="283dp"
+                android:src="@drawable/yc" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="280dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="분만일로부터 6개월 내, 임산부 주민등록상 주소지 보건소에 신청"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+
+            <ImageView
+                android:id="@+id/circle3"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="330dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="330dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="구비서류"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle3"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="363dp"
+                android:src="@drawable/yc" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="360dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="① 진단서
+② 입퇴원확인서(입원기간이 진단서에 나와있으면 생략 가능)+영수증+세부내역서
+③ 출생증명서(아기가 등본 등재시 생략가능)
+④ 통장사본
+⑤ 신분증 ※ 부부가 등본상 따로 거주할 경우 가족관계증명서 추가제출
+※ 지원제외 항목 : 상급병실료 차액, 환자 특식, 보호자 식대, 제증명료"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+            <ImageView
+                android:id="@+id/circle5"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="510dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="510dp"
+                android:layout_weight="1"
+                android:ellipsize="none"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="문의"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/ycircle5"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="543dp"
+                android:src="@drawable/yc" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="50dp"
+
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="540dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="건강관리부서(모자보건실) ☎ 033-660-3078, 3122
+"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

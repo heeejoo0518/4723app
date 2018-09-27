@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="50dp"
     android:background="#FFFFFE"
     android:orientation="vertical">
 
@@ -15,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FCCA46"
-        android:minHeight="?attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -129,7 +128,7 @@
                 android:singleLine="false"
                 android:text="임신일로부터 3개월까지 지원(임신 12주까지)"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <!-- ********************************************************* -->
             <ImageView
@@ -230,7 +229,7 @@
                 android:singleLine="false"
                 android:text="임신 16주 부터, 임산부에게 분만 전까지 철분제 지원"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/circle4"

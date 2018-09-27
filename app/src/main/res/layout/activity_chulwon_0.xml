@@ -1,297 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#FFFFFE"
+android:orientation="vertical">
+
+
+<!--android:background="?attr/colorPrimary"-->
+
+<android.support.v7.widget.Toolbar
+    android:id="@+id/my_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="50dp"
-    android:background="#FFFFFE"
-    android:orientation="vertical">
-
-    <!--android:background="?attr/colorPrimary"-->
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FCCA46"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="65dp"
-        android:src="@drawable/glist" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="65dp"
-        android:text="산모신생아도우미지원사업"
-        android:textColor="@color/Black"
-        android:textSize="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="10dp"
-        android:maxLines="100"
-        android:layout_weight="1"
-        android:ellipsize="none"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="출산가정에 건강관리사를 파견하여 산모의 산후 회복과 신생아의 양육을 지원하고 출산가 정의 경제적 부담을 경감"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
-
-    <ImageView
-        android:id="@+id/circle"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="144dp"
-        android:src="@drawable/ybutton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:layout_weight="1"
-        android:ellipsize="none"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="지원대상 : 산모 및 배우자의 건강보험료 본인부담금 합산액이 기준중위소득 80%이하 출산가정"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
-
-    <ImageView
-        android:id="@+id/circle1"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="190dp"
-        android:src="@drawable/ybutton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="신청기간 : 출산예정일 40일 전부터 출산 후 30일 까지"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
-
-    <ImageView
-        android:id="@+id/circle2"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="224dp"
-        android:src="@drawable/ybutton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="신청 장소 : 산모 주민등록상 주소지 관할 시.군.구 보건소"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
-
-    <ImageView
-        android:id="@+id/circle3"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="260dp"
-        android:src="@drawable/ybutton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="제출서류"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="289dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="신청서 1부(보건소에서 신청)"
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
-
-    <TextView
-    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="310dp"
-    android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-    android:maxLines="100"
-    android:scrollHorizontally="false"
-    android:singleLine="false"
-    android:text="건강보험증 사본(맞벌이 경우 각각)"
-    android:textColor="@color/Black"
-    android:textSize="11dp" />
+    android:background="#FCCA46"
+    android:minHeight="?android:attr/actionBarSize"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="335dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="주민등록등본"
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="56dp"
+    android:orientation="vertical"
+    android:paddingRight="5dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="360dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="전월 건강보험료 납부 확인서(단 건강보험료가 변동되는 군인(군무원)은 신청월 직전 1년치 건강보험료를 평균하여 산정)"
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="출산(예정)일 증빙서류 : 산모수첩(보건소에 임산부 등록된 경우 제외)"
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
 
 
-    <ImageView
-        android:id="@+id/circle4"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="440dp"
-        android:src="@drawable/ybutton" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/glist" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="지원기간 및 서비스 시간"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:text="산모신생아도우미지원사업"
+            android:textColor="@color/Black"
+            android:textSize="18dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="465dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="한아이 10일, 쌍둥이 15일, 세쌍둥이 이상 또는 중증장애(장애등급 2급이상)산모 20일 "
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="100"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="출산가정에 건강관리사를 파견하여 산모의 산후 회복과 신생아의 양육을 지원하고 출산가 정의 경제적 부담을 경감"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="505dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="서비스시간 : 1일 8시간"
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/ybutton" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="530dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="출산일로부터 60까지 서비스가 종료 되어야 함"
-        android:textColor="@color/Black"
-        android:textSize="11dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="지원대상 : 산모 및 배우자의 건강보험료 본인부담금 합산액이 기준중위소득 80%이하 출산가정"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
 
-    <ImageView
-        android:id="@+id/circle5"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="570dp"
-        android:src="@drawable/ybutton" />
+        <ImageView
+            android:id="@+id/circle1"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="140dp"
+            android:src="@drawable/ybutton" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="570dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="100"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:text="문의전화 : ☎ 450-5124"
-        android:textColor="@color/Black"
-        android:textSize="13dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="신청기간 : 출산예정일 40일 전부터 출산 후 30일 까지"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:id="@+id/circle2"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="170dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="신청 장소 : 산모 주민등록상 주소지 관할 시.군.구 보건소"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:id="@+id/circle3"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="210dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="210dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="제출서류"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="230dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="신청서 1부(보건소에서 신청)"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="건강보험증 사본(맞벌이 경우 각각)"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="270dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="주민등록등본"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="290dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="전월 건강보험료 납부 확인서(단 건강보험료가 변동되는 군인(군무원)은 신청월 직전 1년치 건강보험료를 평균하여 산정)"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="330dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="출산(예정)일 증빙서류 : 산모수첩(보건소에 임산부 등록된 경우 제외)"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
 
 
+        <ImageView
+            android:id="@+id/circle4"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="370dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="370dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="지원기간 및 서비스 시간"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="390dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="한아이 10일, 쌍둥이 15일, 세쌍둥이 이상 또는 중증장애(장애등급 2급이상)산모 20일 "
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="423dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="서비스시간 : 1일 8시간"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="440dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="출산일로부터 60까지 서비스가 종료 되어야 함"
+            android:textColor="@color/Black"
+            android:textSize="11dp" />
+
+        <ImageView
+            android:id="@+id/circle5"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="470dp"
+            android:src="@drawable/ybutton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="470dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="문의전화 : ☎450-5124"
+            android:textColor="@color/Black"
+            android:textSize="13dp" />
+
+
+
+
+    </RelativeLayout>
+</ScrollView>
 </RelativeLayout>
+

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="50dp"
     android:background="#FFFFFE"
     android:orientation="vertical">
 
@@ -15,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FCCA46"
-        android:minHeight="?attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -100,7 +99,7 @@
                 android:singleLine="false"
                 android:text="(4개월, 9개월, 18개월, 30개월, 42개월, 54개월, 66개월)"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/circle1"
@@ -145,7 +144,7 @@
                 android:singleLine="false"
                 android:text="1차 4개월 검진일 기준 생후 4개월 0일부터 6개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/ycircle2"
@@ -166,7 +165,7 @@
                 android:singleLine="false"
                 android:text="2차 9개월 검진일 기준 생후 9개월 0일부터 12개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/ycircle3"
@@ -187,7 +186,7 @@
                 android:singleLine="false"
                 android:text="3차 18개월 검진일 기준 생후 18개월 0일부터 24개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/ycircle4"
@@ -208,7 +207,7 @@
                 android:singleLine="false"
                 android:text="4차 30개월 검진일 기준 생후 30개월 0일부터 36개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/ycircle5"
@@ -229,7 +228,7 @@
                 android:singleLine="false"
                 android:text="5차 42개월 검진일 기준 생후 42개월 0일부터 48개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
             <ImageView
                 android:id="@+id/ycircle6"
                 android:layout_width="10dp"
@@ -249,7 +248,7 @@
                 android:singleLine="false"
                 android:text="6차 54개월 검진일 기준 생후 54개월 0일부터 60개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/ycircle7"
@@ -270,7 +269,7 @@
                 android:singleLine="false"
                 android:text="7차 66개월 검진일 기준 생후 66개월 0일부터 71개월"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/circle2"
@@ -337,20 +336,20 @@
                 android:singleLine="false"
                 android:text="검진결과 '정밀평가필요'인 영유아중 의료급여수급권자 및 차상위계층에게 정밀진단비용 지원(1인당 40만원 이내)"
                 android:textColor="@color/Black"
-                android:textSize="11dp" />
+                android:textSize="12dp" />
 
             <ImageView
                 android:id="@+id/circle4"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="475dp"
+                android:layout_marginTop="490dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="475dp"
+                android:layout_marginTop="490dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="10dp"
                 android:maxLines="100"
@@ -367,13 +366,13 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="515dp"
+                android:layout_marginTop="520dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="515dp"
+                android:layout_marginTop="520dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginBottom="50dp"
                 android:layout_marginEnd="10dp"
