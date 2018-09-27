@@ -21,6 +21,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:background="@drawable/btn_shape"
             android:text="Add"/>
     </LinearLayout>
 
