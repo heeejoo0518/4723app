@@ -1111,6 +1111,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginStart="70dp"
                 android:layout_marginTop="1992dp"
+                android:layout_marginBottom="50dp"
+
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"

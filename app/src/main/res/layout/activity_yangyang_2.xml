@@ -12,10 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FCCA46"
-        android:minHeight="?attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="28dp"
@@ -23,7 +34,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/glist" />
 
     <TextView
@@ -31,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="65dp"
-        android:text="찾아가는 산부인과"
+        android:layout_marginTop="10dp"
+        android:text="선천성대사이상검사 및 환아관리"
         android:textColor="@color/Black"
         android:textSize="18dp" />
 
@@ -42,21 +53,20 @@
         android:layout_height="22dp"
         android:layout_marginStart="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/ybutton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="60dp"
         android:maxLines="100"
         android:layout_weight="1"
         android:ellipsize="none"
         android:scrollHorizontally="false"
         android:singleLine="false"
-        android:text="매월 2~3회 검진차량 이용 관내 등록 임신부 산전검진 서비스 제공"
+        android:text="대상자 : 2018년 출생아 및 만 18세 미만 환아"
         android:textColor="@color/Black"
         android:textSize="13dp" />
 
@@ -66,18 +76,19 @@
         android:layout_height="22dp"
         android:layout_marginStart="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="90dp"
         android:src="@drawable/ybutton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="90dp"
         android:layout_marginStart="60dp"
+        android:layout_marginEnd="10dp"
         android:maxLines="100"
         android:scrollHorizontally="false"
         android:singleLine="false"
-        android:text="검사항목 : 혈액검사, 소변검사, 초음파검사, 태동검사, 기형아검사, 풍진검사, B형간염검사, C형간염 검사, 갑상선기능 이상검사 등"
+        android:text="갈락토스혈증, 단풍당뇨증, 호모시스틴뇨증, 페닐케톤뇨증, 선천성갑상선기능저하증, 선천성부신과형성 검사비 지원"
         android:textColor="@color/Black"
         android:textSize="13dp" />
 
@@ -87,18 +98,20 @@
         android:layout_height="22dp"
         android:layout_marginStart="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/ybutton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+
         android:layout_marginStart="60dp"
         android:maxLines="100"
         android:scrollHorizontally="false"
         android:singleLine="false"
-        android:text="검사비용 : 무료"
+        android:text="2차 정밀검사 선천성대사이상 질환자는 2차 정밀검사비 지급(1인당 5만원 범위내)"
         android:textColor="@color/Black"
         android:textSize="13dp" />
 
@@ -107,19 +120,20 @@
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:layout_marginStart="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="200dp"
         android:src="@drawable/ybutton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="10dp"
+
         android:layout_marginStart="60dp"
         android:maxLines="100"
         android:scrollHorizontally="false"
         android:singleLine="false"
-        android:text="검진시간 : 09:30 ~ 15:00"
+        android:text="선천성갑상선기능저하증 환아 의료비 지원(276천원 범위내)"
         android:textColor="@color/Black"
         android:textSize="13dp" />
 
@@ -129,20 +143,139 @@
         android:layout_height="22dp"
         android:layout_marginStart="30dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="250dp"
         android:src="@drawable/ybutton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="10dp"
+
         android:layout_marginStart="60dp"
         android:maxLines="100"
         android:scrollHorizontally="false"
         android:singleLine="false"
-        android:text="사전예약제로 운영(예약문의 : 670-2533)"
+        android:text="페닐케톤뇨증 환아 : 특수조제분유 및 저단백식품 지원"
         android:textColor="@color/Black"
         android:textSize="13dp" />
 
+    <ImageView
+        android:id="@+id/circle5"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="290dp"
+        android:src="@drawable/ybutton" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginStart="60dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="만 18세 미만 크론병 및 단장증후군 환아 : 특수분유 지원
+"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="350dp"
+        android:src="@drawable/glist" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="350dp"
+        android:text="선천성대사이상검사 및 환아관리"
+        android:textColor="@color/Black"
+        android:textSize="18dp" />
+
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="390dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="390dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="10dp"
+
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="보건소 지원신청(등록시점)일 기준으로 지원"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="425dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="425dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="10dp"
+
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="구비서류"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="458dp"
+        android:src="@drawable/yc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="455dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="50dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="- 진단서
+- 의료비영수증
+- 의료비 세부내역서
+- 주민등록등본(필요시 가족관계증명원추가)
+- 통장사본(갑상선기능저하증 정밀검사비 청구시 정밀검사 영수증, 세부내역서 별도)"
+        android:textColor="@color/Black"
+        android:textSize="12dp" />
+
+
+
+</RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

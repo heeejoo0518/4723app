@@ -1,20 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="#FFFFFE">
+    android:background="#FFFFFE"
+    android:orientation="vertical">
 
-
+    <!--android:background="?attr/colorPrimary"-->
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
+        android:background="#FCCA46"
+        android:minHeight="?android:attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:paddingRight="5dp">
 
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="65dp"
+        android:src="@drawable/glist" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="65dp"
+        android:text="고위험 임산부 의료비 지원"
+        android:textColor="@color/Black"
+        android:textSize="18dp" />
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:layout_weight="1"
+        android:ellipsize="none"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="지원대상"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="143dp"
+        android:src="@drawable/yc" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="- 소득기준: 기준 중위소득 180% 이하 가구
+- 질환기준: 조기진통, 분만관련 출혈, 중증임신중독증, 양막조기파열, 태반조기 박리로 진단받고 입원치료 받은 자
+- 분만일자: 신청일로부터 6개월 이내"
+        android:textColor="@color/Black"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:id="@+id/circle2"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="225dp"
+        android:src="@drawable/ybutton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="225dp"
+        android:layout_marginStart="60dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="질환별 세부기준"
+        android:textColor="@color/Black"
+        android:textSize="13dp" />
+
+
+    <ImageView
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="50dp"
+    android:layout_marginTop="258dp"
+    android:src="@drawable/yc" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="조기진통: 임신주수 20주 이상 ~ 34주 미만에 조기진통 또는 조산위험으로 임신유지를 위해 입원치료를 받은 자지원대상※ 질병코드(O60.0, O60.1, O60.2, O60.3)"
+        android:textColor="@color/Black"
+        android:textSize="12dp" />
+
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="328dp"
+        android:src="@drawable/yc" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="325dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="분만관련 출혈: 분만관련 입원일부터 분만일 이후 6주까지 분만출혈로 입원치료 받은 자 지원대상※ 질병코드(O67.0, O67.8, O67.9, O72.0, O72.1, O72.2, O72.3)"
+        android:textColor="@color/Black"
+        android:textSize="12dp" />
+
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="398dp"
+        android:src="@drawable/yc" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="10dp"
+        android:maxLines="100"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:text="중증 임신중독증: 임신주수 20주 이상, 분만관련 입원 퇴원일까지 중증 전자간증 또는 자간증으로 입원치료 받은 자 - 지원대상 질병코드(O11, O14, O15)"
+        android:textColor="@color/Black"
+        android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="453dp"
+                android:src="@drawable/yc" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="450dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="10dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="양막 조기파열 : 임신주수 20주이상, 분만관련 입원.퇴원까지
+※ 지원대상 질병코드(O42)
+※적용시점 : 지원신청기한(분만일로부터 6개월 이내)이 남아있는 임산부. 다만, 예외적
+으로 ’17.7~8월 분만한 임산부의 경우 ’18.2.28.까지 신청 가능."
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="573dp"
+                android:src="@drawable/yc" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="570dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="10dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="태반조기박리 : 임신주수 20주 이상, 분만관련 입원 퇴원일까지
+※ 지원대상 질병코드(O45)
+※ 적용시점 : 지원신청기한(분만일로부터 6개월 이내)이 남아있는 임산부. 다만, 예외적 으로 ’17.7~8월 분만한 임산부의 경우 ’18.2.28.까지 신청 가능."
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="680dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="680dp"
+                android:layout_marginStart="60dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="구비서류"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="713dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="710dp"
+                android:layout_marginStart="70dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="- 고위험 임산부 의료비 지원사업 지원신청서(진료기관의 도움을 받아 작성)
+- 의사진단서(질병명 및 질병코드 포함)
+- 입퇴원진료확인서(지원대상질환이 주상병명으로 기재된 경우에 인정) 및 진료비영수증(입원횟수별로 별도제출)
+- 출생보고서 또는 출생증명서(사산의 경우 사산증명서)
+- 주민등록등본
+- 건강보험증 사본 및 건강보험료 본인부담금 납부고지서(맞벌이 부부일 경우 부부 모두 첨부)
+- 의료비 지원금 입금계좌 통장사본
+- 설문조사서
+- 개인정보 활용동의서
+- 신청인 신분증(대리신청 시 위임장 및 대리인 신분증 사본)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="920dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="920dp"
+                android:layout_marginStart="60dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="지원범위"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="953dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="950dp"
+                android:layout_marginStart="70dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="비급여 본인부담금(상급병실료 차액, 환자특식 제외) 금액의 90% 지원(의료급여 수급자는 전액 지원)되며, 1인당 300만원까지 지원)"
+                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="1010dp"
+                android:src="@drawable/ybutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1010dp"
+                android:layout_marginStart="60dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="신청기간"
+                android:textColor="@color/Black"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="1043dp"
+                android:src="@drawable/yc" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1043dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginStart="70dp"
+                android:maxLines="100"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="분만일로부터 6개월 이내"                android:textColor="@color/Black"
+                android:textSize="12dp" />
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

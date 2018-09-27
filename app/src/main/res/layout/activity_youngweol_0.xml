@@ -452,6 +452,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginStart="70dp"
+                android:layout_marginBottom="50dp"
                 android:layout_marginTop="562dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
