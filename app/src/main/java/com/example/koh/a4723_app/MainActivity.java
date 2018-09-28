@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT).show();
 
                 if(test.length() ==0) {
-                    Toast.makeText(getApplicationContext(), "먼저 아이의 정보를 저장 해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "마지막 월경 날짜를 입력해주세요", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Intent intent = new Intent(MainActivity.this,Weight_Graph.class);
