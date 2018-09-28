@@ -115,9 +115,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="지원내용
-엽산제 지원 : 등록~3개월까지 총5통
-철분제 지원 : 16주~분만전까지 총5통
+                android:text="지원내용\n엽산제 지원 : 등록~3개월까지 총5통\n철분제 지원 : 16주~분만전까지 총5통
 "
                 android:textColor="@color/Black"
                 android:textSize="12dp" />

@@ -103,12 +103,12 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="- 사회복지서비스 및 급여제공신청서 등 각 1부
-- 산모 및 배우자 건강보험증(맞벌이 부부는 모두 첨부)
-- 최근월분 건강보험료 납부확인서
-- 출산예정증빙서류(진단서, 소견서, 산모수첩, 출생증명서 등)
-- 주민등록등본(등본으로 확인 불가 시 가족관계증명서)
-- 휴직증명서(휴직중일 때)
+                android:text="- 사회복지서비스 및 급여제공신청서 등 각 1부\n
+- 산모 및 배우자 건강보험증(맞벌이 부부는 모두 첨부)\n
+- 최근월분 건강보험료 납부확인서\n
+- 출산예정증빙서류(진단서, 소견서, 산모수첩, 출생증명서 등)\n
+- 주민등록등본(등본으로 확인 불가 시 가족관계증명서)\n
+- 휴직증명서(휴직중일 때)\n
 - 급여명세서(휴직중일 경우), 사업자등록증(사업자일 경우), 위촉증명서(보험설계사등)"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
@@ -287,9 +287,9 @@
                 android:ellipsize="none"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="지원내용 : 최대 20만원 지원(20만원이하 자부담 10% 후 지급)
-※ 큰 아이 돌봄 본인부담금 지원 : 신청기간에 따라 다름(제공기관과 이용계약)
-1명 1일 : 최대 9만원, 1일 2명이상 : 최대 14만원(10%이상 자부담원칙)"
+                android:text="지원내용 : 최대 20만원 지원(20만원이하 자부담 10% 후 지급)\n
+※ 큰 아이 돌봄 본인부담금 지원 : 신청기간에 따라 다름(제공기관과 이용계약)\n
+1명 1일 : 최대 9만원, 1일 2명이상 : 최대 14만원(10%이상 자부담원칙)\n"
                 android:textColor="@color/Black"
                 android:textSize="13dp" />
 
@@ -315,11 +315,11 @@
                 android:ellipsize="none"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="구비서류 :
-- 신청서(보건소)
-- 통장사본(산모 본인 또는 신청인 배우자)
-- 주민등록등본(등본이 따로 등재 되어 있을 경우 가족관계증명원 추가)
-- 산모초본(주소변경 이력기재)
+                android:text="구비서류 \n
+- 신청서(보건소)\n
+- 통장사본(산모 본인 또는 신청인 배우자)\n
+- 주민등록등본(등본이 따로 등재 되어 있을 경우 가족관계증명원 추가)\n
+- 산모초본(주소변경 이력기재)\n
 - 영수증(서비스 제공기관)"
                 android:textColor="@color/Black"
                 android:textSize="13dp" />

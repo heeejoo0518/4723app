@@ -257,10 +257,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="지원대상 : 기준 중위소득 180%이하 미숙아 출산가정
-출생 직후 신생아 중환자실에 입원한 미숙아
-단 셋째아 이상 출생아가 미숙아 및 선천성이상아인 경우 소득수준에 관계없이 지원
-미숙아의 정의 : 임신 37주 또는 출생아 출생 시 체중이 2,500그램 미만의 영유아"
+                android:text="지원대상 : 기준 중위소득 180%이하 미숙아 출산가정\n출생 직후 신생아 중환자실에 입원한 미숙아\n단 셋째아 이상 출생아가 미숙아 및 선천성이상아인 경우 소득수준에 관계없이 지원\n미숙아의 정의 : 임신 37주 또는 출생아 출생 시 체중이 2,500그램 미만의 영유아"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

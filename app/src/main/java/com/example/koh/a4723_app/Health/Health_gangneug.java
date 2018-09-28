@@ -37,10 +37,10 @@ public class Health_gangneug extends AppCompatActivity {
 
     private ListView _listview;
 
-    private String[] items = { "어떻게 할지 생각해보기", "출산장려금 지원",
+    private String[] items = { "임산부건강관리", "출산장려금 지원",
             "신생아청각선별검사", "산모신생아 건강관리사지원", "고위험 임산부 의료비 지원","선천성대사이상 환아 지원",
             "난임시술비지원","청소년산모 임신,출산 의료비지원",
-            "출산 후 의료,약제비지원","영양플러스사업"};
+            "출산 후 의료,약제비지원"};
 
 
     @Override

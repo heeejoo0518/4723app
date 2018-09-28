@@ -10,15 +10,11 @@ import com.example.koh.a4723_app.R;
 
 public class yangyang_0 extends AppCompatActivity  {
 
-    String st;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yangyang_0);
-
-        Intent intent = getIntent();
-        st = intent.getStringExtra("b");
 
         //------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);

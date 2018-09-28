@@ -49,7 +49,7 @@ public class Health_pyeongchang extends AppCompatActivity {
         //------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setTitleTextColor(Color.parseColor("BLACK"));
-        toolbar.setTitle("평창군 보건소");
+        toolbar.setTitle("미탄보건지소");
         setSupportActionBar(toolbar);
         //-----------------------------------------------------------
         _listview = (ListView)findViewById(R.id.health_listview);

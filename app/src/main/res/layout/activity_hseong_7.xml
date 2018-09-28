@@ -233,8 +233,8 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="추진내용
-'엽산제 4통 및'임신·출산·육아 대백과' 도서 지급
+                android:text="추진내용\n
+'엽산제 4통 및'임신·출산·육아 대백과' 도서 지급\n
 엽산의 적정 복용시기 : 임신계획 8주전, 임신 후 3개월"/>
 
             <ImageView

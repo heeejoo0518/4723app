@@ -142,10 +142,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="분만예정일 3개월 전, 신분증지참 보건소방문	▶
-등본 · 최근 건강보험료 조회하여 쿠폰 발급	▶
-검사기관(강릉아산병원,세가온 산부인과,아이앤맘 소아과)에 제출
-※ 보통 출생 후 1개월 이내 검사"
+                android:text="분만예정일 3개월 전, 신분증지참 보건소방문	▶\n등본 · 최근 건강보험료 조회하여 쿠폰 발급	▶\n검사기관(강릉아산병원,세가온 산부인과,아이앤맘 소아과)에 제출\n※ 보통 출생 후 1개월 이내 검사"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -239,8 +236,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="자세한 기준은 홈페이지를 참조하여 주세요
-https://www.gn.go.kr/phc/sub03_01_03.do"
+                android:text="자세한 기준은 홈페이지를 참조하여 주세요\nhttps://www.gn.go.kr/phc/sub03_01_03.do"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

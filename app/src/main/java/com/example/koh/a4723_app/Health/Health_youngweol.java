@@ -39,8 +39,7 @@ public class Health_youngweol extends AppCompatActivity {
 
     private String[] items = { "임산부 건강관리", "신생아 난청조기진단(청각선별검사) 지원", "선천성대사이상검사",
             "산모 · 신생아 건강관리사 지원사업", "산후돌봄 지원사업(산모 · 신생아 건강관리 본인부담금 지원)",
-            "산후건강관리 지원사업","청소년산모 임신출산 의료비 지원사업","영양플러스 보충식품 지원",
-            "아기와 엄마가 함께하는 행복한 건강교실 운영 "};
+            "산후건강관리 지원사업","청소년산모 임신출산 의료비 지원사업","영양플러스 보충식품 지원"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

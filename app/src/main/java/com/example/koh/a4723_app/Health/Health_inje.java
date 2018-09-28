@@ -23,7 +23,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.koh.a4723_app.R;
-import com.example.koh.a4723_app.R;
 import com.example.koh.a4723_app.inje.inje_0;
 import com.example.koh.a4723_app.inje.inje_1;
 import com.example.koh.a4723_app.inje.inje_2;
@@ -31,18 +30,14 @@ import com.example.koh.a4723_app.inje.inje_3;
 import com.example.koh.a4723_app.inje.inje_4;
 import com.example.koh.a4723_app.inje.inje_5;
 import com.example.koh.a4723_app.inje.inje_6;
-import com.example.koh.a4723_app.inje.inje_7;
-import com.example.koh.a4723_app.inje.inje_8;
 
 public class Health_inje extends AppCompatActivity {
 
     private ListView _listview;
 
-    private String[] items = { "임산부 산전검사 쿠폰제", "청소년산모 임신,출산 의료비지원",
-            "신생아 청각 선별검사", "미숙아 및 선천성이상아 의료비 지원", "영유아 건강관리",
-            "난임부부 지원사업","출산장려지원사업",
-            "산모신생아건강관리사 지원","예비부모 만들기 프로젝트사업"};
-
+    private String[] items = { "임부등록사업", "산모,신생아도우미지원사업",
+            "출산장려사업","난임부부 지원사업","미숙아/선천성이상아 의료비지원",
+            "신생아청각검사 쿠폰"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,16 +139,7 @@ public class Health_inje extends AppCompatActivity {
                 startActivity(intent);
 
             }
-            if(position == 7){
-                Intent intent = new Intent(Health_inje.this, inje_7.class);
-                startActivity(intent);
 
-            }
-            if(position == 8){
-                Intent intent = new Intent(Health_inje.this, inje_8.class);
-                startActivity(intent);
-
-            }
         }
 
     };

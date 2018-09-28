@@ -1,8 +1,11 @@
 package com.example.koh.a4723_app.Health;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
@@ -20,8 +23,7 @@ public class Health_Service extends AppCompatActivity {
     Button button;
     ArrayList cityList;
     String str ;
-    @Override
-
+    final Context context = this;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -38,9 +40,6 @@ public class Health_Service extends AppCompatActivity {
 
         //str = "\""+"http://www.yonhapnews.co.kr/"+"\"";
 
-        str = "http://health.yangyang.go.kr/page/dep/05_health/sub03/sub03_05.jsp";
-        savePreferences("사이트주소",str);
-
 
         //툴바 설정=================================
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -49,8 +48,55 @@ public class Health_Service extends AppCompatActivity {
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
         //==========================================
 
-        if (health_center.equals("양양군보건소")) {
-            { Intent intent = new Intent(Health_Service.this, Health_yangyang.class);
+        if(health_center.equals("")){
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+            // 제목셋팅
+
+           // alertDialogBuilder.setTitle("프로그램 종료");
+
+            // AlertDialog 셋팅
+
+            alertDialogBuilder
+
+                 .setMessage("보건소를 등록해주세요")
+
+                    .setCancelable(false)
+
+                    .setPositiveButton("종료",
+
+                            new DialogInterface.OnClickListener() {
+
+                                public void onClick(
+
+                                        DialogInterface dialog, int id) {
+
+                                    // 프로그램을 종료한다
+
+                                    Health_Service.this.finish();
+
+                                }
+
+                            });
+
+
+
+
+            // 다이얼로그 생성
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+
+
+            // 다이얼로그 보여주기
+
+            alertDialog.show();
+
+        }
+
+                 else if (health_center.equals("양양군보건소")) {
+                { Intent intent = new Intent(Health_Service.this, Health_yangyang.class);
                         startActivity(intent);
                         finish();
                     }
@@ -61,7 +107,7 @@ public class Health_Service extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
-                } else if (health_center.equals("평창군보건의료원")) {
+                } else if (health_center.equals("미탄보건지소")) {
                     {
                         Intent intent = new Intent(Health_Service.this, Health_pyeongchang.class);
                         startActivity(intent);

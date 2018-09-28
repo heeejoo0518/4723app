@@ -195,8 +195,8 @@
         android:ellipsize="none"
         android:scrollHorizontally="false"
         android:singleLine="false"
-        android:text="넷째아 이상 : 출산일 기준으로 3년간 월50만원 지급
-※ 쌍태아일 경우 태아 출생순서 별로 지급
+        android:text="넷째아 이상 : 출산일 기준으로 3년간 월50만원 지급\n
+※ 쌍태아일 경우 태아 출생순서 별로 지급\n
 * 담당자 연락처 : 보건소 방문보건부서 033-670-2559 "
         android:textColor="@color/Black"
         android:textSize="13dp" />

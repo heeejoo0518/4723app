@@ -56,7 +56,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="60dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -64,7 +64,7 @@
                 android:layout_height="53dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="60dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
@@ -112,9 +112,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="지원내용 : 임신부 요가
-- 주제별 특강(모유수유, 산후우울증 및 산후풍 예방, 구강•영양 관리, 신생아 케어 실습)
-- 프로그램 출석 우수자 기념품 제공
+                android:text="지원내용 : 임신부 요가\n- 주제별 특강(모유수유, 산후우울증 및 산후풍 예방, 구강•영양 관리, 신생아 케어 실습)\n- 프로그램 출석 우수자 기념품 제공
 "
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
@@ -158,10 +156,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="지원방법 : 3~4월, 5~6월, 9~10월(총3기) 보건교육실 출석관리
-- 매주 월 : 오후1:30~2:20(임신부 요가)
-- 매주 목 : 오후1:00~2:00(주제별 특강),
-                    오후 2:00~3:00(임신부 요가)
+                android:text="지원방법 : 3~4월, 5~6월, 9~10월(총3기) 보건교육실 출석관리\n- 매주 월 : 오후1:30~2:20(임신부 요가)\n- 매주 목 : 오후1:00~2:00(주제별 특강)\n오후 2:00~3:00(임신부 요가)
 "
                 android:textColor="@color/Black"
                 android:textSize="12dp" />

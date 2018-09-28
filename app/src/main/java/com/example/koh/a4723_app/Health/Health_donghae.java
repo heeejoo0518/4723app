@@ -39,7 +39,7 @@ public class Health_donghae extends AppCompatActivity {
     private ListView _listview;
 
     private String[] items = { "국민행복카드 발급 안내", "보건소 임산부 등록 전 신혼부부 무료검진", "보건소 임산부 등록 후 지원현황",
-            "산전 지원현황", "산후 지원현황","임부(청소년)등록관리","임산부 검사",
+            "산전 지원현황", "산후 지원현황","임산부 검사",
             "영양제 보급","모유수유실 운영","임산부 프로그램(행복한 예비맘 건강교실)" };
 
     @Override

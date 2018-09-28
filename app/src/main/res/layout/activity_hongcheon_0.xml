@@ -200,8 +200,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="검진주기 : 7차(4개월, 9개월, 18개월, 30개월,42개월, 54개월, 66개월)
-※국민건강보험공단에서 영유아 검진표를 세대주별로 우편발송"
+                android:text="검진주기 : 7차(4개월, 9개월, 18개월, 30개월,42개월, 54개월, 66개월)\n※국민건강보험공단에서 영유아 검진표를 세대주별로 우편발송"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -223,7 +222,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="관내 검진기관 : 홍천아산병원, 양학석영상의학과의원, 키즈메디소아청소년외과의원, 기린소아청소년과의원, 바른손치과의원, 홍천치과의원"
+                android:text="관내 검진기관 \n홍천아산병원\n양학석영상의학과의원\n키즈메디소아청소년외과의원\n기린소아청소년과의원\n바른손치과의원\n홍천치과의원"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

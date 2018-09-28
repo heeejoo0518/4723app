@@ -93,8 +93,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="2017년 1월 1일 이후 출산 산모중, 신청일 기준 강원도 내 6개월 이상 거주자
-※ 임신 16주 경과 후 발생한 유산ㆍ사산도 지원가능(이 경우 진단서 등의 관련 서류 제출)"
+                android:text="2017년 1월 1일 이후 출산 산모중, 신청일 기준 강원도 내 6개월 이상 거주자\n※ 임신 16주 경과 후 발생한 유산ㆍ사산도 지원가능(이 경우 진단서 등의 관련 서류 제출)"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -140,15 +139,12 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="출산 후 ‘산모 본인’의 산후회복ㆍ건강관리에 사용한 의료비 및 약제비 일부를 출생순위에 따른 지원범위 내에서 영수증 금액만큼 실비 지원
-
-! 출산 당일의 의료·약제비 (분만,제왕절개 포함) 도 지원가능!
-! 한의원할인의 경우, 강원도한의사협회에서 일단 모두 참여하기로 결정했다고 하니, 원하시는 한의원으로 문의
-
-‘의료법에 의한 의료기관’ 및 ‘의료기관의 처방에 따른 약국’에서 발생하여 내역서에 ‘이름’ 과 ‘진료일’이 포함된 의료비만 가능
-예) 한의원에서 처방받아 지은 보약은 지원가능하나, 건강원에서 조제한 가물치ㆍ잉어탕 등은 지원불가
-┌ 지원 예시 : 산후진찰료, 주사료, 처치 및 수술료, 산후검사비, 양ㆍ한방약제비 등
-└ 지원 제외 : 산후회복과 관련없는 미용시술비, ‘산후조리원’비, 외국의료기관 영수증, 진료내역이 없는(처방전 미발행) 약국 영수증, 아기에게 사용한 의료비"
+                android:text="출산 후 ‘산모 본인’의 산후회복ㆍ건강관리에 사용한 의료비 및 약제비 일부를 출생순위에 따른 지원범위 내에서 영수증 금액만큼 실비 지원\n! 출산 당일의 의료·약제비 (분만,제왕절개 포함) 도 지원가능!
+! 한의원할인의 경우, 강원도한의사협회에서 일단 모두 참여하기로 결정했다고 하니, 원하시는 한의원으로 문의\n
+\n‘의료법에 의한 의료기관’ 및 ‘의료기관의 처방에 따른 약국’에서 발생하여 내역서에 ‘이름’ 과 ‘진료일’이 포함된 의료비만 가능
+\n예) 한의원에서 처방받아 지은 보약은 지원가능하나, 건강원에서 조제한 가물치ㆍ잉어탕 등은 지원불가
+\n\n┌ 지원 예시 : 산후진찰료, 주사료, 처치 및 수술료, 산후검사비, 양ㆍ한방약제비 등
+\n└ 지원 제외 : 산후회복과 관련없는 미용시술비, ‘산후조리원’비, 외국의료기관 영수증, 진료내역이 없는(처방전 미발행) 약국 영수증, 아기에게 사용한 의료비"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -159,7 +155,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="480dp"
+                android:layout_marginTop="440dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -167,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="480dp"
+                android:layout_marginTop="440dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
@@ -182,7 +178,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="513dp"
+                android:layout_marginTop="473dp"
                 android:src="@drawable/yc" />
 
             <TextView
@@ -190,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="510dp"
+                android:layout_marginTop="470dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
@@ -204,7 +200,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="550dp"
+                android:layout_marginTop="510dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -212,7 +208,7 @@
                 android:layout_height="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="550dp"
+                android:layout_marginTop="510dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
@@ -227,7 +223,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="583dp"
+                android:layout_marginTop="543dp"
                 android:src="@drawable/yc" />
 
 
@@ -236,7 +232,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="580dp"
+                android:layout_marginTop="540dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
@@ -252,7 +248,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="620dp"
+                android:layout_marginTop="580dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -260,7 +256,7 @@
                 android:layout_height="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="620dp"
+                android:layout_marginTop="580dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
@@ -275,7 +271,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="653dp"
+                android:layout_marginTop="613dp"
                 android:src="@drawable/yc" />
 
 
@@ -284,14 +280,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="650dp"
+                android:layout_marginTop="610dp"
                 android:layout_marginBottom="50dp"
 
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="① 진료ㆍ약제비 영수증(산모이름기재) ② 산모 본인의 통장사본(필수는 아니며 신청서에 계좌번호를 적으셔도 됩니다)
-※ 주민등록등본은 보건소에서 개인정보제공동의 받아 조회가능하며, 이를 원치 않으실 경우에는 등본 지참
+                android:text="① 진료ㆍ약제비 영수증(산모이름기재)\n ② 산모 본인의 통장사본(필수는 아니며 신청서에 계좌번호를 적으셔도 됩니다)\n※ 주민등록등본은 보건소에서 개인정보제공동의 받아 조회가능하며, 이를 원치 않으실 경우에는 등본 지참
 "
                 android:textColor="@color/Black"
                 android:textSize="12dp" />

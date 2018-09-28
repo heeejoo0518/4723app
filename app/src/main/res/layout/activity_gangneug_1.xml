@@ -188,7 +188,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="hello"
+                android:text="읍면동사무소 및 온라인- 정부 24'행복출산원스톱서비스'"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

@@ -38,11 +38,11 @@
         <activity
             android:name=".Pregnant_Week"
             android:label="@string/title_activity_pregnant__week" />
-        <activity android:name=".Calendar.xml" />
-        <activity
-            android:name=".activity_Calendar"
+      <!--  <activity android:name=".Calendar.xml" /> -->
+
+       <!-- <activity android:name=".activity_Calendar"
             android:label="@string/title_activity__calendar"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" /> -->
         <activity
             android:name=".Find_Hospital"
             android:label="@string/title_activity_find__hospital" />
@@ -100,9 +100,6 @@
         <activity android:name=".chuncheon.chuncheon_3" />
         <activity android:name=".chuncheon.chuncheon_4" />
         <activity android:name=".chuncheon.chuncheon_5" />
-        <activity android:name=".chuncheon.chuncheon_6" />
-        <activity android:name=".chuncheon.chuncheon_7" />
-        <activity android:name=".chuncheon.chuncheon_8" />
         <activity android:name=".donghae.donghae_0" />
         <activity android:name=".donghae.donghae_1" />
         <activity android:name=".donghae.donghae_2" />
@@ -149,7 +146,6 @@
         <activity android:name=".inje.inje_5" />
         <activity android:name=".inje.inje_6" />
         <activity android:name=".inje.inje_7" />
-        <activity android:name=".inje.inje_8" />
         <activity android:name=".jeongseon.jeongseon_0" />
         <activity android:name=".jeongseon.jeongseon_1" />
         <activity android:name=".jeongseon.jeongseon_2" />

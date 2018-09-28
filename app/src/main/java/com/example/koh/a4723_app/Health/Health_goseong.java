@@ -158,6 +158,11 @@ public class Health_goseong extends AppCompatActivity {
                 startActivity(intent);
 
             }
+            if(position == 10){
+                Intent intent = new Intent(Health_goseong.this, goseong_9.class);
+                startActivity(intent);
+
+            }
 
 
         }

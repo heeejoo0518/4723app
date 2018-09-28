@@ -255,10 +255,10 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="구비서류
-사회복지서비스이용권 제공신청서(보건소 비치)
-건강보험료본인부담금 납부 확인서 1부
-주민등록등본 1부
+                android:text="구비서류\n
+사회복지서비스이용권 제공신청서(보건소 비치)\n
+건강보험료본인부담금 납부 확인서 1부\n
+주민등록등본 1부\n
 
 "/>
 
@@ -306,10 +306,10 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="단태아 : 2주(10일)
-쌍생아 : 3주(15일)
-삼태아 및 중증장애 산모 : 4주(20일)
-이용시간 : 1일 9시간(휴게시간 1시간 포함) 제공(1주 5일)
+                android:text="단태아 : 2주(10일)\n
+쌍생아 : 3주(15일)\n
+삼태아 및 중증장애 산모 : 4주(20일)\n
+이용시간 : 1일 9시간(휴게시간 1시간 포함) 제공(1주 5일)\n
 서비스 이용요금(본인부담금) : 제공기관별 자율책정한 금액(직접납부)
 "/>
 

@@ -162,9 +162,9 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="구비서류
-난임진단서(인공수정, 체외수정) 원본 1부
-건강보험증 사본 1부(부부)
+                android:text="구비서류\n
+난임진단서(인공수정, 체외수정) 원본 1부\n
+건강보험증 사본 1부(부부)\n
 주민등록등본 1부"/>
 
 
@@ -213,8 +213,8 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="체외수정시술비 최대 6회 지원
-- 신선배아 이식 : 최대 3회, 1회당 190만원 이내 지원
+                android:text="체외수정시술비 최대 6회 지원\n
+- 신선배아 이식 : 최대 3회, 1회당 190만원 이내 지원\n
 - 동결배아 이식 : 최대 3회, 1회당 60만원 이내 지원 (동결배아 미발생시 신선배아 4회까지 지원)"/>
 
             <ImageView

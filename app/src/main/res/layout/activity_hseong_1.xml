@@ -331,8 +331,7 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="자세한 기준은 홈페이지를 참조하여 주세요
-http://www.hsg.go.kr/life/health/00001017.web"/>
+                android:text="자세한 기준은 홈페이지를 참조하여 주세요\nhttp://www.hsg.go.kr/life/health/00001017.web"/>
 
 
         </RelativeLayout>

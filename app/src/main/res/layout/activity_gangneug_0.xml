@@ -14,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FCCA46"
-        android:minHeight="?android:
-attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
@@ -126,9 +125,7 @@ attr/actionBarSize"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="엽산제 : 임신 15주 이내 임산부 최대 3개월분 지원(지역제한없음)
-철분제 : 임신 16주 이상 임산부 최대 6개월분 지원(지역제한없음), 분만 후 3개월분 지원(등본상 강릉시민에 한함, 아기수첩 지참)
-출산용품 : 임신 25주 이상 임산부 1회 지원(등본상 강릉시민에 한함)"
+                android:text="엽산제 : 임신 15주 이내 임산부 최대 3개월분 지원(지역제한없음)\n\n철분제 : 임신 16주 이상 임산부 최대 6개월분 지원(지역제한없음), 분만 후 3개월분 지원(등본상 강릉시민에 한함, 아기수첩 지참)\n\n출산용품 : 임신 25주 이상 임산부 1회 지원(등본상 강릉시민에 한함)"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -259,7 +256,7 @@ attr/actionBarSize"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="양육수당(아동보육과 ☎640-5486) / 아이돌봄(여성청소년가족과 ☎640-5771) / 의료급여 국민행복카드(생활보장과 ☎640-5351)"
+                android:text="양육수당(아동보육과 ☎640-5486)\n아이돌봄(여성청소년가족과 ☎640-5771)\n의료급여 국민행복카드(생활보장과 ☎640-5351)"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -327,7 +324,7 @@ attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="580dp"
+                android:layout_marginTop="570dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
@@ -342,13 +339,11 @@ attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="70dp"
-                android:layout_marginTop="620dp"
+                android:layout_marginTop="610dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="검사내용 : 혈액검사：빈혈수치,적혈구,백혈구,혈소판,B형간염항원 • 항체, C형간염항체, HIV(에이즈), 매독 등
-소변검사：요단백, 요당, 요산, 요잠혈의 4종
-흉부x-ray(임신가능성이 있을 경우 제외)"
+                android:text="검사내용 : 혈액검사：빈혈수치,적혈구,백혈구,혈소판,B형간염항원 • 항체, C형간염항체, HIV(에이즈), 매독 등\n소변검사：요단백, 요당, 요산, 요잠혈의 4종\n흉부x-ray(임신가능성이 있을 경우 제외)"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -397,8 +392,7 @@ attr/actionBarSize"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="대상 : 임신확인~분만이전 기간에 있는 주민등록상 강릉시민 여성 (해당기간 내 2회 가능)
- ! 산전 초기 검사와 중기 검사 지원(막달 검사는 응급 분만 시 산모와 태아의 건강상의 이유로 다니시는 병원에서 검사 받아 주시기 바랍니다.)"
+                android:text="대상 : 임신확인~분만이전 기간에 있는 주민등록상 강릉시민 여성 (해당기간 내 2회 가능)\n! 산전 초기 검사와 중기 검사 지원(막달 검사는 응급 분만 시 산모와 태아의 건강상의 이유로 다니시는 병원에서 검사 받아 주시기 바랍니다.)"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 
@@ -425,9 +419,7 @@ attr/actionBarSize"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="검사내용 : 혈액검사：빈혈수치,적혈구,백혈구,혈소판,B형간염항원 • 항체, C형간염항체, HIV(에이즈), 매독 등
-소변검사：요단백, 요당, 요산, 요잠혈의 4종
-혈액형 확인검사"
+                android:text="검사내용 : 혈액검사：빈혈수치,적혈구,백혈구,혈소판,B형간염항원 • 항체, C형간염항체, HIV(에이즈), 매독 등\n소변검사：요단백, 요당, 요산, 요잠혈의 4종\n혈액형 확인검사"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

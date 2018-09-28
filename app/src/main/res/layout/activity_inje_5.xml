@@ -96,9 +96,9 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="전국가구 월평균소득 60%이하 가구
-국민기초생활보장 및 의료급여 보장가구
-자세한 기준은 홈페이지를 참조해주세요
+                android:text="전국가구 월평균소득 60%이하 가구\n
+국민기초생활보장 및 의료급여 보장가구\n
+자세한 기준은 홈페이지를 참조해주세요\n
 http://www.inje.go.kr/health/contents/healthcare/hearing.htm "/>
 
             <ImageView
@@ -167,10 +167,10 @@ http://www.inje.go.kr/health/contents/healthcare/hearing.htm "/>
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="신청서류
-주민등록등본 1부
-건강보험증 사본 1부(단, 맞벌이 부부일 경우 부부모두의 카드 첨부)
-건강보험료 본인부담금 납부영수증 또는 납부확인서 1부(단, 맞벌이부부일 경우 부부 모두 첨부)"/>
+                android:text="신청서류\n
+주민등록등본 1부\n
+건강보험증 사본 1부(단, 맞벌이 부부일 경우 부부모두의 카드 첨부)\n
+건강보험료 본인부담금 납부영수증 또는 납부확인서 1부(단, 맞벌이부부일 경우 부부 모두 첨부)\n"/>
 
 
         </RelativeLayout>

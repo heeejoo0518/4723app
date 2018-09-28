@@ -143,8 +143,8 @@
                 android:textColor="@color/Black"
                 android:textSize="12dp"
                 android:text="첫째 : 1회 50만원
-셋째 : 1회 70만원
-셋째 : 1회 100만원"/>
+둘째 : 1회 70만원\n
+셋째 : 1회 100만원\n"/>
 
             <ImageView
                 android:id="@+id/circle4"

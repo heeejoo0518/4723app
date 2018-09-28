@@ -96,7 +96,6 @@
                 android:scrollHorizontally="false"
                 android:singleLine="false"
                 android:text="내용 : 엽산제-12주이내(3개월분), 철분제-임신16주이상(5개월분)
-
 "
                 android:textColor="@color/Black"
                 android:textSize="13dp" />

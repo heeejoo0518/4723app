@@ -73,7 +73,6 @@
                 android:scrollHorizontally="false"
                 android:singleLine="false"
                 android:text="운영시기 및 장소 : 연중 매월 2회(2, 4째 화요일), 고성군보건소
-
 "
                 android:textColor="@color/Black"
                 android:textSize="13dp" />
@@ -83,7 +82,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -91,10 +90,10 @@
                 android:layout_height="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
-                android:maxLines="100"
+                android:maxLines="90"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
                 android:text="진료내용"
@@ -108,7 +107,7 @@
                 android:layout_height="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="133dp"
+                android:layout_marginTop="123dp"
                 android:src="@drawable/yc" />
 
             <TextView
@@ -116,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="120dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
@@ -130,7 +129,7 @@
                 android:layout_height="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="163dp"
+                android:layout_marginTop="143dp"
                 android:src="@drawable/yc" />
 
             <TextView
@@ -138,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="140dp"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
@@ -152,7 +151,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="170dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -160,7 +159,7 @@
                 android:layout_height="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="170dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"

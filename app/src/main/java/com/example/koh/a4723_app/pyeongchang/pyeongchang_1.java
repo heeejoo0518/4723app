@@ -15,7 +15,7 @@ public class pyeongchang_1 extends AppCompatActivity {
         //------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setTitleTextColor(Color.parseColor("BLACK")); //제목의 칼라
-        toolbar.setTitle("평창군 보건소");
+        toolbar.setTitle("미탄보건지소");
         setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
         //-----------------------------------------------------------
     }

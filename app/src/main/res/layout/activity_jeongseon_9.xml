@@ -206,7 +206,7 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="가구원 수 확인 자료(주민등록 등본, 가족관계증명서등)
+                android:text="가구원 수 확인 자료(주민등록 등본, 가족관계증명서등)\n
 ※ 기저귀 지원대상 중 산모가 질병·사망으로 모유수유가 불가능한 경우 지원"/>
 
 

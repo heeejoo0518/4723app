@@ -41,7 +41,7 @@ public class Health_hongcheon extends AppCompatActivity {
     private String[] items = { "영유아 건강관리", "영양제 지원",
             "교실운영", "미숙아 및 선천성 이상아 의료비 지원", "신생아 청각선별검사 무료 쿠폰 지원",
             "저소득층 기저귀,조제분유 지원", "난임부부 지원","고위험 임산부 의료비 사업 지원",
-            "산모,신생아 건강관리사 지원","산모신생아건강관리 본인부담금 지원","산후건강관리지원"};
+            "산모,신생아 건강관리 지원사업"};
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +49,12 @@ public class Health_hongcheon extends AppCompatActivity {
         setContentView(R.layout.activity_health_hongcheon);
         //------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        toolbar.setTitleTextColor(Color.parseColor("BLACK"));
-        toolbar.setTitle("홍천군 보건소");
-        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("BLACK")); //제목의 칼라
+        toolbar.setTitle("홍성군 보건소");
+        setSupportActionBar(toolbar); //툴바를 액션바와 같게 만들어 준다.
         //-----------------------------------------------------------
         _listview = (ListView)findViewById(R.id.health_listview);
+
         _listview.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items));
        _listview.setOnItemClickListener(onItemClickListener);
 
@@ -155,11 +156,7 @@ public class Health_hongcheon extends AppCompatActivity {
                 startActivity(intent);
 
             }
-            if(position == 9){
-                Intent intent = new Intent(Health_hongcheon.this, hongcheon_9.class);
-                startActivity(intent);
 
-            }
 
 
         }

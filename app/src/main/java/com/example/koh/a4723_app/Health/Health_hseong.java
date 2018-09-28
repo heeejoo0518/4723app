@@ -37,7 +37,7 @@ public class Health_hseong extends AppCompatActivity {
 
     private ListView _listview;
 
-    private String[] items = { "임산부 산전검사 쿠폰제", "청소년산모 임신,출산 의료비지원",
+    private String[] items = { "임산부 산전검사 쿠폰제",
             "신생아 청각 선별검사", "미숙아 및 선천성이상아 의료비 지원", "영유아 건강관리",
              "난임부부 지원사업","출산장려지원사업",
             "산모신생아건강관리사 지원","예비부모 만들기 프로젝트사업"};
@@ -147,11 +147,7 @@ public class Health_hseong extends AppCompatActivity {
                 startActivity(intent);
 
             }
-            if(position == 8){
-                Intent intent = new Intent(Health_hseong.this, hseong_8.class);
-                startActivity(intent);
 
-            }
         }
 
     };

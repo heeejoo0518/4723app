@@ -402,7 +402,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="신분증, 청첩장 또는 예식장 계약서(미혼 시), 가족관계증명서 또는 혼인관계증명서(기혼 시)
+                android:text="신분증, 청첩장 또는 예식장 계약서(미혼 시)\n가족관계증명서 또는 혼인관계증명서(기혼 시)
 "
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
@@ -616,7 +616,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="의사진단서1부, 입퇴원진료확인서, 진료비영수증 원본 및 진료비상세내역서 각 1부, 출생보고서 또는 출생증명서 1부, 의료비지원금 입금계좌 통장사본 1부, 주민등록등본 1부, 건강보험증 사본 및 건강보험료 본인부담금 납부고지서, 개인정보 활용 동의서 1부, 지원대상자 신청인 신분증, 지원신청서"
+                android:text="의사진단서1부\n입퇴원진료확인서\n진료비영수증 원본 및 진료비상세내역서 각 1부\n출생보고서 또는 출생증명서 1부\n의료비지원금 입금계좌 통장사본 1부\n주민등록등본 1부\n건강보험증 사본 및 건강보험료 본인부담금 납부고지서\n개인정보 활용 동의서 1부\n지원대상자 신청인 신분증\n지원신청서"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

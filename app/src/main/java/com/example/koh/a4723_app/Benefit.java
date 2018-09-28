@@ -97,7 +97,7 @@ public class Benefit extends AppCompatActivity {
             case "양양군보건소": tbName="YangYang"; break;
             case "정선군보건소": tbName="JeongSeon"; break;
             case "삼척시보건소": tbName="SamCheok"; break;
-            case "평창군보건의료원": tbName="PyeongChang"; break;
+            case "미탄보건지소": tbName="PyeongChang"; break;
             case "영월군보건소": tbName="YeongWol"; break;
             case "고성군보건소": tbName="Goseong"; break;
             case "강릉시보건소": tbName="GangNeung"; break;

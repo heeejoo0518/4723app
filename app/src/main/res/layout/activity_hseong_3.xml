@@ -94,7 +94,7 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="영유아의 건강증진을 도모하고 건강한 미래 인적자본으로 성장하도록 지원
+                android:text="영유아의 건강증진을 도모하고 건강한 미래 인적자본으로 성장하도록 지원\n
 영·유아 연령에 적합한 건강검진 프로그램을 도입하여 영·유아의 성장·발달사항을 추적관리하고 보호자에게 적절한 교육프로그램을 제공"/>
 
 
@@ -239,7 +239,7 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="주요 선별 목표 질환
+                android:text="주요 선별 목표 질환\n
 성장 이상, 발달 이상, 비만, 안전사고, 영아 급사 증후군, 청각이상, 시각이상, 치아 우식증 등
 "/>
 
@@ -263,8 +263,8 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="영·유아 건강검진 항목
-각 월령에 특화된 문진(시각·청각 문진 포함)과 진찰, 신체계측(키·체중·머리둘레)이 공통 실시
+                android:text="영·유아 건강검진 항목\n
+각 월령에 특화된 문진(시각·청각 문진 포함)과 진찰, 신체계측(키·체중·머리둘레)이 공통 실시\n
 아울러, 2~3종의 건강교육과 발달평가 및 상담(4개월 제외)으로 구성"/>
 
             <ImageView
@@ -312,7 +312,7 @@
                 android:textColor="@color/Black"
                 android:textSize="12dp"
                 android:text="건강검진표 발송(국민건강보험공단)→ 검진기관 내원(수검자)→검진실시 및 결과 통보(검진기관)→ 검진비용 지급(국민건강보험공단)
-! 횡성지역 :유소아청소년과 의원 (그 외 지역http://www.nhic.or.kr/참조)"/>
+\n! 횡성지역 :유소아청소년과 의원 (그 외 지역http://www.nhic.or.kr/참조)"/>
 
             <ImageView
                 android:id="@+id/circle6"
@@ -357,7 +357,7 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="철분제 공급 : 임신 16주 이상 임산부( 5통까지 지급)
+                android:text="철분제 공급 : 임신 16주 이상 임산부( 5통까지 지급)\n
 영양제 공급 : 분만후 2통 지급"/>
 
 
@@ -404,10 +404,10 @@
                 android:singleLine="false"
                 android:textColor="@color/Black"
                 android:textSize="12dp"
-                android:text="임산부 요가교실 교실 운영
-베이비 마사지 교실 운영
-임산부 요가교실 운영
-임산부 퀼트교실 운영
+                android:text="임산부 요가교실 교실 운영\n
+베이비 마사지 교실 운영\n
+임산부 요가교실 운영\n
+임산부 퀼트교실 운영\n
 임산부 체험교실 운영"/>
 
             <ImageView
@@ -454,7 +454,7 @@
                 android:textColor="@color/Black"
                 android:textSize="12dp"
                 android:text="목적 : 생활이 어려운 가정에서 출생한 미숙아 및 선천성 이상아에 대한 본인부담금의 의료비를 지원하여 과다한 의료비 지출로 인한 치료 포기나 영아사망을 예방하기 위함
-대상자 및 지원 내역 : 의료비지원 내역 참조"/>
+\n대상자 및 지원 내역 : 의료비지원 내역 참조"/>
 
 
             <ImageView
@@ -503,8 +503,8 @@
                 android:textColor="@color/Black"
                 android:textSize="12dp"
                 android:text="목적 : 성장단계별로 적정한 시기에 보건지도 및 의료서비스를 제공하여 국 민기초 건강확보
-대상자 : 그해 출생한 신생아
-검사항목 : 6종(페닐케톤뇨증, 갑상선기증저하증, 갈락토스혈증, 단풍당뇨증, 호모시스틴뇨증, 선천성부진과형증) → 검사비지원"/>
+\n대상자 : 그해 출생한 신생아
+\n검사항목 : 6종(페닐케톤뇨증, 갑상선기증저하증, 갈락토스혈증, 단풍당뇨증, 호모시스틴뇨증, 선천성부진과형증) → 검사비지원"/>
 
 
 

@@ -93,9 +93,7 @@
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="기준중위소득 180% 선정기준(※ 맞벌이시 부부의 건강보험료 합산)
-자세한 기준은 홈페이지를 참조하여 주세요
-https://www.gn.go.kr/phc/sub03_01_06.do"
+                android:text="기준중위소득 180% 선정기준(※ 맞벌이시 부부의 건강보험료 합산)\n자세한 기준은 홈페이지를 참조하여 주세요\nhttps://www.gn.go.kr/phc/sub03_01_06.do"
                 android:textColor="@color/Black"
                 android:textSize="12dp" />
 

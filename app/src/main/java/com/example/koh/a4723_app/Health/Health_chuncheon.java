@@ -29,16 +29,12 @@ import com.example.koh.a4723_app.chuncheon.chuncheon_2;
 import com.example.koh.a4723_app.chuncheon.chuncheon_3;
 import com.example.koh.a4723_app.chuncheon.chuncheon_4;
 import com.example.koh.a4723_app.chuncheon.chuncheon_5;
-import com.example.koh.a4723_app.chuncheon.chuncheon_6;
-import com.example.koh.a4723_app.chuncheon.chuncheon_7;
-import com.example.koh.a4723_app.chuncheon.chuncheon_8;
 
 public class Health_chuncheon extends AppCompatActivity {
 
     private ListView _listview;
 
-    private String[] items = { "출산장려시책", "한부모가족 복지시설","저소득 한부모 가정지원",
-            "청소년 한부모 자립지원", "임신출산 안내책자","임산부 지원사업",
+    private String[] items = { "출산장려시책", "건강지원시책","임산부 지원사업",
             "난임부부 지원","한방난임 지원", "임산부 교실"};
 
     @Override
@@ -133,21 +129,6 @@ public class Health_chuncheon extends AppCompatActivity {
             }
             if(position == 5) {
                 Intent intent = new Intent(Health_chuncheon.this, chuncheon_5.class);
-                startActivity(intent);
-
-            }
-            if(position == 6){
-                Intent intent = new Intent(Health_chuncheon.this, chuncheon_6.class);
-                startActivity(intent);
-
-            }
-            if(position == 7){
-                Intent intent = new Intent(Health_chuncheon.this, chuncheon_7.class);
-                startActivity(intent);
-
-            }
-            if(position == 8){
-                Intent intent = new Intent(Health_chuncheon.this, chuncheon_8.class);
                 startActivity(intent);
 
             }
