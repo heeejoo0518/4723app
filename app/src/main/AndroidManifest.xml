@@ -21,13 +21,16 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBWlNz7wa32ragZ-52n3B0W8FbT0nOIA0g" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
+
         <activity
             android:name=".Health.Health_Service"
             android:label="@string/title_activity_health__service" />
@@ -216,7 +219,6 @@
         <activity android:name=".yanggu.yanggu_7" />
         <activity android:name=".sokcho.sokcho_0" />
         <activity android:name=".sokcho.sokcho_1" />
-        <activity android:name=".jeongseon.jeongseon_m"></activity>
     </application>
 
 </manifest>
