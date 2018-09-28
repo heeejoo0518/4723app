@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.example.koh.a4723_app.R;
-public class jeongseon_0 extends AppCompatActivity {
+
+public class jeongseon_m extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_jeongseon_m);
+
         //------------------------------------------------------
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setTitleTextColor(Color.parseColor("BLACK")); //제목의 칼라

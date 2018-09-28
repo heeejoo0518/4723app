@@ -38,11 +38,14 @@
         <activity
             android:name=".Pregnant_Week"
             android:label="@string/title_activity_pregnant__week" />
-      <!--  <activity android:name=".Calendar.xml" /> -->
+        <!-- <activity android:name=".Calendar.xml" /> -->
 
-       <!-- <activity android:name=".activity_Calendar"
+
+        <!--
+            <activity android:name=".activity_Calendar"
             android:label="@string/title_activity__calendar"
-            android:theme="@style/AppTheme.NoActionBar" /> -->
+            android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity
             android:name=".Find_Hospital"
             android:label="@string/title_activity_find__hospital" />
@@ -146,7 +149,6 @@
         <activity android:name=".inje.inje_5" />
         <activity android:name=".inje.inje_6" />
         <activity android:name=".inje.inje_7" />
-        <activity android:name=".jeongseon.jeongseon_0" />
         <activity android:name=".jeongseon.jeongseon_1" />
         <activity android:name=".jeongseon.jeongseon_2" />
         <activity android:name=".jeongseon.jeongseon_3" />
@@ -214,6 +216,7 @@
         <activity android:name=".yanggu.yanggu_7" />
         <activity android:name=".sokcho.sokcho_0" />
         <activity android:name=".sokcho.sokcho_1" />
+        <activity android:name=".jeongseon.jeongseon_m"></activity>
     </application>
 
 </manifest>

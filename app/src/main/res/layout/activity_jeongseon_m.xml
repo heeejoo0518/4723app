@@ -32,7 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="28dp"
@@ -57,7 +56,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="60dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -65,14 +64,13 @@
                 android:layout_height="34dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="60dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="대상 : 정선군내 보건기관(보건소,보건지소) 등록 임산부
-"
+                android:text="대상 : 정선군내 보건기관(보건소,보건지소) 등록 임산부"
                 android:textColor="@color/Black"
                 android:textSize="13dp" />
 
@@ -81,7 +79,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:src="@drawable/ybutton" />
 
             <TextView
@@ -89,23 +87,16 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:maxLines="100"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:text="내용 : 엽산제-12주이내(3개월분), 철분제-임신16주이상(5개월분)
-"
+                android:text="내용 : 엽산제-12주이내(3개월분)\n철분제-임신16주이상(5개월분)"
                 android:textColor="@color/Black"
                 android:textSize="13dp" />
 
-
-            <!-- ********************************* -->
-
-
         </RelativeLayout>
     </ScrollView>
-
-
 </RelativeLayout>

@@ -23,8 +23,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.koh.a4723_app.R;
-import com.example.koh.a4723_app.R;
-import com.example.koh.a4723_app.jeongseon.jeongseon_0;
 import com.example.koh.a4723_app.jeongseon.jeongseon_1;
 import com.example.koh.a4723_app.jeongseon.jeongseon_10;
 import com.example.koh.a4723_app.jeongseon.jeongseon_2;
@@ -35,6 +33,7 @@ import com.example.koh.a4723_app.jeongseon.jeongseon_6;
 import com.example.koh.a4723_app.jeongseon.jeongseon_7;
 import com.example.koh.a4723_app.jeongseon.jeongseon_8;
 import com.example.koh.a4723_app.jeongseon.jeongseon_9;
+import com.example.koh.a4723_app.jeongseon.jeongseon_m;
 
 public class Health_jeongseon extends AppCompatActivity {
 
@@ -115,7 +114,7 @@ public class Health_jeongseon extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id)
         {
             if(position == 0){
-                Intent intent = new Intent(Health_jeongseon.this, jeongseon_0.class);
+                Intent intent = new Intent(Health_jeongseon.this, jeongseon_m.class);
                 startActivity(intent);
             }
             if(position == 1){
