@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="0dp"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="230dp"
             android:layout_marginRight="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_smile_states"/>
